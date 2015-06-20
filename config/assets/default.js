@@ -4,8 +4,11 @@ module.exports = {
 	client: {
 		lib: {
 			css: [
-				'public/lib/bootstrap/dist/css/bootstrap.css',
-				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+				// 'public/lib/bootstrap/dist/css/bootstrap.css',
+				// 'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+				'public/themes/materialism/css/materialism.css',
+				'public/themes/materialism/css/helpers.css',
+				'public/themes/materialism/css/ripples.css'
 			],
 			js: [
 				'public/lib/jquery/dist/jquery.js',
