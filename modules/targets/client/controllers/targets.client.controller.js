@@ -10,8 +10,6 @@ angular.module('targets').controller('TargetsController', ['$scope', '$statePara
 			// Create new Target object
 			var target = new Targets ({
 				name: this.name,
-				text: this.textData,
-				bullets: this.bullets
 			});
 
 			// Redirect after save
@@ -139,7 +137,6 @@ angular.module('targets').controller('TargetsController', ['$scope', '$statePara
 				score: currentScore
 			});
 			this.updateData(currentScore);
-			console.log(this.bullets);
 		};
 
 		$scope.updateData = function(currentScore) {

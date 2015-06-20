@@ -22,7 +22,8 @@
 	"globals": { // Globals variables.
 		"angular": true,
 		"io": true,
-		"ApplicationConfiguration": true
+		"ApplicationConfiguration": true,
+		"$": false
 	},
 	"predef": [ // Extra globals.
 		"inject",
@@ -32,5 +33,5 @@
 	],
 	"indent": 4, // Specify indentation spacing
 	"devel": true, // Allow development statements e.g. `console.log();`.
-	"noempty": true // Prohibit use of empty blocks.
+	"noempty": true //, Prohibit use of empty blocks.
 }
