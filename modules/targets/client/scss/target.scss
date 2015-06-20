@@ -1,0 +1,58 @@
+.target {
+	height: 500px;
+	width: 500px;
+	border-radius: 100%;
+	background-size: 100% 100%;
+	position: relative;
+	margin: 0 auto;
+	
+	.inner {
+		border-radius: 100%;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		background: transparent;
+		box-shadow: 0 0 25px rgba(0, 0, 0, .15);
+
+		&.white {
+			border: 1px solid black;
+		}
+
+		&.black {
+			border: 1px solid black;
+			border: 1px solid rgba(255, 255, 255, .75);
+			background: #000;
+		}
+
+		@for $i from 10 through 0 {
+			&.score-#{$i} {
+				width: 100% - ($i - 1) * 10;
+				height: 100% - ($i - 1) * 10;
+				margin-top: 5% * ($i - 1);
+				margin-left: 5% * ($i - 1);
+				z-index: $i;
+			}
+		}
+
+		&.score-11 {
+			width: 5%;
+			height: 5%;
+			margin-top: 47.5%;
+			margin-left: 47.5%;
+			z-index: 11;
+		}
+	}
+
+	.bullet {
+		position: absolute;
+		width: 12px;
+		height: 12px;
+		background-color: red;
+		border-radius: 100%;
+		margin-top: -6px;
+		margin-left: -6px;
+		z-index: 20;
+		pointer-events: none;
+		box-shadow: inset 0 2px 3px rgba(0, 0, 0, .75), 0 1px 0 rgba(255, 255, 255, .5);
+	}
+}

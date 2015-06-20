@@ -1,0 +1,443 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"template",
+				"templateHtml〔variable〕"
+			],
+			[
+				"updateScore",
+				"updateScoredata"
+			],
+			[
+				"browser",
+				"browsers"
+			],
+			[
+				"bullet",
+				"bulletCountContainer"
+			],
+			[
+				"meanScore",
+				"meanScoreContainer〔variable〕"
+			],
+			[
+				"calc",
+				"calculateScore〔function〕"
+			],
+			[
+				"create",
+				"createBulletHole〔function〕"
+			],
+			[
+				"return",
+				"returnScore"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"bro",
+				"browser"
+			],
+			[
+				"brow",
+				"browserify"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 319.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 510.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp",
+		"/C/Users/Flavien/Documents/GitHub/materialism-1.0.0"
+	],
+	"file_history":
+	[
+		"/C/Users/Flavien/Documents/GitHub/materialism-1.0.0/README.md",
+		"/C/Users/Flavien/Documents/GitHub/materialism-1.0.0/Gruntfile.js",
+		"/C/Users/Flavien/Documents/GitHub/materialism-1.0.0/app/assets/css/sass/materialism.scss",
+		"/C/Users/Flavien/Documents/GitHub/materialism-1.0.0/app/assets/css/materialism.css",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/targets/client/controllers/targets.client.controller.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/targets/client/views/create-target.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/targets/client/views/edit-target.client.view.html",
+		"/D/Téléchargements/themeforest-11322821-materialism-angular-bootstrap-admin-template/materialism-1.0.0/README.md",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp-old/app/index.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp-old/app/src/js/bulletEvents.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp-old/app/src/js/text.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp-old/app/src/js/bullet.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp-old/app/src/js/score.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/targets/client/views/view-target.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp-old/app/src/js/data.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp-old/app/src/js/main.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/config/assets/default.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/core/client/views/header.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/core/client/views/home.client.view.html",
+		"/D/Téléchargements/material-start-master/material-start-master/app/index.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/core/server/views/layout.server.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/core/client/views/sidebar.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/public/lib/angular-material/angular-material.css",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/core/client/controllers/header.client.controller.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/core/client/app/init.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/core/server/views/index.server.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/core/client/css/md-starter.css",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/targets/client/scss/target.scss",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/config/env/development.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/chat/client/config/chat.client.config.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/targets/client/css/target.css",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/gulpfile.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp-old/app/styles/_target.scss",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/targets/client/scss/target.css",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/modules/core/client/views/home.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/modules/users/client/controllers/authentication.client.controller.js",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/modules/core/client/views/header.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/modules/core/server/views/layout.server.view.html",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/modules/core/client/app/config.js",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/config/env/development.js",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/config/assets/default.js",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/gulpfile.js",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/bower.json",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/package.json",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/server.js",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/config/config.js",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/node_modules/connect-mongo/node_modules/mongodb/node_modules/bson/ext/index.js",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/node_modules/mongoose/node_modules/mongodb/node_modules/bson/ext/index.js",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/node_modules/acl/node_modules/mongodb/node_modules/bson/ext/index.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/styles/components/_variables.scss",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/styles/main.scss",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/styles/_target.scss",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/index.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/src/js/data.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/gulpfile.babel.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/package.json",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/src/js/text.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/src/js/score.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/src/js/bullet.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/src/js/bulletEvents.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/src/js/main.js",
+		"/C/Users/Flavien/Documents/GitHub/mean-shooting-target-app/package.json",
+		"/C/Users/Flavien/Documents/GitHub/mean-shooting-target-app/Gruntfile.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/styles/_materialize.scss",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/.tmp/styles/main.css",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/styles/components/_icons-material-design.scss",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/styles/components/_global.scss",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/styles/_variables.scss",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/src/hbs/dataView.hbs",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/styles/components/_normalize.scss",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/scripts/main.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/scripts/bullet.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/scripts/bulletEvents.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/scripts/data.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/scripts/debug.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/scripts/score.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/scripts/storage.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/scripts/text.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/src/js/storage.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/styles/components/_roboto.scss",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp-old/package.json",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp-old/gulpfile.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp-old/app/scripts/main.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/bower.json",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/.jshintrc",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/src/lib/bullet.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/src/main.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/src/lib/debug.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/src/lib/text.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp-old/bower.json",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/src/lib/bulletEvents.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/src/lib/data.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/src/lib/score.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_variables.scss",
+		"/D/Téléchargements/_variables.scss",
+		"/D/Téléchargements/_bootswatch.scss",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_variables_old.scss",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/src/lib/textFunctions.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/src/lib/scoreFunctions.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/src/lib/shootingTargetEvents.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/src/lib/click_target.js",
+		"/D/Téléchargements/require-js-explained-master/require-js-explained-master/src/view_models/task.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/gulpfile.js",
+		"/D/Téléchargements/require-js-explained-master/require-js-explained-master/src/view_models/app.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/src/lib/test_function.js",
+		"/C/Users/Flavien/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Flavien/AppData/Roaming/Sublime Text 3/Packages/material-theme/Material-Theme-Darker.sublime-theme",
+		"/D/Téléchargements/require-js-explained-master/require-js-explained-master/src/main.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp/app/scripts/bundle.js",
+		"/D/Téléchargements/require-js-explained-master/require-js-explained-master/src/list.js",
+		"/C/Users/Flavien/Documents/GitHub/Portfolio/.gitignore"
+	],
+	"find":
+	{
+		"height": 75.0
+	},
+	"find_in_files":
+	{
+		"height": 161.0,
+		"where_history":
+		[
+			"<project>",
+			"C:\\Users\\Flavien\\Documents\\GitHub\\shooting-target-webapp\\app\\styles\\components",
+			"C:\\Users\\Flavien\\Documents\\GitHub\\shooting-target-webapp\\app\\styles",
+			"C:\\Users\\Flavien\\Documents\\GitHub\\shooting-target-webapp\\app\\styles\\components",
+			"C:\\Users\\Flavien\\Documents\\GitHub\\shooting-target-webapp\\bower_components\\bootstrap-sass-official",
+			"C:\\Users\\Flavien\\Documents\\GitHub\\shooting-target-webapp\\bower_components",
+			"C:\\Users\\Flavien\\Documents\\GitHub\\shooting-target-webapp\\bower_components\\bootstrap-sass-official"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"html",
+			"sass",
+			"appConfig",
+			"sass",
+			"angu",
+			"this",
+			"$scope",
+			"Bullet",
+			"bullet",
+			"roboto",
+			"font-fa",
+			"md-item",
+			"sass",
+			"defaultAssets.client.sass",
+			"sass",
+			"test",
+			"../build/Release/",
+			"build/Release/bson",
+			"../build/Release/",
+			"build/Release/bson",
+			"release",
+			"sass",
+			"wiredep",
+			"from",
+			"import",
+			"\\",
+			"mdi-list-icons",
+			"font-family",
+			"$mdi-list-icons",
+			"mdi",
+			"icons",
+			"icon",
+			"page-title",
+			"body",
+			"main",
+			"'' + ",
+			"updateScoreData",
+			"browserify",
+			"jshint",
+			"bower",
+			"$roboto-font-path",
+			"Roboto",
+			"jshint",
+			"updateScore",
+			"currentScore",
+			"jquery",
+			"jshint",
+			"lint",
+			"getScore",
+			"score",
+			"div",
+			"font-family",
+			"font",
+			"googleapis",
+			"google",
+			"bulletEvents",
+			"parseInt(element.attr('data-score'))",
+			";",
+			"var ",
+			"bulletCountContainer",
+			"updateBulletCount",
+			"0",
+			"Score",
+			"score",
+			"debug",
+			"getScore",
+			"container",
+			"textElement",
+			"element",
+			"textContainer",
+			"getBulletCount",
+			"calculateScore",
+			"scoreFunctions",
+			"bulletFunctions",
+			"targetFunctions",
+			"object",
+			"target",
+			"update",
+			"getBulletPosition(event, container)",
+			"var ",
+			"e",
+			"event",
+			"shootingTargetEvents",
+			"class",
+			"50",
+			"500px",
+			"$i",
+			"5",
+			" 10",
+			" 1%",
+			"center center",
+			".inner",
+			";",
+			"jshint",
+			"ugli",
+			"bundle",
+			"compile:js",
+			"main",
+			"build"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 81.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "shooting-sport-app.sublime-project",
+	"replace":
+	{
+		"height": 58.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\Flavien\\Documents\\GitHub\\Portfolio\\portfolio.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 320.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
