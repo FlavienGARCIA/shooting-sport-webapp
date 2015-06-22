@@ -10,12 +10,16 @@ var mongoose = require('mongoose'),
  * Target Schema
  */
 var TargetSchema = new Schema({
-	name: {
-		type: String,
-		default: '',
-		required: 'Please fill Target name',
-		trim: true
+	score: {
+		type: String
 	},
+	meanScore: {
+		type: Number
+	},
+	bulletCount: {
+		type: Number
+	},
+	bullets: Array,
 	created: {
 		type: Date,
 		default: Date.now

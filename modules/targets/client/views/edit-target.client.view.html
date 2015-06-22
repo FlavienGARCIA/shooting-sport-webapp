@@ -1,10 +1,10 @@
 <section data-ng-controller="TargetsController" data-ng-init="findOne()">
     <div class="page-header">
-        <h1>Edit Target</h1>
+        <h1>Mettre à jour cible</h1>
     </div>
     <div class="target">
-        <div class="bullets" ng-repeat="bullet in target.bullets">
-            <div class="bullet" data-bullet-score="{{bullet.score}}" style="left: {{bullet.x}}px; top:{{bullet.y}}px;"></div>
+        <div class="bullets">
+            <div ng-repeat="bullet in target.bullets" class="bullet nine-mm" data-bullet-score="{{bullet.score}}" style="left: {{bullet.x}}; top:{{bullet.y}};"></div>
         </div>
         <div data-score="10" class="score-11 inner black"></div>
         <div data-score="10" class="score-10 inner black"></div>

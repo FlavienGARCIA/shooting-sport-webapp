@@ -1,17 +1,40 @@
 .target {
-  height: 500px;
-  width: 500px;
+  height: 600px;
+  width: 600px;
   border-radius: 100%;
   background-size: 100% 100%;
   position: relative;
   margin: 0 auto; }
+  .target.create {
+    cursor: crosshair; }
+  .target .bullet {
+    position: absolute;
+    background-color: red;
+    border-radius: 100%;
+    z-index: 20;
+    pointer-events: none;
+    box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.75), 0 1px 0 rgba(255, 255, 255, 0.5); }
+    .target .bullet.nine-mm {
+      width: 12px;
+      height: 12px;
+      margin-top: -6px;
+      margin-left: -6px; }
+  .target.small {
+    width: 200px;
+    height: 200px; }
+    .target.small .bullet.nine-mm {
+      box-shadow: none;
+      width: 5px;
+      height: 5px;
+      margin-top: -2.5px;
+      margin-left: -2.5px; }
   .target .inner {
     border-radius: 100%;
     width: 100%;
     height: 100%;
     position: absolute;
     background: transparent;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15); }
+    /*box-shadow: 0 0 25px rgba(0, 0, 0, .15);*/ }
     .target .inner.white {
       border: 1px solid black; }
     .target .inner.black {
@@ -90,14 +113,3 @@
       margin-top: 47.5%;
       margin-left: 47.5%;
       z-index: 11; }
-  .target .bullet {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background-color: red;
-    border-radius: 100%;
-    margin-top: -6px;
-    margin-left: -6px;
-    z-index: 20;
-    pointer-events: none;
-    box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.75), 0 1px 0 rgba(255, 255, 255, 0.5); }

@@ -7,7 +7,7 @@ app.directive('menuToggle', ['$location', function($location) {
       name: '@',
       icon: '@'
     },
-    templateUrl: 'assets/tpl/directives/menu-toggle.html',
+    templateUrl: '../tpl/directives/menu-toggle.html',
     link: function(scope, element, attrs) {
       icon = attrs.icon;
       if ( icon ) {

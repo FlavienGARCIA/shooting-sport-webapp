@@ -9,15 +9,15 @@ angular.module('targets').controller('TargetsController', ['$scope', '$statePara
 		$scope.create = function() {
 			// Create new Target object
 			var target = new Targets ({
-				name: this.name,
+				score: this.data.score.score + '/' + this.data.score.maxScore,
+				meanScore: this.data.score.meanScore,
+				bulletCount: this.data.bullet.bulletCount,
+				bullets: this.bullets
 			});
 
 			// Redirect after save
 			target.$save(function(response) {
 				$location.path('targets/' + response._id);
-
-				// Clear form fields
-				$scope.name = '';
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
@@ -100,19 +100,15 @@ angular.module('targets').controller('TargetsController', ['$scope', '$statePara
 			}
 		};
 
-		$scope.bullets = [{
-			x: 250,
-			y: 250,
-			score: 10
-		}];
+		$scope.bullets = [];
 
 		// get clicked bullet position
 		$scope.getBulletPosition = function(event, container) {
 			var currentMousePos = { x: -1, y: -1 },
 				parentOffset = container.offset();
 
-			currentMousePos.x = event.pageX - parentOffset.left;
-			currentMousePos.y = event.pageY - parentOffset.top;
+			currentMousePos.x = (event.pageX - parentOffset.left) / container.width() * 100 + '%';
+			currentMousePos.y = (event.pageY - parentOffset.top) / container.width() * 100 + '%';
 
 			return currentMousePos;
 		};
@@ -123,17 +119,17 @@ angular.module('targets').controller('TargetsController', ['$scope', '$statePara
 				currentScore = angular.element(event.target).attr('data-score'),
 				bulletsContainer = $('.bullets'),
 				position = this.getBulletPosition(event, container),
-				bullet = $('<div class="bullet"></div>')
+				bullet = $('<div class="bullet nine-mm"></div>')
 						.css({
 							left: position.x,
-							top: position .y
+							top: position.y
 						})
 						.attr('data-bullet-score', currentScore);
 
 			bulletsContainer.prepend(bullet);
 			this.bullets.push({
 				x: position.x,
-				y: position .y,
+				y: position.y,
 				score: currentScore
 			});
 			this.updateData(currentScore);

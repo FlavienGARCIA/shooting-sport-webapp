@@ -46,21 +46,9 @@ gulp.task('watch', function() {
 	gulp.watch(defaultAssets.server.allJS, ['jshint']).on('change', plugins.livereload.changed);
 	gulp.watch(defaultAssets.client.views).on('change', plugins.livereload.changed);
 	gulp.watch(defaultAssets.client.js, ['jshint']).on('change', plugins.livereload.changed);
-	gulp.watch(defaultAssets.client.css, ['csslint']).on('change', plugins.livereload.changed);
-	gulp.watch(defaultAssets.client.sass, ['sass', 'csslint']).on('change', plugins.livereload.changed);
-	gulp.watch(defaultAssets.client.less, ['less', 'csslint']).on('change', plugins.livereload.changed);
-});
-
-// CSS linting task
-gulp.task('csslint', function(done) {
-	return gulp.src(defaultAssets.client.css)
-		.pipe(plugins.csslint('.csslintrc'))
-		.pipe(plugins.csslint.reporter())
-		.pipe(plugins.csslint.reporter(function(file) {
-			if (!file.csslint.errorCount) {
-				done();
-			}
-		}));
+	gulp.watch(defaultAssets.client.css).on('change', plugins.livereload.changed);
+	gulp.watch(defaultAssets.client.sass, ['sass']).on('change', plugins.livereload.changed);
+	gulp.watch(defaultAssets.client.less, ['less']).on('change', plugins.livereload.changed);
 });
 
 // JS linting task
@@ -97,8 +85,6 @@ gulp.task('sass', function() {
 		.pipe(plugins.sass())
 		.pipe(plugins.rename(function(path) {
 			path.dirname = path.dirname.replace('scss', 'css');
-
-			console.log('path.dirname : ' + path.dirname);
 		}))
 		.pipe(gulp.dest('./modules/'));
 });
@@ -160,7 +146,7 @@ gulp.task('protractor', function() {
 
 // Lint CSS and JavaScript files.
 gulp.task('lint', function(done) {
-	runSequence('less', 'sass', ['csslint', 'jshint'], done);
+	runSequence('less', 'sass', ['jshint'], done);
 });
 
 // Lint project files and minify them into two production files.

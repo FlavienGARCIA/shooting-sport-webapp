@@ -3,21 +3,21 @@
 		<form data-ng-submit="signin()" class="form-floating signin">
 			<div class="card-content">
 				<div class="m-b-30">
-					<div class="card-title strong pink-text">Login</div>
+					<div class="card-title strong pink-text">Connexion</div>
 				</div>
-				<div class="form-group">
-					<label for="username" class="control-label">Username</label>
+				<div class="input-group">
+					<span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
 					<input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.username" placeholder="Username">
 				</div>
-				<div class="form-group">
-					<label for="password" class="control-label">Password</label>
+				<div class="input-group">
+					<span class="input-group-addon"><i class="zmdi zmdi-lock"></i></span>
 					<input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Password">
 				</div>
 			</div>
 			<div class="card-action clearfix">
 				<div class="pull-right">
-					<a data-ui-sref="password.forgot" class="btn btn-link black-text">Forgot your password?</a>
-					<button type="submit" class="btn btn-link black-text">Sign in</button>
+					<a data-ui-sref="password.forgot" class="btn btn-link black-text">Mot de passe oublié ?</a>
+					<button type="submit" class="btn btn-primary">Se connecter</button>
 				</div>
 				<div data-ng-show="error" class="text-center text-danger">
 					<strong data-ng-bind="error"></strong>

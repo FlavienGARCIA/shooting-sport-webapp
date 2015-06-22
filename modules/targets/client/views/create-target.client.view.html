@@ -1,40 +1,40 @@
 <section data-ng-controller="TargetsController">
     <div class="page-header">
-        <h1>New Target</h1>
+        <h1>Nouvelle cible</h1>
     </div>
-    <div class="col-md-12">
-        <div class="target" ng-click="createBulletHole($event)">
-            <div class="bullets"></div>
-            <div data-score="10" class="score-11 inner black"></div>
-            <div data-score="10" class="score-10 inner black"></div>
-            <div data-score="9" class="score-9 inner black"></div>
-            <div data-score="8" class="score-8 inner black"></div>
-            <div data-score="7" class="score-7 inner black"></div>
-            <div data-score="6" class="score-6 inner white"></div>
-            <div data-score="5" class="score-5 inner white"></div>
-            <div data-score="4" class="score-4 inner white"></div>
-            <div data-score="3" class="score-3 inner white"></div>
-            <div data-score="2" class="score-2 inner white"></div>
-            <div data-score="1" class="score-1 inner white"></div>
-        </div>
-        <ul ng-repeat="text in textData">
-            <li>{{text.label}} : {{text.value}}</li>
-        </ul>
-        <form class="form-horizontal" data-ng-submit="create()" novalidate>
-            <fieldset>
-                <div class="form-group">
-                    <label class="control-label" for="name">Name</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" required>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card bordered z-depth-1">
+                <div class="card-content">
+                    <div class="target create" ng-click="createBulletHole($event)">
+                        <div class="bullets"></div>
+                        <div data-score="10" class="score-11 inner black"></div>
+                        <div data-score="10" class="score-10 inner black"></div>
+                        <div data-score="9" class="score-9 inner black"></div>
+                        <div data-score="8" class="score-8 inner black"></div>
+                        <div data-score="7" class="score-7 inner black"></div>
+                        <div data-score="6" class="score-6 inner white"></div>
+                        <div data-score="5" class="score-5 inner white"></div>
+                        <div data-score="4" class="score-4 inner white"></div>
+                        <div data-score="3" class="score-3 inner white"></div>
+                        <div data-score="2" class="score-2 inner white"></div>
+                        <div data-score="1" class="score-1 inner white"></div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <input type="submit" class="btn btn-default">
+                <div class="card-action clearfix">
+                    <div class="pull-left">
+                        <span ng-repeat="text in textData" class="btn btn-link orange-text">{{text.label}} : <span class="black-text">{{text.value}}</span></span>
+                    </div>
+                    <form data-ng-submit="create()" class="pull-right" novalidate>
+                        <fieldset>
+                            <button type="submit" class="btn btn-primary">Créer</button>
+                            <div data-ng-show="error" class="text-danger">
+                                <strong data-ng-bind="error"></strong>
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
-				<div data-ng-show="error" class="text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
-            </fieldset>
-        </form>
+            </div>
+        </div>
     </div>
 </section>
