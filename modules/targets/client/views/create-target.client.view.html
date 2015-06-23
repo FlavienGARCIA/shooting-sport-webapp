@@ -1,4 +1,4 @@
-<section data-ng-controller="TargetsController">
+<section data-ng-controller="TargetCreateController">
     <div class="page-header">
         <h1>Nouvelle cible</h1>
     </div>
@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card bordered z-depth-1">
                 <div class="card-content">
-                    <div class="target create" ng-click="createBulletHole($event)">
+                    <div class="target create" ng-mouseup="createBulletHole($event)">
                         <div class="bullets"></div>
                         <div data-score="10" class="score-11 inner black"></div>
                         <div data-score="10" class="score-10 inner black"></div>
@@ -22,9 +22,6 @@
                     </div>
                 </div>
                 <div class="card-action clearfix">
-                    <div class="pull-left">
-                        <span ng-repeat="text in textData" class="btn btn-link orange-text">{{text.label}} : <span class="black-text">{{text.value}}</span></span>
-                    </div>
                     <form data-ng-submit="create()" class="pull-right" novalidate>
                         <fieldset>
                             <button type="submit" class="btn btn-primary btn-flat">Créer cible</button>
@@ -34,7 +31,7 @@
                         </fieldset>
                     </form>
                     <div style="display:inline-block; min-height:290px;">
-                        <datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
+                        <datepicker ng-model="dt" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
                     </div>
                 </div>
             </div>

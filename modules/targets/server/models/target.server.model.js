@@ -15,6 +15,7 @@ var TargetSchema = new Schema({
 	flooredMeanScore:Number,
 	bulletCount: Number,
 	inBlack: Number,
+	inBlackPerc: Number,
 	bullets: Array,
 	distance: String,
 	weapon: String,

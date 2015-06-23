@@ -1,4 +1,4 @@
-<section data-ng-controller="TargetsController" data-ng-init="find()">
+<section data-ng-controller="TargetsController">
     <div class="row" data-ng-show="!targets.$resolved || targets.length">
         <div class="col-md-12">
           <div class="card">
@@ -19,6 +19,9 @@
                       </th>
                       <th data-ng-click="order('bulletCount')" class="order">
                             Impacts <i class="sortorder zmdi zmdi-caret-down" ng-show="predicate === 'bulletCount'" ng-class="{'zmdi-caret-down':reverse, 'zmdi-caret-up': !reverse}"></i>
+                      </th>
+                      <th data-ng-click="order('inBlackPerc')" class="order">
+                            Dans noir <i class="sortorder zmdi zmdi-caret-down" ng-show="predicate === 'inBlackPerc'" ng-class="{'zmdi-caret-down':reverse, 'zmdi-caret-up': !reverse}"></i>
                       </th>
                       <th>Score</th>
                       <th>Distance</th>
@@ -44,12 +47,13 @@
                       <td data-ng-bind="target.dt | date:'dd/MM/yyyy'"></td>
                       <td>{{ target.meanScore }}</td>
                       <td>{{ target.bulletCount }}</td>
+                      <td>{{ target.inBlack }} <span class="text-muted">({{ target.inBlackPerc }} %)</span></td>
                       <td>{{ target.score }}</td>
                       <td>25m</td>
                       <td>CZ 75 SP-01 SHADOW</td>
                       <td>9mm</td>
                       <td>Sellier & Belliot 124g</td>
-                      <td><a data-ng-href="/#!/targets/{{target._id}}/edit" class="btn btn-info btn-sm btn-flat">Voir / Modifier</a>
+                      <td><a ng-click="openUpdateModal(target)" class="btn btn-info btn-sm btn-flat">Voir / Modifier</a>
                           <a class="btn btn-primary btn-sm btn-flat" data-ng-click="remove(target);">Supprimer</a>
                       </td>
                     </tr>

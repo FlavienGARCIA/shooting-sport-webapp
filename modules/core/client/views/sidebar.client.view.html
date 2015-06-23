@@ -1,11 +1,11 @@
-<!-- <div class="brand-logo">
-	<a data-ui-sref="home">shooting-sport-targets</a>
-</div> -->
 <ul ng-cloak data-ng-controller="HeaderController">
     <!-- <li menu-toggle path="/tables" name="Tables" icon="md md-list">
       <a menu-link href="#/tables/basic">Basic tables</a>
       <a menu-link href="#/tables/data">Data tables</a>
     </li> -->
+    <li>
+    	<a data-ui-sref="home"><i class="zmdi zmdi-blur"></i><span>Tableau de bord</span></a>
+    </li>
     <li data-ng-repeat="item in menu.items | orderBy: 'position'" data-ng-if="item.shouldRender(authentication.user);" ng-switch="item.type" data-ng-class="{active: $state.includes(item.state)}" class="{{item.class}}" dropdown="item.type === 'dropdown'">
 		<a ng-switch-when="dropdown" class="dropdown-toggle">
 			<span data-ng-bind="item.title"></span>
