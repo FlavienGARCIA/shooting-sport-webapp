@@ -18,13 +18,13 @@ angular.module('targets').config(['$stateProvider',
 			url: '/create',
 			templateUrl: 'modules/targets/views/create-target.client.view.html'
 		}).
-		state('targets.view', {
-			url: '/:targetId',
-			templateUrl: 'modules/targets/views/view-target.client.view.html'
-		}).
 		state('targets.edit', {
 			url: '/:targetId/edit',
 			templateUrl: 'modules/targets/views/edit-target.client.view.html'
+		}).
+		state('targets.stats', {
+			url: '/stats',
+			templateUrl: 'modules/targets/views/stats.client.view.html'
 		});
 	}
 ]);

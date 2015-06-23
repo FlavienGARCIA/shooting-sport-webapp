@@ -10,17 +10,17 @@ var mongoose = require('mongoose'),
  * Target Schema
  */
 var TargetSchema = new Schema({
-	score: {
-		type: String
-	},
-	meanScore: {
-		type: Number
-	},
-	bulletCount: {
-		type: Number
-	},
+	score: String,
+	meanScore: Number,
+	flooredMeanScore:Number,
+	bulletCount: Number,
+	inBlack: Number,
 	bullets: Array,
-	created: {
+	distance: String,
+	weapon: String,
+	caliber: String,
+	ammo: String,
+	dt: {
 		type: Date,
 		default: Date.now
 	},

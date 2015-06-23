@@ -15,12 +15,12 @@ var app = angular.module('materialism', [
   'ui.select',
 
   'gridshore.c3js.chart',
-  'monospaced.elastic',     // resizable textarea
+  'monospaced.elastic',
   'mgcrea.ngStrap',
   'jcs-autoValidate',
   'ngFileUpload',
   'textAngular',
-  'fsm',                    // sticky header
+  'fsm',
   'smoothScroll',
   'LocalStorageModule'
 ]);

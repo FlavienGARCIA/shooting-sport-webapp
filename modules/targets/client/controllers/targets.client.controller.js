@@ -5,19 +5,73 @@ angular.module('targets').controller('TargetsController', ['$scope', '$statePara
 	function($scope, $stateParams, $location, Authentication, Targets ) {
 		$scope.authentication = Authentication;
 
+		$scope.score = {
+			score: 0,
+			currentBulletScore: 0,
+			bulletScores: [],
+			meanScore: 0,
+			maxScore: 0,
+			inBlack: 0,
+			bulletCount: 0,
+			globalMeanScore: 0,
+			globalInBlack: 0
+		};
+
+		$scope.data = {
+			ammo: {
+				SB124: 'Sellier & Belliot 124g',
+				CCI: 'CCI Standard Velocity'
+			},
+			weapon: {
+				czShadow: 'CZ 75 SP-01 Shadow',
+				beretta92s: 'Beretta 92S',
+				buck: 'Browning Buck Mark URX',
+				beretta76: 'Beretta 76'
+			},
+			caliber: {
+				'9mm': '9mm',
+				'.22': '.22',
+				'4.5': '4.5'
+			},
+			distance: {
+				'25m': '25m',
+				'10m': '10m'
+			},
+			sightingPoint: {
+				x: 0,
+				y: 0
+			}
+		};
+
+		$scope.bullets = [];
+		$scope.meanScorePoints = [];
+		$scope.datax={"id":"x"};
+		$scope.meanScoreColumns = [
+			{
+				'id': 'Score moyen',
+				'type': 'area'
+			}
+		];
+
+		$scope.predicate = 'dt';
+      	$scope.reverse = true;
+
 		// Create new Target
 		$scope.create = function() {
 			// Create new Target object
 			var target = new Targets ({
-				score: this.data.score.score + '/' + this.data.score.maxScore,
-				meanScore: this.data.score.meanScore,
-				bulletCount: this.data.bullet.bulletCount,
-				bullets: this.bullets
+				score: this.score.score + '/' + this.score.maxScore,
+				meanScore: this.score.meanScore,
+				flooredMeanScore: Math.floor(this.score.meanScore),
+				bulletCount: this.score.bulletCount,
+				bullets: this.bullets,
+				inBlack: this.score.inBlack,
+				dt: this.dt
 			});
 
 			// Redirect after save
 			target.$save(function(response) {
-				$location.path('targets/' + response._id);
+				$location.path('targets');
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
@@ -44,7 +98,7 @@ angular.module('targets').controller('TargetsController', ['$scope', '$statePara
 			var target = $scope.target ;
 
 			target.$update(function() {
-				$location.path('targets/' + target._id);
+				$location.path('targets');
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
@@ -62,45 +116,26 @@ angular.module('targets').controller('TargetsController', ['$scope', '$statePara
 			});
 		};
 
-		$scope.data = {
-			score : {
-				score: 0,
-				currentBulletScore: 0,
-				bulletScores: [],
-				meanScore: 0,
-				maxScore: 0,
-				inBlack: 0,
-				inWhite: 0
-			},
-			bullet : {
-				bulletCount: 0,
-			},
-			ammo: {
-				SB124: 'Sellier & Belliot 124g',
-				CCI: 'CCI Standard Velocity'
-			},
-			weapon: {
-				czShadow: 'CZ 75 SP-01 Shadow',
-				beretta92s: 'Beretta 92S',
-				buck: 'Browning Buck Mark URX',
-				beretta76: 'Beretta 76',
-				caliber: {
-					'9mm': '9mm',
-					'.22': '.22',
-					'4.5': '4.5'
-				}
-			},
-			distance: {
-				'25m': '25m',
-				'10m': '10m'
-			},
-			sightingPoint: {
-				x: 0,
-				y: 0
-			}
+		$scope.findStatsData = function() {
+			$scope.targets = Targets.query(function(data) {
+				data.forEach(function(item, index) {
+					$scope.meanScorePoints.push({
+						'x': Date.parse(item.dt),
+						'Score moyen': item.meanScore
+					});
+
+					$scope.score.globalMeanScore += item.meanScore;
+				});
+
+				$scope.score.globalMeanScore /= data.length;
+				console.log($scope.score.globalMeanScore);
+			});
 		};
 
-		$scope.bullets = [];
+		$scope.order = function(predicate) {
+	        $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
+	        $scope.predicate = predicate;
+		};
 
 		// get clicked bullet position
 		$scope.getBulletPosition = function(event, container) {
@@ -135,32 +170,33 @@ angular.module('targets').controller('TargetsController', ['$scope', '$statePara
 			this.updateData(currentScore);
 		};
 
+
 		$scope.updateData = function(currentScore) {
-			$scope.data.bullet.bulletCount++;
+			$scope.score.bulletCount++;
 
-			$scope.data.score.currentBulletScore = parseInt(currentScore);
-			$scope.data.score.score += $scope.data.score.currentBulletScore;
-			$scope.data.score.bulletScores.push($scope.data.score.currentBulletScore);
-			$scope.data.score.meanScore = +($scope.data.score.score / $scope.data.bullet.bulletCount).toFixed(2);
-			$scope.data.score.maxScore = $scope.data.bullet.bulletCount * 10;
+			$scope.score.currentBulletScore = parseInt(currentScore);
+			$scope.score.score += $scope.score.currentBulletScore;
+			$scope.score.bulletScores.push($scope.score.currentBulletScore);
+			$scope.score.meanScore = +($scope.score.score / $scope.score.bulletCount).toFixed(2);
+			$scope.score.maxScore = $scope.score.bulletCount * 10;
 
-			this.textData[0].value = $scope.data.score.score + '/' + $scope.data.score.maxScore;
-			this.textData[1].value = $scope.data.score.meanScore;
-			this.textData[2].value = $scope.data.bullet.bulletCount;
+			this.textData[0].value = $scope.score.score + '/' + $scope.score.maxScore;
+			this.textData[1].value = $scope.score.meanScore;
+			this.textData[2].value = $scope.score.bulletCount;
 		};
 
 		$scope.textData = [
 			{
 				label: 'Score',
-				value: $scope.data.score.score + '/' + $scope.data.score.maxScore
+				value: $scope.score.score + '/' + $scope.score.maxScore
 			},
 			{
 				label: 'Score moyen',
-				value: $scope.data.score.meanScore
+				value: $scope.score.meanScore
 			},
 			{
 				label: 'Impacts',
-				value: $scope.data.bullet.bulletCount
+				value: $scope.score.bulletCount
 			}
 		];
 	}
