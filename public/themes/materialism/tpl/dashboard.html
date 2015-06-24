@@ -5,7 +5,7 @@
 
       <div class="p-20 clearfix">
         <div class="pull-right">
-          <a href="/pages/material-bird.html" target="_blank" class="btn btn-round-sm btn-link" bs-tooltip title="Play material bird"><i class="md md-games"></i></a>
+          <a href="pages/material-bird.html" target="_blank" class="btn btn-round-sm btn-link" bs-tooltip title="Play material bird"><i class="md md-games"></i></a>
           <div class="btn btn-round-sm btn-link" bs-tooltip title="Upload media"><i class="md md-crop-original"></i></div>
           <div class="btn btn-round-sm btn-link" bs-tooltip title="Write new document"><i class="md md-insert-drive-file"></i></div>
           <div class="btn btn-round-sm btn-link" bs-tooltip title="Add new user"><i class="md md-person-add"></i></div>
@@ -38,16 +38,13 @@
                   <c3chart bindto-id="chart-line-1">
                     <chart-column column-id="Sales"
                                   column-values="{{chartData1}}"
-                                  column-type="line"
-
-                      />
-                    <chart-axis-y show="false"  />
-                    <chart-axis-x show="false"  />
-                    <chart-legend show-legend="false"  />
-                    <chart-size chart-height="100px"  />
-                    <chart-tooltip show-tooltip="true"  />
-
-                    <chart-colors color-pattern="#fff"/>
+                                  column-type="line" />
+                    <chart-axis-y show="false" />
+                    <chart-axis-x show="false" />
+                    <chart-legend show-legend="false" />
+                    <chart-size chart-height="100px" />
+                    <chart-tooltip show-tooltip="true" />
+                    <chart-colors color-pattern="#fff" />
                   </c3chart>
                 </div>
               </div>
@@ -86,16 +83,13 @@
                   <c3chart bindto-id="chart-line-2">
                     <chart-column column-id="Customers"
                                   column-values="{{chartData2}}"
-                                  column-type="line"
-
-                      />
-                    <chart-axis-y show="false"  />
-                    <chart-axis-x show="false"  />
-                    <chart-legend show-legend="false"  />
-                    <chart-size chart-height="100px"  />
-                    <chart-tooltip show-tooltip="true"  />
-
-                    <chart-colors color-pattern="#fff"/>
+                                  column-type="line" />
+                    <chart-axis-y show="false" />
+                    <chart-axis-x show="false" />
+                    <chart-legend show-legend="false" />
+                    <chart-size chart-height="100px" />
+                    <chart-tooltip show-tooltip="true" />
+                    <chart-colors color-pattern="#fff" />
                   </c3chart>
                 </div>
               </div>
@@ -134,16 +128,13 @@
                   <c3chart bindto-id="chart-line-3">
                     <chart-column column-id="Signups"
                                   column-values="{{chartData3}}"
-                                  column-type="line"
-
-                      />
-                    <chart-axis-y show="false"  />
-                    <chart-axis-x show="false"  />
-                    <chart-legend show-legend="false"  />
-                    <chart-size chart-height="100px"  />
-                    <chart-tooltip show-tooltip="true"  />
-
-                    <chart-colors color-pattern="#fff"/>
+                                  column-type="line" />
+                    <chart-axis-y show="false" />
+                    <chart-axis-x show="false" />
+                    <chart-legend show-legend="false" />
+                    <chart-size chart-height="100px" />
+                    <chart-tooltip show-tooltip="true" />
+                    <chart-colors color-pattern="#fff" />
                   </c3chart>
                 </div>
               </div>
@@ -183,7 +174,7 @@
                     <img placeholder-img class="img-responsive" />
                   </div>
                   <div class="list-group-item-heading" placeholder-title></div>
-                  <p class="list-group-item-text" placeholder-p></p>
+                  <span class="list-group-item-text" placeholder-p></span>
                 </a>
               </div>
             </div>
@@ -272,7 +263,7 @@
                     <i class="icon-circle {{theme_colors[$index]}}-border v-super"></i>
                   </div>
                   <div class="list-group-item-heading" placeholder-name></div>
-                  <p class="list-group-item-text" placeholder-p></p>
+                  <span class="list-group-item-text" placeholder-p></span>
                 </a>
               </div>
 
@@ -334,18 +325,16 @@
               </div>
 
               <div class="m-t-20">
-                <c3chart bindto-id="chart-area-1" padding-bottom="-8px"  padding-left="-20px" padding-right="-20px">
-                  <chart-column
-                    column-id="Customers"
-                    column-values="{{chartData4}}"
-                    column-type="area"
-                    />
-                  <chart-axis-y show="false"  />
-                  <chart-axis-x show="false"  />
-                  <chart-legend show-legend="false"  />
-                  <chart-size chart-height="100px"  />
-                  <chart-tooltip show-tooltip="true"  />
-                  <chart-colors color-pattern="#EC407A"/>
+                <c3chart bindto-id="chart-area-1" padding-bottom="-8px" padding-left="-20px" padding-right="-20px">
+                  <chart-column column-id="Customers"
+                                column-values="{{chartData4}}"
+                                column-type="area" />
+                  <chart-axis-y show="false" />
+                  <chart-axis-x show="false" />
+                  <chart-legend show-legend="false" />
+                  <chart-size chart-height="100px" />
+                  <chart-tooltip show-tooltip="true" />
+                  <chart-colors color-pattern="#EC407A" />
                 </c3chart>
               </div>
             </div>
@@ -571,7 +560,7 @@
                       <h4 class="timeline-title" placeholder-name></h4>
                     </div>
                     <div class="timeline-body">
-                      <p placeholder-p></p>
+                      <span placeholder-p></span>
                       <small class="text-muted"><i class="md md-timer"></i> 11 hours ago</small>
                     </div>
                   </div>
@@ -589,7 +578,7 @@
                       <h4 class="timeline-title" placeholder-name></h4>
                     </div>
                     <div class="timeline-body">
-                      <p placeholder-p></p>
+                      <span spanlaceholder-p></span>
                       <small class="text-muted"><i class="md md-timer"></i> 11 hours ago</small>
                     </div>
                   </div>
@@ -605,44 +594,38 @@
         <div class="row">
           <div class="col-xs-4">
             <c3chart bindto-id="chart-gauge-1">
-              <chart-column
-                column-id="Gauge"
-                column-type="gauge"
-                column-values="80"
-                />
-              <chart-gauge width="3"/>
-              <chart-tooltip show-tooltip="false"  />
-              <chart-legend show="false"  />
-              <chart-size chart-height="60px"  />
-              <chart-colors color-pattern="{{color_pattern}}"/>
+              <chart-column column-id="Gauge"
+                            column-type="gauge"
+                            column-values="80" />
+              <chart-gauge width="3" />
+              <chart-tooltip show-tooltip="false" />
+              <chart-legend show="false" />
+              <chart-size chart-height="60px" />
+              <chart-colors color-pattern="{{color_pattern}}" />
             </c3chart>
             <div class="text-center small">New visitors</div>
           </div>
           <div class="col-xs-4">
             <c3chart bindto-id="chart-gauge-2">
-              <chart-column
-                column-id="Gauge"
-                column-type="gauge"
-                column-values="30"
-                />
-              <chart-gauge width="3"/>
-              <chart-tooltip show-tooltip="false"  />
-              <chart-size chart-height="60px"  />
-              <chart-colors color-pattern="{{color_pattern}}"/>
+              <chart-column column-id="Gauge"
+                            column-type="gauge"
+                            column-values="30" />
+              <chart-gauge width="3" />
+              <chart-tooltip show-tooltip="false" />
+              <chart-size chart-height="60px" />
+              <chart-colors color-pattern="{{color_pattern}}" />
             </c3chart>
             <div class="text-center small">Conversions</div>
           </div>
           <div class="col-xs-4">
             <c3chart bindto-id="chart-gauge-3">
-              <chart-column
-                column-id="Gauge"
-                column-type="gauge"
-                column-values="40"
-                />
-              <chart-gauge width="3"/>
-              <chart-tooltip show-tooltip="false"  />
-              <chart-size chart-height="60px"  />
-              <chart-colors color-pattern="{{color_pattern}}"/>
+              <chart-column column-id="Gauge"
+                            column-type="gauge"
+                            column-values="40" />
+              <chart-gauge width="3" />
+              <chart-tooltip show-tooltip="false" />
+              <chart-size chart-height="60px" />
+              <chart-colors color-pattern="{{color_pattern}}" />
             </c3chart>
             <div class="text-center small">Bounce rate</div>
           </div>
@@ -652,16 +635,13 @@
       <c3chart bindto-id="chart-pagesviews" padding-bottom="-8px">
         <chart-column column-id="Pageviews"
                       column-values="3,4,5,10,20,14,18,12,10,20,10,14,15,10,20,14,18,12,10,20"
-                      column-type="area"
-
-          />
-        <chart-axis-y show="false"  />
-        <chart-axis-x show="false"  />
-        <chart-legend show-legend="false"  />
-        <chart-size chart-height="100px"  />
-        <chart-tooltip show-tooltip="true"  />
-
-        <chart-colors color-pattern="#fff"/>
+                      column-type="area" />
+        <chart-axis-y show="false" />
+        <chart-axis-x show="false" />
+        <chart-legend show-legend="false" />
+        <chart-size chart-height="100px" />
+        <chart-tooltip show-tooltip="true" />
+        <chart-colors color-pattern="#fff" />
       </c3chart>
     </div>
 

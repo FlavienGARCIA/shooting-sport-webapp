@@ -73,6 +73,17 @@ main {
   }
 }
 
+.alert-container-top-right {
+  position: fixed;
+  top: 50px;
+  right: 0;
+  z-index: 9999;
+  .alert {
+    position: relative;
+    top: 0;
+  }
+}
+
 .brand-logo {
   min-height: 64px;
   color: #868686;

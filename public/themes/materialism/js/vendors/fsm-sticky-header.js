@@ -127,7 +127,7 @@ fsm.directive('fsmMenuButton', function(){
     }
 });
 
-fsm.directive('fsmBigData', function ($filter) {
+fsm.directive('fsmBigData', ['$filter', function ($filter) {
 
     return {
         restrict: 'AE',
@@ -230,7 +230,7 @@ fsm.directive('fsmBigData', function ($filter) {
             });
         }
     }
-});
+}]);
 
 fsm.directive('fsmSort', function () {
     var sortIconTemplate = '<i class="md md-sort"></i>';

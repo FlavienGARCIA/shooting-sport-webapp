@@ -1,14 +1,6 @@
 app.controller('MainController',
-  ['$scope', '$animate', 'localStorageService', 'todoService', '$alert', '$timeout',
-  function($scope, $animate, localStorageService, todoService, $alert, $timeout){
-
-  if (typeof(browser_old) == "undefined"){
-    initRipplesWithArrive();
-
-    $(document).arrive('.navbar-toggle', function() {
-      $(this).sideNav({menuWidth: 260, closeOnClick: true});
-    });
-  }
+  ['$scope', '$animate', 'localStorageService', 'todoService', '$alert', '$timeout', '$rootScope',
+  function($scope, $animate, localStorageService, todoService, $alert, $timeout, $rootScope){
 
   $scope.theme_colors = [
     'pink','red','purple','indigo','blue',
@@ -36,10 +28,12 @@ app.controller('MainController',
 
   // theme changing
   $scope.changeColorTheme = function(cls){
+    $rootScope.$broadcast('theme:change', 'Choose template');//@grep dev
     $scope.theme.color = cls;
   };
 
   $scope.changeTemplateTheme = function(cls){
+    $rootScope.$broadcast('theme:change', 'Choose color');//@grep dev
     $scope.theme.template = cls;
   };
 
@@ -55,8 +49,9 @@ app.controller('MainController',
   var introductionAlert = $alert({
     title: 'Welcome to Materialism',
     content: 'Stay a while and listen',
-    placement: 'top',
+    placement: 'top-right',
     type: 'theme',
+    container: '.alert-container-top-right',
     show: false,
     template: 'assets/tpl/partials/alert-introduction.html',
     animation: 'mat-grow-top-right'
@@ -66,7 +61,7 @@ app.controller('MainController',
     $timeout(function(){
       $scope.showIntroduction();
       localStorageService.set('alert-introduction', 1);
-    }, 1750);
+    }, 2500);
   }
 
   $scope.showIntroduction = function(){
@@ -74,6 +69,19 @@ app.controller('MainController',
   };
 
 
+  var refererNotThemeforest = $alert({
+    title: 'Hi there!',
+    content: 'You like what you see and interested in using our theme? You can find it at <a href="http://themeforest.net/item/materialism-angular-bootstrap-admin-template/11322821" target="_blank"><img style="height:20px;" src="assets/img/icons/themeforest-icon.png" /> Themeforest</a>.',
+    placement: 'top-right',
+    type: 'theme',
+    container: '.alert-container-top-right',
+    show: false,
+    animation: 'mat-grow-top-right'
+  });
 
-
+  if (document.referrer === '' || document.referrer.indexOf('themeforest.net') !== 0){
+    $timeout(function(){
+      refererNotThemeforest.show();
+    }, 1750);
+  }
 }]);

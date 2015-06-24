@@ -11,9 +11,9 @@
 
 
   <div class="row m-b-40">
-    <div class="col-md-3 col-md-push-9">
+    <div class="col-md-3 col-md-push-9" id="general-elements-intro">
       <h5>General form elements used in basic forms</h5>
-      <p>All the elements are just default bootstrap markup in execption of the selection box which is a <a target="_blank" href="https://github.com/angular-ui/ui-select">select2 angular directive</a>.</p>
+      <p>All the elements are just default bootstrap markup in execption of the selection box which is a <a target="_blank" href="https://github.com/angular-ui/ui-select">Angular ui-select directive</a>.</p>
     </div>
 
     <div class="col-md-8 col-md-pull-3">
@@ -101,7 +101,7 @@
     </div>
   </div>
 
-  <div class="row m-b-40">
+  <div class="row m-b-40" id="datepickers">
     <div class="col-md-3 col-md-push-9">
       <h5>Datepickers</h5>
       <p>The <a target="_blank" href="http://mgcrea.github.io/angular-strap/#/datepickers">datepickers</a> come from the <a target="_blank" href="http://mgcrea.github.io/angular-strap">AngularStrap</a> module and we placed some default html input date elements to
@@ -113,14 +113,13 @@
           <fieldset>
             <legend>Date pickers</legend>
 
-            <div class="form-group">
+            <div class="form-group filled">
               <label class="control-label">Date</label>
-              <input type="text" class="form-control" ng-model="sharedDate" data-autoclose="1"
-                     bs-datepicker>
+              <input type="text" class="form-control" ng-model="sharedDate" data-autoclose="1" bs-datepicker>
             </div>
-            <div class="form-group">
-              <input type="text" class="form-control" ng-model="sharedDate" data-autoclose="1" placeholder="Time"
-                     bs-timepicker>
+            <div class="form-group filled">
+              <label class="control-label">Time</label>
+              <input type="text" class="form-control" ng-model="sharedTime" data-autoclose="1" bs-timepicker>
             </div>
 
             <div class="form-group">
@@ -133,7 +132,7 @@
                            bs-datepicker>
                   </div>
                   <div class="col-md-2">
-                    <input type="text" class="form-control" ng-model="sharedDate" data-autoclose="1" placeholder="Time"
+                    <input type="text" class="form-control" ng-model="sharedTime" data-autoclose="1" placeholder="Time"
                            bs-timepicker>
                   </div>
                 </div>
@@ -175,10 +174,10 @@
     </div>
   </div>
 
-  <div class="row m-b-40">
+  <div class="row m-b-40" id="select2-and-typeahead">
     <div class="col-md-3 col-md-push-9">
-      <h5>Select2 and typeahead variations</h5>
-      <p><a target="_blank" href="https://select2.github.io/">Select2</a> is an powerful component to use relation data in your admin or application.</p>
+      <h5>Angular ui-select and typeahead variations</h5>
+      <p><a target="_blank" href="https://github.com/angular-ui/ui-select">Angular ui-select</a> is a AngularJS-native version of Select2 and Selectize.</p>
       <p><a target="_blank" href="http://mgcrea.github.io/angular-strap/#/typeaheads">Typeahead</a> is a lightweight select replacement</p>
     </div>
     <div class="col-md-8 col-md-pull-3">
@@ -188,7 +187,7 @@
             <legend>Select</legend>
 
             <div class="form-group">
-              <label class="control-label">Select2</label>
+              <label class="control-label">Angular ui-select</label>
               <ui-select ng-model="person.selected" theme="select2" title="Choose a person" search-enabled="false">
                 <ui-select-match placeholder="Default select2 box">{{$select.selected.name}}</ui-select-match>
                 <ui-select-choices repeat="item in people | filter: $select.search">
@@ -199,7 +198,7 @@
             </div>
 
             <div class="form-group">
-              <label class="control-label">Select2 multiple</label>
+              <label class="control-label">Angular ui-select multiple</label>
               <ui-select multiple ng-model="multipleDemo.colors" theme="select2" ng-disabled="disabled" close-on-select="false" title="Choose a color">
                 <ui-select-match placeholder="Select colors...">{{$item}}</ui-select-match>
                 <ui-select-choices repeat="color in availableColors | filter:$select.search">
@@ -222,7 +221,7 @@
 
   </div>
 
-  <div class="row m-b-40">
+  <div class="row m-b-40" id="fileupload">
     <div class="col-md-3 col-md-push-9">
       <h5>File upload</h5>
       <p>Lightweight <a target="_blank" href="https://github.com/danialfarid/angular-file-upload">AngularJS directive</a> to upload files.</p>
@@ -250,7 +249,7 @@
                 <div ngf-drop
                      ngf-select
                      ng-model="files"
-                     class="drop-box" 
+                     class="drop-box"
                      ngf-drag-over-class="dragover"
                      ngf-multiple="true"
                      ngf-allow-dir="true"
@@ -292,7 +291,7 @@
     </div>
   </div>
 
-  <div class="row m-b-40">
+  <div class="row m-b-40" id="wysiwyg">
     <div class="col-md-3 col-md-push-9">
       <h5>Text editor</h5>
       <p><a target="_blank" href="http://textangular.com/">textAngular</a> is a super cool WYSIWYG Text Editor directive for AngularJS.</p>
@@ -315,7 +314,7 @@
     </div>
   </div>
 
-  <div class="row m-b-40">
+  <div class="row m-b-40" id="noui-slider">
     <div class="col-md-3 col-md-push-9">
       <h5>Sliders</h5>
       <p><a target="_blank" href="http://refreshless.com/nouislider/">noUiSlider</a> is a range slider without bloat. It offers a ton off features, and it is as small, lightweight and minimal as possible, which is great for mobile use on the many supported devices, including iPhone, iPad, Android devices & Windows (Phone) 8 desktops, tablets and all-in-ones. It works on desktops too, of course!</p>
@@ -333,7 +332,7 @@
 
             <div class="form-group">
               <label class="control-label">With bind</label>
-              <div id="slider" noui-slider min="0" max="100" start="6" range="25" bind=".sliderval" bind-range=".sliderval2"  step="1"></div>
+              <div id="slider" noui-slider min="0" max="100" start="6" range="25" bind=".sliderval" bind-range=".sliderval2" step="1"></div>
               <span class="help-block ">
                 Value from slider: <span class="sliderval">6</span> / <span class="sliderval2">25</span>
               </span>
@@ -341,7 +340,7 @@
 
             <div class="form-group">
               <label class="control-label">With indicator</label>
-              <div id="range" noui-slider min="0" max="20" start="16"  step="2"></div>
+              <div id="range" noui-slider min="0" max="20" start="16" step="2" indicator="true"></div>
             </div>
 
           </fieldset>

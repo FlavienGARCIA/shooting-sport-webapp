@@ -3,7 +3,7 @@ app.directive('formControl', function() {
     restrict: 'C',
     link: function(scope, element, attrs) {
 
-      // set initial filled
+      // Add class filled to form-control's that have a value
       if(element.val()){
         element.parent().addClass('filled');
       }

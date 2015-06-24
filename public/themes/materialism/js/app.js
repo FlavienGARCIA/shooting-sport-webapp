@@ -11,16 +11,19 @@ var app = angular.module('materialism', [
 
   'angular-loading-bar',
 
+  'angulartics',
+  'angulartics.google.analytics',
+
   'uiGmapgoogle-maps',
   'ui.select',
 
   'gridshore.c3js.chart',
-  'monospaced.elastic',
+  'monospaced.elastic',     // resizable textarea
   'mgcrea.ngStrap',
   'jcs-autoValidate',
   'ngFileUpload',
   'textAngular',
-  'fsm',
+  'fsm',                    // sticky header
   'smoothScroll',
   'LocalStorageModule'
 ]);

@@ -40,6 +40,8 @@ app.directive('menuLink', function() {
         linkCtrl.setBreadcrumb(attrs.name);
       });
 
+      element.find('a').ripples();
+
       scope.isSelected = function() {
         return linkCtrl.isSelected(attrs.href);
       };

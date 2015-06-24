@@ -111,6 +111,8 @@ app.controller('DashboardController',
   var interval;
 
   createInterval = function() {
+    if(interval) return;
+
     return $interval(function(){
       v = random_load_value(40, 80);
       $scope.serverLoad = v+'%';
@@ -123,7 +125,7 @@ app.controller('DashboardController',
   cleanInterval = function() {
     if (angular.isDefined(interval)) {
       $interval.cancel(interval);
-      interval = undefined;
+      interval = false;
     }
   };
 

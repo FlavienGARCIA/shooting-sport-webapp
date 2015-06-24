@@ -1,5 +1,5 @@
 angular.module('app.constants', [])
 
-.constant('APP', {version:'1.0.0'})
+.constant('APP', {version:'1.1.0'})
 
 ;

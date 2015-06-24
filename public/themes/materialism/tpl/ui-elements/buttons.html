@@ -1,4 +1,4 @@
-<section class="buttons">
+<section class="buttons" ng-controller="ButtonsController">
 
   <div class="page-header">
     <h1>
@@ -14,7 +14,6 @@
   <div class="row">
 
     <div class="col-lg-7">
-
 
       <div class="element-block">
         <h5>Default buttons with colors</h5>
@@ -53,8 +52,29 @@
           <button class="btn btn-danger btn-flat">Danger</button>
           <button class="btn btn-link btn-flat">Link</button>
         </p>
+        <p>
+          <button class="btn btn-default btn-flat-border">Default</button>
+          <button class="btn btn-primary btn-flat-border">Primary</button>
+          <button class="btn btn-success btn-flat-border">Success</button>
+          <button class="btn btn-info btn-flat-border">Info</button>
+          <button class="btn btn-warning btn-flat-border">Warning</button>
+          <button class="btn btn-danger btn-flat-border">Danger</button>
+          <button class="btn btn-link btn-flat-border">Link</button>
+        </p>
       </div>
 
+      <div class="element-block">
+        <h5>Border buttons</h5>
+        <p>
+            <button class="btn btn-default btn-border">Default</button>
+          <button class="btn btn-primary btn-border">Primary</button>
+          <button class="btn btn-success btn-border">Success</button>
+          <button class="btn btn-info btn-border">Info</button>
+          <button class="btn btn-warning btn-border">Warning</button>
+          <button class="btn btn-danger btn-border">Danger</button>
+          <button class="btn btn-link btn-border">Link</button>
+        </p>
+      </div>
 
       <div class="element-block">
         <h5>Buttons sizes</h5>
@@ -194,23 +214,23 @@
         <h5>Floating Round and flat buttons</h5>
 
         <p>
-          <button type="button" class="btn btn-round btn-default"><span class="md md-star"></span></button>
-          <button type="button" class="btn btn-round btn-primary"><span class="md md-edit"></span></button>
-          <button type="button" class="btn btn-round btn-success"><span class="md md-add"></span></button>
-          <button type="button" class="btn btn-round btn-info"><span class="md md-info-outline"></span></button>
-          <button type="button" class="btn btn-round btn-warning"><span class="md md-https"></span></button>
-          <button type="button" class="btn btn-round btn-danger"><span class="md md-search"></span></button>
-          <button type="button" class="btn btn-round btn-link"><span class="md md-chevron-right"></span></button>
+          <button type="button" class="btn btn-lg btn-round btn-default"><span class="md md-star"></span></button>
+          <button type="button" class="btn btn-lg btn-round btn-primary"><span class="md md-edit"></span></button>
+          <button type="button" class="btn btn-lg btn-round btn-success"><span class="md md-add"></span></button>
+          <button type="button" class="btn btn-lg btn-round btn-info"><span class="md md-info-outline"></span></button>
+          <button type="button" class="btn btn-lg btn-round btn-warning"><span class="md md-https"></span></button>
+          <button type="button" class="btn btn-lg btn-round btn-danger"><span class="md md-search"></span></button>
+          <button type="button" class="btn btn-lg btn-round btn-link"><span class="md md-chevron-right"></span></button>
         </p>
 
         <p>
-          <button type="button" class="btn btn-round btn-flat btn-default"><span class="md md-star"></span></button>
-          <button type="button" class="btn btn-round btn-flat btn-primary"><span class="md md-edit"></span></button>
-          <button type="button" class="btn btn-round btn-flat btn-success"><span class="md md-add"></span></button>
-          <button type="button" class="btn btn-round btn-flat btn-info"><span class="md md-info-outline"></span></button>
-          <button type="button" class="btn btn-round btn-flat btn-warning"><span class="md md-https"></span></button>
-          <button type="button" class="btn btn-round btn-flat btn-danger"><span class="md md-search"></span></button>
-          <button type="button" class="btn btn-round btn-flat btn-link"><span class="md md-chevron-right"></span></button>
+          <button type="button" class="btn btn-lg btn-round btn-flat btn-default"><span class="md md-star"></span></button>
+          <button type="button" class="btn btn-lg btn-round btn-flat btn-primary"><span class="md md-edit"></span></button>
+          <button type="button" class="btn btn-lg btn-round btn-flat btn-success"><span class="md md-add"></span></button>
+          <button type="button" class="btn btn-lg btn-round btn-flat btn-info"><span class="md md-info-outline"></span></button>
+          <button type="button" class="btn btn-lg btn-round btn-flat btn-warning"><span class="md md-https"></span></button>
+          <button type="button" class="btn btn-lg btn-round btn-flat btn-danger"><span class="md md-search"></span></button>
+          <button type="button" class="btn btn-lg btn-round btn-flat btn-link"><span class="md md-chevron-right"></span></button>
         </p>
       </div>
 
@@ -310,5 +330,21 @@
 
     </div>
   </div>
+
+
+  <div>
+    <h5>Color buttons</h5>
+    <div class="m-b-10 clearfix" ng-repeat="color in colorPalette">
+      <div ng-repeat="variant in colorsVariants" style="float:left; margin-right:-10px;">
+        <button type="button" class="btn btn-lg {{color}} {{variant}} btn-round">
+          <i class="md md-edit"></i>
+        </button>
+        <div ng-if="variant=='darken-4'" style="float:left; width:30px;"></div>
+      </div>
+    </div>
+  </div>
+
+
+
 
 </section>

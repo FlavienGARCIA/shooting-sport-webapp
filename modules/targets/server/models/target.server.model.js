@@ -21,6 +21,7 @@ var TargetSchema = new Schema({
 	weapon: String,
 	caliber: String,
 	ammo: String,
+	imageUrl: String,
 	dt: {
 		type: Date,
 		default: Date.now

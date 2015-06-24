@@ -11,6 +11,14 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 		$scope.maxScore = 0;
 		$scope.inBlack = 0;
 		$scope.bulletCount = 0;
+		$scope.weapons = [
+			{ name: 'CZ 75 SP-01 Shadow', caliber: '9x19mm' },
+			{ name: 'Beretta 92S', caliber: '9x19mm' },
+			{ name: 'Browning Buck Mark URX', caliber: '.22 LR' },
+			{ name: 'Beretta 76', caliber: '.22 LR' }
+		];
+		$scope.ammos = ['Sellier & Belliot', 'CCI Standard Velocity'];
+		$scope.distances = ['10m', '25m'];
 
 		// Create new Target
 		$scope.create = function() {
@@ -23,7 +31,11 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 				bullets: $scope.bullets,
 				inBlack: $scope.inBlack,
 				inBlackPerc: +($scope.inBlack * 100 / $scope.bulletCount).toFixed(1),
-				dt: $scope.dt
+				dt: $scope.dt,
+				distance: this.distance,
+				weapon: this.weapon,
+				caliber: this.caliber,
+				ammo: this.ammo
 			});
 
 			// Redirect after save

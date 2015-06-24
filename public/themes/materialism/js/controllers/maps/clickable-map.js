@@ -32,5 +32,7 @@ app.controller('ClickableMapController', ['$scope', function($scope) {
     title: 'San Francisco'
   });
 
+
+
   $scope.markers = markers;
 }]);

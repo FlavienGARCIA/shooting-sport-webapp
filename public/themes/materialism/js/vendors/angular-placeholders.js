@@ -522,14 +522,13 @@ angular.module( 'ngPlaceholders', [] )
 
           switch (el.type) {
             case 'textarea':
-              el.bla = 'hi';
-              elem.val(PlaceholderTextService.createParagraphs(1, 4));
+              elem.text(PlaceholderTextService.createParagraphs(1, 4));
               break;
             case 'text':
-              elem.val(PlaceholderTextService.createSentence());
+              elem.attr('value', PlaceholderTextService.createSentence());
               break;
             case 'password':
-              elem.val('nakama?');
+              elem.attr('value', 'nakama?');
               break;
             case 'checkbox':
               elem.attr('checked','checked');
@@ -537,7 +536,7 @@ angular.module( 'ngPlaceholders', [] )
           }
 
           if(elem.val()){
-            elem.parent().addClass("filled");
+            elem.parent().addClass('filled');
           }
         });
 

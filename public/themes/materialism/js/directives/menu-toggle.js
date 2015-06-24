@@ -7,7 +7,7 @@ app.directive('menuToggle', ['$location', function($location) {
       name: '@',
       icon: '@'
     },
-    templateUrl: '../tpl/directives/menu-toggle.html',
+    templateUrl: 'assets/tpl/directives/menu-toggle.html',
     link: function(scope, element, attrs) {
       icon = attrs.icon;
       if ( icon ) {
@@ -24,6 +24,8 @@ app.directive('menuToggle', ['$location', function($location) {
           link.addClass('active');
         }
       });
+
+      element.find('a').ripples();
 
       scope.isOpen = function() {
         folder = '/' + $location.path().split('/')[1];

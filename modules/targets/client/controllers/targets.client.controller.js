@@ -81,34 +81,3 @@ angular.module('targets').controller('TargetsController', ['$scope', '$statePara
 		};
 	}
 ]);
-
-// $scope.data = {
-// 	ammo: {
-// 		SB124: 'Sellier & Belliot 124g',
-// 		CCI: 'CCI Standard Velocity'
-// 	},
-// 	weapon: {
-// 		czShadow: 'CZ 75 SP-01 Shadow',
-// 		beretta92s: 'Beretta 92S',
-// 		buck: 'Browning Buck Mark URX',
-// 		beretta76: 'Beretta 76'
-// 	},
-// 	caliber: {
-// 		'9mm': '9mm',
-// 		'.22': '.22',
-// 		'4.5': '4.5'
-// 	},
-// 	distance: {
-// 		'25m': '25m',
-// 		'10m': '10m'
-// 	},
-// 	sightingPoint: {
-// 		x: 0,
-// 		y: 0
-// 	}
-// };
-
-
-
-
-

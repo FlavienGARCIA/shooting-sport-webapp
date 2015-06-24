@@ -26,9 +26,11 @@ app.controller('TablesDataController', ['$scope', 'PlaceholderTextService', 'ngT
       var mydata = [];
 
       if(searchStr){
+        searchStr = searchStr.toLowerCase();
         mydata = data.filter(function(item){
           return item.firstname.toLowerCase().indexOf(searchStr) > -1 || item.lastname.toLowerCase().indexOf(searchStr) > -1;
         });
+
       } else {
         mydata = data;
       }

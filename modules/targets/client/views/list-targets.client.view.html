@@ -24,11 +24,11 @@
                             Dans noir <i class="sortorder zmdi zmdi-caret-down" ng-show="predicate === 'inBlackPerc'" ng-class="{'zmdi-caret-down':reverse, 'zmdi-caret-up': !reverse}"></i>
                       </th>
                       <th>Score</th>
-                      <th>Distance</th>
                       <th>Arme</th>
                       <th>Calibre</th>
                       <th>Munitions</th>
-                      <th>Options</th>
+                      <th>Distance</th>
+                      <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,10 +49,10 @@
                       <td>{{ target.bulletCount }}</td>
                       <td>{{ target.inBlack }} <span class="text-muted">({{ target.inBlackPerc }} %)</span></td>
                       <td>{{ target.score }}</td>
-                      <td>25m</td>
-                      <td>CZ 75 SP-01 SHADOW</td>
-                      <td>9mm</td>
-                      <td>Sellier & Belliot 124g</td>
+                      <td>{{ target.weapon }}</td>
+                      <td>{{ target.caliber }}</td>
+                      <td>{{ target.ammo }}</td>
+                      <td>{{ target.distance }}</td>
                       <td><a ng-click="openUpdateModal(target)" class="btn btn-info btn-sm btn-flat">Voir / Modifier</a>
                           <a class="btn btn-primary btn-sm btn-flat" data-ng-click="remove(target);">Supprimer</a>
                       </td>

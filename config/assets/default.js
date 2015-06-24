@@ -9,7 +9,8 @@ module.exports = {
 				'public/themes/materialism/css/helpers.css',
 				'public/themes/materialism/css/ripples.css',
 				'public/lib/material-design-iconic-font/dist/css/material-design-iconic-font.css',
-				'public/lib/c3/c3.css'
+				'public/lib/c3/c3.css',
+				'public/lib/angular-ui-select/dist/select.css'
 			],
 			js: [
 				'public/lib/jquery/dist/jquery.js',
@@ -24,6 +25,7 @@ module.exports = {
 				'public/lib/d3/d3.js',
 				'public/lib/c3/c3.js',
 				'public/lib/c3-angular/c3js-directive.js',
+				'public/lib/angular-ui-select/dist/select.js'
 
 				// Materialism
 				// 'public/themes/materialism/js/colors.js',

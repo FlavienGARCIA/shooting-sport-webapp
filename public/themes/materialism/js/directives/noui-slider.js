@@ -6,6 +6,7 @@ app.directive('nouiSlider', function() {
 
       var bind = angular.element(attrs.bind);
       var bindRange = angular.element(attrs.bindRange);
+      var indicator = angular.element(attrs.indicator);
 
       if ( bind.length ) start = bind.val();
 
@@ -33,6 +34,15 @@ app.directive('nouiSlider', function() {
           'max': [ max ]
         }
       });
+
+      if ( indicator.selector === 'true' ) {
+        $(element).on('slide set change', function(a,b){
+          if( !$(this).find('.noUi-handle div').length ){
+            $(this).find('.noUi-handle').append('<div>'+b+'</div>');
+          }
+          $(this).find('.noUi-handle div').html(b);
+        });
+      }
 
       $(element).on('slide', function(a,b){
 

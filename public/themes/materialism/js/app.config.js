@@ -25,7 +25,7 @@ app.config(['$routeProvider', function($routeProvider) {
 // loading bar settings
 .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
   cfpLoadingBarProvider.includeSpinner = false;
-  cfpLoadingBarProvider.latencyThreshold = 1;
+  cfpLoadingBarProvider.latencyThreshold = 300;
 }])
 
 // defaults for date picker
@@ -46,7 +46,8 @@ app.config(['$routeProvider', function($routeProvider) {
     iconDown: 'md md-expand-more',
     hourStep: 1,
     minuteStep: 1,
-    arrowBehavior: 'picker'
+    arrowBehavior: 'picker',
+    modelTimeFormat: 'HH:mm'
   });
 }])
 
@@ -57,5 +58,5 @@ app.config(['$routeProvider', function($routeProvider) {
 
 // set constants
 .run(['$rootScope', 'APP', function ($rootScope, APP) {
-    $rootScope.APP = APP;
+  $rootScope.APP = APP;
 }]);
