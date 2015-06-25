@@ -5,7 +5,7 @@ var ApplicationConfiguration = (function() {
 	// Init module configuration options
 	var applicationModuleName = 'shooting-sport-targets';
 
-	var applicationModuleVendorDependencies = ['ngResource', 'ui.router', 'ui.bootstrap', 'ui.utils', 'angularFileUpload', 'gridshore.c3js.chart', 'ui.select'];
+	var applicationModuleVendorDependencies = ['ngResource', 'ui.router', 'ui.bootstrap', 'ui.utils', 'angularFileUpload', 'gridshore.c3js.chart', 'ui.select', 'nouislider'];
 
 	// Add a new vertical module
 	var registerModule = function(moduleName, dependencies) {

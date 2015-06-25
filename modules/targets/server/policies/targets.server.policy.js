@@ -27,6 +27,9 @@ exports.invokeRolesPolicies = function() {
 			resources: '/api/targets',
 			permissions: ['get', 'post']
 		}, {
+			resources: '/api/targets/picture',
+			permissions: ['get', 'post']
+		}, {
 			resources: '/api/targets/:targetId',
 			permissions: ['get']
 		}]

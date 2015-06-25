@@ -4,10 +4,12 @@
  * Module dependencies.
  */
 var _ = require('lodash'),
+	fs = require('fs'),
 	path = require('path'),
 	mongoose = require('mongoose'),
 	Target = mongoose.model('Target'),
 	errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
+
 
 /**
  * Create a Target
@@ -26,6 +28,48 @@ exports.create = function(req, res) {
 		}
 	});
 };
+
+// exports.uploadPicture = function(req, res) {
+// 	var target = new Target(req.body);
+// 	target.user = req.user;
+
+// 	fs.writeFile('./modules/targets/client/img/uploads/' + req.files.file.name, req.files.file.buffer, function(uploadError) {
+// 		if (uploadError) {
+// 			return res.status(400).send({
+// 				message: 'Error occurred while uploading target picture'
+// 			});
+// 		} else {
+// 			target.imageURL = 'modules/targets/img/uploads/' + req.files.file.name;
+
+// 			target.save(function(err) {
+// 				if (err) {
+// 					return res.status(400).send({
+// 						message: errorHandler.getErrorMessage(err)
+// 					});
+// 				} else {
+// 					res.jsonp(target);
+// 				}
+// 			});
+// 		}
+// 	});
+// };
+
+exports.uploadPicture = function(req, res) {
+	var target = {};
+	var message = null;
+
+	fs.writeFile('./modules/targets/client/img/uploads/' + req.files.file.name, req.files.file.buffer, function (uploadError) {
+		if (uploadError) {
+			return res.status(400).send({
+				message: 'Error occurred while uploading profile picture'
+			});
+		} else {
+			target.imageUrl = 'modules/targets/img/uploads/' + req.files.file.name;
+			res.jsonp(target);
+		}
+	});
+};
+
 
 /**
  * Show the current Target

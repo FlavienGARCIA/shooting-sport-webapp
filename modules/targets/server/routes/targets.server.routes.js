@@ -9,6 +9,8 @@ module.exports = function(app) {
 		.get(targets.list).all(targetsPolicy.isAllowed)
 		.post(targets.create);
 
+	app.route('/api/targets/picture').all(targetsPolicy.isAllowed).post(targets.uploadPicture);
+
 	app.route('/api/targets/:targetId').all(targetsPolicy.isAllowed)
 		.get(targets.read)
 		.put(targets.update)

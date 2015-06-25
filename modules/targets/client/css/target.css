@@ -1,11 +1,12 @@
 .target {
-  height: 600px;
-  width: 600px;
+  height: 1000px;
+  width: 1000px;
   border-radius: 100%;
   background-size: 100% 100%;
   position: relative;
-  margin: 0 auto; }
-  .target.create {
+  margin: 0 auto;
+  overflow: hidden; }
+  .target.create, .target.edit {
     cursor: crosshair; }
   .target .bullet {
     position: absolute;
@@ -116,3 +117,13 @@
 
 .icon-color.zmdi {
   line-height: 35px !important; }
+
+.target-overlay {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  /*opacity: .5;*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20; }
