@@ -132,3 +132,11 @@
 
 img[src*="svg"] {
   width: auto !important; }
+
+.ng-pager {
+  list-style: none;
+  margin: 0;
+  text-align: center;
+  padding: 20px; }
+  .ng-pager .disabled > a, .ng-pager .disabled > a:hover, .ng-pager .disabled > a:focus, .ng-pager .disabled > span {
+    visibility: hidden; }

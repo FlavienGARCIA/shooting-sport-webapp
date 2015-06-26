@@ -1,18 +1,37 @@
 'use strict';
 
 // Targets controller
-angular.module('targets').controller('TargetsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Targets', '$modal', '$log',
-	function($scope, $stateParams, $location, Authentication, Targets, $modal, $log) {
+angular.module('targets').controller('TargetsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Targets', '$modal', '$log', 'ngTableParams', '$filter',
+	function($scope, $stateParams, $location, Authentication, Targets, $modal, $log, ngTableParams, $filter) {
 		$scope.authentication = Authentication;
-		$scope.predicate = 'dt';
-		$scope.reverse = true;
 
 		// Find a list of Targets
-		$scope.targets = Targets.query();
+		$scope.find = function() {
+			$scope.targets = Targets.query(function(data) {
+				// List targets table
+				$scope.filters = {
+					username: ''
+				};
 
-		$scope.order = function(predicate) {
-			$scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
-			$scope.predicate = predicate;
+		        $scope.tableParams = new ngTableParams({
+		            page: 1,            // show first page
+		            count: 10,          // count per page
+		            filter: $scope.filters,
+		            sorting: {
+			            dt: 'desc'     // initial sorting
+			        }
+		        }, {
+					total: data.length, // length of data
+					getData: function($defer, params) {
+						// use build-in angular filter
+						var orderedData = params.sorting() ?
+							$filter('orderBy')(data, params.orderBy()) :
+							data;
+
+						$defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+					}
+		        });
+			});
 		};
 
 		// Remove existing Target
@@ -30,36 +49,6 @@ angular.module('targets').controller('TargetsController', ['$scope', '$statePara
 					$location.path('targets');
 				});
 			}
-		};
-
-		// Open update modal function
-		$scope.animationsEnabled = true;
-
-		$scope.openUpdateModal = function(selectedTarget) {
-
-			var modalInstance = $modal.open({
-				animation: $scope.animationsEnabled,
-				templateUrl: 'modules/targets/views/edit-target.client.view.html',
-				controller: function ($scope, $modalInstance, target) {
-					$scope.target = target;
-				},
-				size: 'lg',
-				resolve: {
-					target: function() {
-						return selectedTarget;
-					}
-				}
-			});
-
-			modalInstance.result.then(function(selectedItem) {
-				$scope.selected = selectedItem;
-			}, function() {
-				$log.info('Modal dismissed at: ' + new Date());
-			});
-		};
-
-		$scope.toggleAnimation = function() {
-			$scope.animationsEnabled = !$scope.animationsEnabled;
 		};
 
 		// Update existing Target

@@ -109,3 +109,14 @@
 img[src*="svg"] {
 	width: auto !important;
 }
+
+.ng-pager {
+	list-style: none;
+	margin: 0;
+	text-align: center;
+	padding: 20px;
+
+	.disabled > a, .disabled > a:hover, .disabled > a:focus, .disabled > span {
+		visibility: hidden;
+	}
+}
