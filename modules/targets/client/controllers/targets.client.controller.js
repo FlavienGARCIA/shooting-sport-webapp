@@ -67,7 +67,7 @@ angular.module('targets').controller('TargetsController', ['$scope', '$statePara
 			var target = $scope.target;
 
 			target.$update(function() {
-				
+				$location.path('targets');
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});

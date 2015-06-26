@@ -12,18 +12,60 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 		$scope.inBlack = 0;
 		$scope.bulletCount = 0;
 		$scope.imageURL = '';
-		$scope.weapons = [
-			{ name: 'CZ 75 SP-01 Shadow', caliber: '9x19mm' },
-			{ name: 'Beretta 92S', caliber: '9x19mm' },
-			{ name: 'Browning Buck Mark URX', caliber: '.22 LR' },
-			{ name: 'Beretta 76', caliber: '.22 LR' }
-		];
+		$scope.croppedImageURL = '';
+		$scope.weapons = ['CZ 75 SP-01 Shadow', 'Beretta 92S', 'Browning Buck Mark URX', 'Beretta 76'];
+		$scope.calibers = ['9x19mm', '.22 LR'];
 		$scope.ammos = ['Sellier & Belliot', 'CCI Standard Velocity'];
 		$scope.distances = ['10m', '25m'];
 		$scope.imageParams = {
-			opacity: 50,
-			rotation: 0
-		}
+			opacity: 100,
+			rotation: 0,
+			scale: 100,
+			x: 0,
+			y: 0
+		};
+
+		$scope.cropContainer = $('.imageContainer > img');
+		$scope.cropData = null;
+
+		$scope.initCropper = function() {
+			$scope.cropContainer.cropper({
+				aspectRatio: 1 / 1,
+				autoCropArea: 1,
+				minCropBoxHeight: 1000,
+				minCropBoxWidth: 1000,
+				dragCrop: false,
+				strict: false,
+				cropBoxMovable: false,
+				cropBoxResizable: false,
+				background: false,
+				modal: false,
+				crop: function(data) {
+					$scope.cropData = data;
+				}
+			});
+		};
+
+		$('.rotate').on({
+			slide: function() {
+				$('.cropper-canvas > img').css({
+					// transform: 'translateY(300px) rotateZ(120deg)'
+					transform: 'rotate(' + $scope.imageParams.rotation + 'deg)'
+				});
+			}
+		});
+
+		$scope.cropEnabled = true;
+
+		$scope.disableCrop = function() {
+			$scope.cropContainer.cropper('disable');
+			$scope.cropEnabled = false;
+		};
+
+		$scope.enableCrop = function() {
+			$scope.cropContainer.cropper('enable');
+			$scope.cropEnabled = true;
+		};
 
 		// get clicked bullet position
 		$scope.getBulletPosition = function(event, container) {
@@ -108,6 +150,7 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 			$scope.success = true;
 
 			$scope.imageURL = response.imageUrl;
+			$scope.initCropper();
 
 			// Clear upload buttons
 			$scope.uploader.clearQueue();
@@ -154,7 +197,14 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 				weapon: this.weapon,
 				caliber: this.caliber,
 				ammo: this.ammo,
-				imageURL: $scope.imageURL
+				imageURL: $scope.imageURL,
+				cropData: {
+					x: $scope.cropData.x,
+					y: $scope.cropData.y,
+					height: $scope.cropData.height,
+					width: $scope.cropData.width,
+					rotate: $scope.cropData.rotate
+				}
 			});
 
 			// Redirect after save

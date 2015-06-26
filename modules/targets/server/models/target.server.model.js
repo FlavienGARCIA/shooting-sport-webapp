@@ -25,6 +25,13 @@ var TargetSchema = new Schema({
 		type: String,
 		default: 'modules/targets/img/profile/default.png'
 	},
+	cropData: {
+		x: Number,
+		y: Number,
+		width: Number,
+		height: Number,
+		rotate: Number
+	},
 	dt: {
 		type: Date,
 		default: Date.now

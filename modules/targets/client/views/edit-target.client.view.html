@@ -1,35 +1,37 @@
 <section data-ng-controller="TargetsController" data-ng-init="findOne()">
     <div class="page-header">
-        <h1>Mettre à jour cible</h1>
+        <h1>Modifier une cible</h1>
     </div>
     <div class="row">
         <div class="col-md-12">
-            <div class="card bordered z-depth-1">
+            <div class="card bordered">
                 <div class="card-content">
-                    <div class="target create" ng-click="createBulletHole($event)">
-                        <div class="bullets">
-                            <div ng-repeat="bullet in target.bullets" class="bullet nine-mm" data-bullet-score="{{bullet.score}}" style="left: {{bullet.x}}; top:{{bullet.y}};"></div>
+                    <div class="targetContainer">
+                        <div class="target edit" ng-mouseup="createBulletHole($event)">
+                            <div class="bullets">
+                                <div ng-repeat="bullet in target.bullets" class="bullet nine-mm" data-bullet-score="{{bullet.score}}" style="left: {{bullet.x}}; top:{{bullet.y}};"></div>
+                            </div>
+                            <div data-score="10" class="score-11 inner black"></div>
+                            <div data-score="10" class="score-10 inner black"></div>
+                            <div data-score="9" class="score-9 inner black"></div>
+                            <div data-score="8" class="score-8 inner black"></div>
+                            <div data-score="7" class="score-7 inner black"></div>
+                            <div data-score="6" class="score-6 inner white"></div>
+                            <div data-score="5" class="score-5 inner white"></div>
+                            <div data-score="4" class="score-4 inner white"></div>
+                            <div data-score="3" class="score-3 inner white"></div>
+                            <div data-score="2" class="score-2 inner white"></div>
+                            <div data-score="1" class="score-1 inner white"></div>
                         </div>
-                        <div data-score="10" class="score-11 inner black"></div>
-                        <div data-score="10" class="score-10 inner black"></div>
-                        <div data-score="9" class="score-9 inner black"></div>
-                        <div data-score="8" class="score-8 inner black"></div>
-                        <div data-score="7" class="score-7 inner black"></div>
-                        <div data-score="6" class="score-6 inner white"></div>
-                        <div data-score="5" class="score-5 inner white"></div>
-                        <div data-score="4" class="score-4 inner white"></div>
-                        <div data-score="3" class="score-3 inner white"></div>
-                        <div data-score="2" class="score-2 inner white"></div>
-                        <div data-score="1" class="score-1 inner white"></div>
+                        <div class="imageContainer" ng-style="{opacity: imageParams.opacity / 100}">
+                            <img ng-src="{{imageURL}}">
+                        </div>
                     </div>
-                    <ul>
-                        <li>Score : {{target.score}}</li>
-                        <li>Score moyen : {{target.meanScore}}</li>
-                        <li>Impacts : {{target.bulletCount}}</li>
-                    </ul>
                 </div>
                 <div class="card-action clearfix">
-
+                    <div style="display:inline-block; min-height:290px;">
+                        <datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
+                    </div>
                     <form data-ng-submit="update()" class="pull-right"  novalidate>
                         <fieldset>
                             <div class="form-group">
@@ -41,10 +43,6 @@
                             </div>
                         </fieldset>
                     </form>
-
-                    <div style="display:inline-block; min-height:290px;">
-                        <datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
-                    </div>
                 </div>
             </div>
         </div>

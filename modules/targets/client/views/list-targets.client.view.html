@@ -15,7 +15,7 @@
                             Date <i class="sortorder zmdi zmdi-fast-forward zmd-rotate-90 pink-text" ng-show="predicate === 'dt'" ng-class="{' zmdi-fast-forward zmd-rotate-90':reverse, 'zmdi-fast-rewind zmd-rotate-90': !reverse}"></i>
                       </th>
                       <th data-ng-click="order('meanScore')" class="order">
-                            Score moyen <i class="sortorder zmdi pink-text" ng-show="predicate === 'meanScore'" ng-class="{' zmdi-fast-forward zmd-rotate-90':reverse, 'zmdi-fast-rewind zmd-rotate-90': !reverse}"></i>
+                            Moyenne <i class="sortorder zmdi pink-text" ng-show="predicate === 'meanScore'" ng-class="{' zmdi-fast-forward zmd-rotate-90':reverse, 'zmdi-fast-rewind zmd-rotate-90': !reverse}"></i>
                       </th>
                       <th data-ng-click="order('bulletCount')" class="order">
                             Impacts <i class="sortorder zmdi pink-text" ng-show="predicate === 'bulletCount'" ng-class="{' zmdi-fast-forward zmd-rotate-90':reverse, 'zmdi-fast-rewind zmd-rotate-90': !reverse}"></i>
@@ -54,7 +54,7 @@
                       <td>{{ target.ammo }}</td>
                       <td>{{ target.distance }}</td>
                       <td>
-                          <a data-ui-sref="targets.edit({targetId: target._id})" class="btn btn-info btn-sm btn-flat">Voir / Modifier</a>
+                          <a data-ui-sref="targets.edit({targetId: target._id})" class="btn btn-info btn-sm btn-flat">Modifier</a>
                           <a class="btn btn-primary btn-sm btn-flat" data-ng-click="remove(target);">Supprimer</a>
                       </td>
                     </tr>

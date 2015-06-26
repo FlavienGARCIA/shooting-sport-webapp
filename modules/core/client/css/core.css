@@ -39,3 +39,7 @@ main .main-container .main-content {
 table th.order {
 	cursor: pointer;
 }
+
+html, body {
+	height: auto !important;
+}

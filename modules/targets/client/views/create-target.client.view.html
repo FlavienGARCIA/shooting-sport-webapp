@@ -3,42 +3,47 @@
         <h1>Nouvelle cible</h1>
     </div>
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-9" data-ng-show="success">
             <div class="card bordered">
                 <div class="card-content">
-                    <div class="target create" ng-click="createBulletHole($event)">
-                        <img ng-style="{'opacity': imageParams.opacity / 100, 'transform': 'rotate('+imageParams.rotation+'deg)'}" data-ng-src="{{imageURL}}" alt="{{user.displayName}}" class="target-overlay">
-                        <div class="bullets"></div>
-                        <div data-score="10" class="score-11 inner black"></div>
-                        <div data-score="10" class="score-10 inner black"></div>
-                        <div data-score="9" class="score-9 inner black"></div>
-                        <div data-score="8" class="score-8 inner black"></div>
-                        <div data-score="7" class="score-7 inner black"></div>
-                        <div data-score="6" class="score-6 inner white"></div>
-                        <div data-score="5" class="score-5 inner white"></div>
-                        <div data-score="4" class="score-4 inner white"></div>
-                        <div data-score="3" class="score-3 inner white"></div>
-                        <div data-score="2" class="score-2 inner white"></div>
-                        <div data-score="1" class="score-1 inner white"></div>
+                    <div class="targetContainer">
+                        <div class="target create" data-ng-class="{ 'disabled': cropEnabled }" ng-mouseup="createBulletHole($event)">
+                            <div class="bullets"></div>
+                            <div data-score="10" class="score-11 inner black"></div>
+                            <div data-score="10" class="score-10 inner black"></div>
+                            <div data-score="9" class="score-9 inner black"></div>
+                            <div data-score="8" class="score-8 inner black"></div>
+                            <div data-score="7" class="score-7 inner black"></div>
+                            <div data-score="6" class="score-6 inner white"></div>
+                            <div data-score="5" class="score-5 inner white"></div>
+                            <div data-score="4" class="score-4 inner white"></div>
+                            <div data-score="3" class="score-3 inner white"></div>
+                            <div data-score="2" class="score-2 inner white"></div>
+                            <div data-score="1" class="score-1 inner white"></div>
+                        </div>
+                        <div class="imageContainer" ng-style="{opacity: imageParams.opacity / 100}">
+                            <img ng-src="{{imageURL}}">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card bordered">
+            <div class="card bordered small">
                 <div class="card-header">
                     <div class="card-title">Image</div>
                 </div>
                 <div class="card-content">
                     <div class="btn-block" data-ng-hide="uploader.queue.length">
-                        <span class="btn btn-success btn-file btn-block btn-flat">
-                            Choisir une image
+                        <span class="btn btn-info btn-file btn-block btn-flat">
+                            Ajouter une image
                             <input type="file" nv-file-select uploader="uploader"></span>
                     </div>
                     <div class="text-center" data-ng-show="uploader.queue.length">
                         <button class="btn btn-success btn-flat" data-ng-click="uploadTargetPicture();">Enregistrer</button>
                         <button class="btn btn-default btn-flat" data-ng-click="cancelUpload();">Annuler</button>
                     </div>
+
                     <!-- <div data-ng-show="success" class="text-center text-success"> <strong>Image enregistrée</strong>
                     </div>
                     <div data-ng-show="error" class="text-center text-danger"> <strong data-ng-bind="error"></strong>
@@ -53,12 +58,41 @@
                     <div class="form-group">
                         <label class="control-label">Rotation</label>
                         <span class="pull-right text-muted"><span ng-bind="imageParams.rotation"></span>°</span>
-                        <div slider ng-model="imageParams.rotation" start=-90 end=90></div>
+                        <div class="rotate" slider ng-model="imageParams.rotation" start=-90 end=90 callback='slide'></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Zoom</label>
+                        <span class="pull-right text-muted"><span ng-bind="imageParams.scale"></span> %</span>
+                        <div slider ng-model="imageParams.scale" start=50 end=200></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">X</label>
+                        <span class="pull-right text-muted"><span ng-bind="imageParams.x"></span>px</span>
+                        <div slider ng-model="imageParams.x" start=-500 end=500></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Y</label>
+                        <span class="pull-right text-muted"><span ng-bind="imageParams.y"></span>px</span>
+                        <div slider ng-model="imageParams.y" start=-500 end=500></div>
                     </div>
                 </div>
+                
             </div>
-            <div class="card bordered small">
+            <div class="card bordered small" data-ng-show="success">
+                <div class="card-header">
+                    <div class="card-title">Mode</div>
+                </div>
                 <div class="card-content">
+                    <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-primary': cropEnabled, 'btn-default': !cropEnabled }" ng-click="enableCrop();">Image</button>
+                    <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-warning': !cropEnabled, 'btn-default': cropEnabled }" ng-click="disableCrop();">Impacts</button>
+                    <button class="btn btn-block btn-flat btn-default">Visualisation</button>
+                </div>
+            </div>
+            <div class="card bordered small" data-ng-show="success">
+                <div class="card-header">
+                    <div class="card-title">Date</div>
+                </div>
+                <div class="card-content text-center">
                     <datepicker starting-day="1" ng-model="dt" show-weeks="true" custom-class="getDayClass(date, mode)" class="datepicker datepicker-mode-0"></datepicker>
                 </div>
                 <div class="card-action clearfix">
@@ -101,7 +135,7 @@
                                 </div>
                             </div>
  -->
-                            <button type="submit" class="btn btn-primary btn-flat btn-lg btn-block">Créer cible</button>
+                            <button type="submit" class="btn btn-success btn-flat btn-block">Créer cible</button>
                             <div data-ng-show="error" class="text-danger">
                                 <strong data-ng-bind="error"></strong>
                             </div>
