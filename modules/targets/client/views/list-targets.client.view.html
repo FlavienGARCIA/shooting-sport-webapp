@@ -12,7 +12,18 @@
         </div>
 		<div class="col-md-12">
 			<div class="card">
-				<h3 class="table-title p-20">Historique des cibles </h3>
+				<div class="row">
+					<div class="col-md-6">
+						<h3 class="table-title p-20"><span ng-bind="targets.length"></span> cibles 
+							<a title="Uniquement afficher mes cibles" data-ng-show="authentication.user" class="btn btn-link btn-icon" ng-click="onlyShowUserTargets = !onlyShowUserTargets"><i class="zmdi zmdi-refresh red-text"></i></a>
+						</h3>
+					</div>
+					<div ng-hide="onlyShowUserTargets" class="col-md-6">
+						<div class="table-search">
+							<input type="text" class="form-control" placeholder="Filtrer auteur" ng-model="tableParams.filter()['search']" />
+						</div>
+					</div>
+				</div>
 				<div class="table-responsive white">
 					<table template-pagination="custom/pager" ng-table="tableParams" class="table table-bordered table-striped table-full table-full-small ng-cloak">
 						<colgroup>						
@@ -31,10 +42,11 @@
 							<td data-title="'calibre'" data-ng-bind="target.caliber"></td>
 							<td data-title="'munitions'" data-ng-bind="target.ammo"></td>
 							<td data-title="'distance'" data-ng-bind="target.distance"></td>
-							<td data-title="'créateur'" data-ng-bind="target.user.displayName" sortable="'user.displayName'"></td>
+							<td data-title="'auteur'" data-ng-bind="target.user.displayName" sortable="'user.displayName'" filter="{ 'user.displayName': 'text' }"></td>
 							<td data-title="'actions'">
-								<a data-ui-sref="targets.edit({targetId: target._id})" class="btn btn-info btn-sm btn-flat">Modifier</a>
-								<a data-ng-show="target.user === authentication.user" class="btn btn-primary btn-sm btn-flat" data-ng-click="remove(target);">Supprimer</a>
+								<a class="btn btn-success btn-sm btn-flat">Voir</a>
+								<a ng-show="target.user.displayName === authentication.user.displayName" data-ui-sref="targets.edit({targetId: target._id})" class="btn btn-info btn-sm btn-flat">Modifier</a>
+								<a ng-show="target.user.displayName === authentication.user.displayName" class="btn btn-primary btn-sm btn-flat" data-ng-click="remove(target);">Supprimer</a>
 							</td>
 						</tr>
 					</table>

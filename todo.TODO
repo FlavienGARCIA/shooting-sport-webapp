@@ -1,3 +1,30 @@
- ☐ Targets lists search filter (username)
- ☐ Crop fine controls
- ☐ Weapon/caliber/ammo/distance fields in create target
+ List:
+    ✔ Search filter (username) @done (15-06-26 22:32)
+    ✔ Actions buttons visibility per user @done (15-06-26 22:32)
+    ☐ Only my targets button
+    ☐ Add loader to table
+    ☐ View target button
+    ☐ Delete data from $data after target deletion
+
+ Create:
+    ☐ Crop fine controls
+    ☐ Weapon/caliber/ammo/distance fields in create target (select + add to database)
+    ☐ Responsive target container
+    ☐ Visualisation mode
+    ☐ Create a helper
+    ☐ Top right alert when switching modes
+
+Stats:
+    ☐ Show by caliber
+    ☐ Show only by user
+    ☐ Show global stats (mean, inBlack)
+    ☐ Show by id with date (for equal space between points)
+
+Dashboard:
+    ☐ Add global stats
+    ☐ Last created targets
+    ☐ Best targets (by caliber, by weapon)
+
+Global:
+    ☐ Add material ripples
+    ☐ Ajust responsive design

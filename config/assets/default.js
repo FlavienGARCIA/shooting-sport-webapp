@@ -11,7 +11,8 @@ module.exports = {
 				'public/lib/material-design-iconic-font/dist/css/material-design-iconic-font.css',
 				'public/lib/c3/c3.css',
 				'public/lib/angular-ui-select/dist/select.css',
-				'public/lib/cropper/dist/cropper.css'
+				'public/lib/cropper/dist/cropper.css',
+				'public/lib/ng-table/dist/ng-table.css'
 			],
 			js: [
 				'public/lib/jquery/dist/jquery.js',

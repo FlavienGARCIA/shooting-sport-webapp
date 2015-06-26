@@ -8,27 +8,31 @@ angular.module('targets').controller('TargetsController', ['$scope', '$statePara
 		// Find a list of Targets
 		$scope.find = function() {
 			$scope.targets = Targets.query(function(data) {
-				// List targets table
-				$scope.filters = {
-					username: ''
-				};
-
 		        $scope.tableParams = new ngTableParams({
 		            page: 1,            // show first page
 		            count: 10,          // count per page
-		            filter: $scope.filters,
 		            sorting: {
 			            dt: 'desc'     // initial sorting
 			        }
 		        }, {
+		        	filterDelay: 0,
 					total: data.length, // length of data
 					getData: function($defer, params) {
-						// use build-in angular filter
-						var orderedData = params.sorting() ?
-							$filter('orderBy')(data, params.orderBy()) :
-							data;
+						var searchStr = params.filter().search;
+						var mydata = [];
 
-						$defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+						if (searchStr) {
+							searchStr = searchStr.toLowerCase();
+							mydata = data.filter(function(item) {
+								return item.user.displayName.toLowerCase().indexOf(searchStr) > -1;
+							});
+
+						} else {
+							mydata = data;
+						}
+
+						mydata = params.sorting() ? $filter('orderBy')(mydata, params.orderBy()) : mydata;
+						$defer.resolve(mydata.slice((params.page() - 1) * params.count(), params.page() * params.count()));
 					}
 		        });
 			});
