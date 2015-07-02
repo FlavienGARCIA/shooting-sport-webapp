@@ -1,11 +1,10 @@
  List:
     ✔ Search filter (username) @done (15-06-26 22:32)
     ✔ Actions buttons visibility per user @done (15-06-26 22:32)
-    ✘ Only my targets button @cancelled (15-07-01 20:43)
+    ☐ Only my targets button
     ☐ Add loader to table
     ☐ View target button
     ☐ Delete data from $data after target deletion
-    ☐ Default to only my targets
 
  Create:
     ☐ Crop fine controls
@@ -24,10 +23,8 @@ Stats:
 Dashboard:
     ☐ Add global stats
     ☐ Last created targets
-    ☐ Best targets leaderboards (by caliber, by weapon)
+    ☐ Best targets (by caliber, by weapon)
 
 Global:
     ☐ Add material ripples
-    ☐ Adjust responsive design
-    ☐ Remove sidebar & revert to top menu navbar
-    ☐ (change theme, Flatly ?)
+    ☐ Ajust responsive design

@@ -31,3 +31,15 @@ a:hover .header-profile-image {
 	padding-top: 11px !important;
 	padding-bottom: 11px !important;
 }
+
+main .main-container .main-content {
+	padding-top: 0 !important;
+}
+
+table th.order {
+	cursor: pointer;
+}
+
+html, body {
+	height: auto !important;
+}
