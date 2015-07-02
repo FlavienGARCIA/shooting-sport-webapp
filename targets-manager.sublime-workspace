@@ -1,0 +1,504 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"upda",
+				"updatedStats"
+			],
+			[
+				"global",
+				"globalMeanScore"
+			],
+			[
+				"template",
+				"templateHtml〔variable〕"
+			],
+			[
+				"updateScore",
+				"updateScoredata"
+			],
+			[
+				"browser",
+				"browsers"
+			],
+			[
+				"bullet",
+				"bulletCountContainer"
+			],
+			[
+				"meanScore",
+				"meanScoreContainer〔variable〕"
+			],
+			[
+				"calc",
+				"calculateScore〔function〕"
+			],
+			[
+				"create",
+				"createBulletHole〔function〕"
+			],
+			[
+				"return",
+				"returnScore"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"bro",
+				"browser"
+			],
+			[
+				"brow",
+				"browserify"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 274.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 510.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Flavien/Documents/GitHub/targets-manager"
+	],
+	"file_history":
+	[
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/targets/client/scss/target.scss",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/users/server/models/user.server.model.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/targets/server/controllers/targets.server.controller.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/core/client/controllers/target-picture.client.controller.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/targets/server/models/target.server.model.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/config/assets/default.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/public/themes/materialism/tpl/forms/basic.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/targets/client/views/list-targets.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/core/client/app/config.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/users/client/views/settings/change-profile-picture.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/users/client/controllers/settings/change-profile-picture.client.controller.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/public/themes/materialism/tpl/ui-elements/cards.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/public/themes/_materialism/tpl/forms/advanced.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/targets/client/controllers/targets.client.controller.js",
+		"/C/Users/Flavien/Documents/GitHub/materialism-1.1.0/app/index.dev.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/public/themes/_materialism/js/app.js",
+		"/D/Téléchargements/themeforest-11322821-materialism-angular-bootstrap-admin-template (2)/CHANGELOG.md",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/targets/client/controllers/stats.client.controller.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/targets/client/views/edit-target.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/targets/client/controllers/create-target.client.controller.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/targets/server/routes/targets.server.routes.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/targets/server/policies/targets.server.policy.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/targets/client/views/create-target.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/targets/client/services/targets-stats.client.service.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/targets/client/services/targets.client.service.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/targets/client/controllers/update-target.client.controller.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/targets/client/controllers/list-targets.client.controller.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/targets/client/controllers/remove-target.client.controller.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/targets/client/services/shared-data.cient.service.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/targets/client/config/targets.client.routes.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/targets/client/views/stats.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/core/server/views/layout.server.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/targets/client/views/view-target.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/core/client/views/home.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/core/client/views/sidebar.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/targets/client/config/targets.client.config.js",
+		"/C/Users/Flavien/Documents/GitHub/materialism-1.0.0/app/assets/tpl/partials/sidebar.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/core/client/config/core.client.routes.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/articles/client/services/articles.client.service.js",
+		"/C/Users/Flavien/AppData/Roaming/Sublime Text 3/Packages/Tag/Tag Package.sublime-settings",
+		"/C/Users/Flavien/AppData/Roaming/Sublime Text 3/Packages/User/Tag Package.sublime-settings",
+		"/C/Users/Flavien/Documents/GitHub/materialism-1.0.0/app/assets/tpl/charts.html",
+		"/C/Users/Flavien/Documents/GitHub/materialism-1.0.0/app/dist/index.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/bower.json",
+		"/C/Users/Flavien/Documents/GitHub/materialism-1.0.0/bower.json",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/core/client/css/core.css",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/core/client/controllers/home.client.controller.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/public/lib/angular-bootstrap/ui-bootstrap.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/public/themes/materialism/js/app.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/public/lib/angular-strap/dist/angular-strap.tpl.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/public/lib/angular-strap/src/datepicker/datepicker.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/public/lib/angular-strap/dist/angular-strap.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/targets/client/css/target.css",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/public/themes/materialism/tpl/tables/basic.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/public/themes/materialism/css/sass/variables-colors.scss",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/core/client/views/header.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/public/themes/materialism/tpl/tables/data.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/public/themes/materialism/tpl/partials/sidebar.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/public/themes/materialism/js/directives/menu-toggle.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/targets/client/views/target.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/users/client/views/authentication/signin.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/articles/client/config/articles.client.config.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/users/client/views/authentication/authentication.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/public/lib/material-design-iconic-font/dist/css/material-design-iconic-font.css",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/public/lib/material-design-iconic-font/css/material-design-iconic-font.css",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/gulpfile.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/public/lib/material-design-iconic-font/scss/_variables.scss",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/public/lib/material-design-iconic-font/scss/material-design-iconic-font.scss",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/users/client/views/authentication/_signin.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/materialism-1.0.0/app/pages/login.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/users/client/config/users.client.routes.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/modules/core/client/controllers/header.client.controller.js",
+		"/C/Users/Flavien/Documents/GitHub/materialism-1.0.0/app/assets/tpl/partials/topnav.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/server.js",
+		"/C/Users/Flavien/Documents/GitHub/materialism-1.0.0/app/assets/tpl/dashboard.html",
+		"/C/Users/Flavien/Documents/GitHub/materialism-1.0.0/app/index.dev.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/public/themes/materialism/css/materialism.css",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/public/themes/materialism/css/sass/materialism.scss",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/README.md",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/.jshintrc",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-webapp/package.json",
+		"/C/Users/Flavien/Documents/GitHub/materialism-1.0.0/README.md",
+		"/C/Users/Flavien/Documents/GitHub/materialism-1.0.0/Gruntfile.js",
+		"/C/Users/Flavien/Documents/GitHub/materialism-1.0.0/app/assets/css/sass/materialism.scss",
+		"/C/Users/Flavien/Documents/GitHub/materialism-1.0.0/app/assets/css/materialism.css",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/targets/client/controllers/targets.client.controller.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/targets/client/views/create-target.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/targets/client/views/edit-target.client.view.html",
+		"/D/Téléchargements/themeforest-11322821-materialism-angular-bootstrap-admin-template/materialism-1.0.0/README.md",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp-old/app/index.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp-old/app/src/js/bulletEvents.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp-old/app/src/js/text.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp-old/app/src/js/bullet.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp-old/app/src/js/score.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/targets/client/views/view-target.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp-old/app/src/js/data.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp-old/app/src/js/main.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/config/assets/default.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/core/client/views/header.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/core/client/views/home.client.view.html",
+		"/D/Téléchargements/material-start-master/material-start-master/app/index.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/core/server/views/layout.server.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/core/client/views/sidebar.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/public/lib/angular-material/angular-material.css",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/core/client/controllers/header.client.controller.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/core/client/app/init.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/core/server/views/index.server.view.html",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/core/client/css/md-starter.css",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/targets/client/scss/target.scss",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/config/env/development.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/chat/client/config/chat.client.config.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/targets/client/css/target.css",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/gulpfile.js",
+		"/C/Users/Flavien/Documents/GitHub/shooting-target-webapp-old/app/styles/_target.scss",
+		"/C/Users/Flavien/Documents/GitHub/shooting-sport-app/modules/targets/client/scss/target.css",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/modules/core/client/views/home.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/modules/users/client/controllers/authentication.client.controller.js",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/modules/core/client/views/header.client.view.html",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/modules/core/server/views/layout.server.view.html",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/modules/core/client/app/config.js",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/config/env/development.js",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/config/assets/default.js",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/gulpfile.js",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/bower.json",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/package.json",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/server.js",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/config/config.js",
+		"/C/Users/Flavien/Documents/GitHub/meanjs-shooting-sport/node_modules/connect-mongo/node_modules/mongodb/node_modules/bson/ext/index.js"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 161.0,
+		"where_history":
+		[
+			"<project>",
+			"C:\\Users\\Flavien\\Documents\\GitHub\\shooting-sport-webapp\\public\\themes\\materialism\\css\\sass",
+			"C:\\Users\\Flavien\\Documents\\GitHub\\shooting-sport-webapp\\modules\\users",
+			"C:\\Users\\Flavien\\Documents\\GitHub\\materialism-1.0.0\\app\\assets\\tpl",
+			"<project>",
+			"C:\\Users\\Flavien\\Documents\\GitHub\\shooting-target-webapp\\app\\styles\\components",
+			"C:\\Users\\Flavien\\Documents\\GitHub\\shooting-target-webapp\\app\\styles",
+			"C:\\Users\\Flavien\\Documents\\GitHub\\shooting-target-webapp\\app\\styles\\components",
+			"C:\\Users\\Flavien\\Documents\\GitHub\\shooting-target-webapp\\bower_components\\bootstrap-sass-official",
+			"C:\\Users\\Flavien\\Documents\\GitHub\\shooting-target-webapp\\bower_components",
+			"C:\\Users\\Flavien\\Documents\\GitHub\\shooting-target-webapp\\bower_components\\bootstrap-sass-official"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"zmdi-caret-up",
+			"zmdi-caret-down",
+			"item",
+			"SB: 'Sellier & Belliot'",
+			"mm",
+			"9mm",
+			"weapon",
+			".22}",
+			"/api/targets",
+			"false",
+			"Boolean",
+			"Number",
+			"[]",
+			"updated",
+			"TargetsStats",
+			"targets",
+			"$scope.targets",
+			",",
+			"score",
+			":",
+			"this",
+			"targetCtrl",
+			"$scope",
+			"\"",
+			"item",
+			"$scope",
+			"column-values",
+			"area-chart",
+			"span",
+			"meanScore",
+			".score",
+			"  ",
+			"globalMeanScore",
+			"this",
+			"statPoints",
+			"area-spline",
+			"$scope",
+			"\"",
+			"c3",
+			"type: ",
+			"created",
+			"datepicker",
+			" zmdi-mood",
+			" zmdi-mood-bad",
+			"||",
+			".data",
+			"toggle",
+			"navbar-toggle",
+			"$scope",
+			"templateUrl",
+			"addSubMenuItem",
+			", 'targets'",
+			"zmd",
+			"fonts",
+			"zmd",
+			"person",
+			"form",
+			"12px",
+			", ['csslint']",
+			"csslint",
+			"z-depth",
+			"target.",
+			"\"></script>",
+			"<script charset=\"utf-8\" src=\"assets/",
+			"authentication.client",
+			"auth",
+			"nav",
+			"include",
+			"aside",
+			"navbar",
+			"ng-",
+			"\\",
+			"ngMaterial",
+			"html",
+			"sass",
+			"appConfig",
+			"sass",
+			"angu",
+			"this",
+			"$scope",
+			"Bullet",
+			"bullet",
+			"roboto",
+			"font-fa",
+			"md-item",
+			"sass",
+			"defaultAssets.client.sass",
+			"sass",
+			"test",
+			"../build/Release/",
+			"build/Release/bson",
+			"../build/Release/",
+			"build/Release/bson",
+			"release",
+			"sass",
+			"wiredep",
+			"from",
+			"import",
+			"\\",
+			"mdi-list-icons",
+			"font-family",
+			"$mdi-list-icons",
+			"mdi",
+			"icons",
+			"icon",
+			"page-title",
+			"body",
+			"main",
+			"'' + ",
+			"updateScoreData",
+			"browserify",
+			"jshint",
+			"bower",
+			"$roboto-font-path",
+			"Roboto",
+			"jshint",
+			"updateScore",
+			"currentScore",
+			"jquery",
+			"jshint",
+			"lint",
+			"getScore",
+			"score",
+			"div",
+			"font-family",
+			"font",
+			"googleapis",
+			"google"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"md",
+			"'",
+			"'public/themes/materialism/",
+			"public/themes/materialism/"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 81.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "targets-manager.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\Flavien\\Documents\\GitHub\\Portfolio\\portfolio.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 359.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

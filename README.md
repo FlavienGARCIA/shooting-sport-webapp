@@ -1,1 +1,1 @@
-## Shooting Sport Webapp
+## Targets Manager

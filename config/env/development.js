@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = {
-	db: 'mongodb://Flavien:Bananescerises07@ds047762.mongolab.com:47762/tir-sportif-app',
-	// db: 'mongodb://localhost/tir-sportif-app',
+	// db: 'mongodb://heroku_target_user:heroku_target_pw@ds033841.mongolab.com:33841/heroku_vxqndjbl',
+	db: 'mongodb://localhost/tir-sportif-app',
 	app: {
 		title: 'shooting-sport-targets - Development Environment'
 	},
