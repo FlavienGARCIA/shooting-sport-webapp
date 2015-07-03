@@ -4,7 +4,7 @@
         <div class="card bordered">
             <div class="card-content">
                 <div class="targetContainer">
-                    <div class="target create" data-ng-class="{ 'disabled': cropEnabled, 'visualisation': visualisationMode }" ng-mouseup="createBulletHole($event)">
+                    <div class="target create" data-ng-class="{ 'disabled': cropEnabled, 'verification': verificationMode }" ng-mouseup="createBulletHole($event)">
                         <div class="bullets"></div>
                         <div data-score="10" class="score-11 inner black"></div>
                         <div data-score="10" class="score-10 inner black"></div>
@@ -82,8 +82,8 @@
             </div>
             <div class="card-content">
                 <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-primary': cropEnabled, 'btn-default': !cropEnabled }" ng-click="setImageMode();">Image</button>
-                <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-warning': !cropEnabled && !visualisationMode, 'btn-default': cropEnabled || visualisationMode }" ng-click="setImpactsMode();">Impacts</button>
-                <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-info': visualisationMode, 'btn-default': !visualisationMode }" ng-click="setVisualisationMode();">Visualisation</button>
+                <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-warning': !cropEnabled && !verificationMode, 'btn-default': cropEnabled || verificationMode }" ng-click="setImpactsMode();">Impacts</button>
+                <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-info': verificationMode, 'btn-default': !verificationMode }" ng-click="setVerificationMode();">Verification</button>
             </div>
         </div>
         <div class="card bordered small" data-ng-show="success">

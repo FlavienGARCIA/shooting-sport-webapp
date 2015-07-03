@@ -1,8 +1,8 @@
 'use strict';
 
 // Target create controller
-angular.module('targets').controller('TargetCreateController', ['$scope', '$stateParams', '$location', 'Authentication', 'Targets', 'FileUploader', '$timeout', '$window',
-	function($scope, $stateParams, $location, Authentication, Targets, FileUploader, $timeout, $window) {
+angular.module('targets').controller('TargetCreateController', ['$scope', '$stateParams', '$location', 'Authentication', 'Targets', 
+	function($scope, $stateParams, $location, Authentication, Targets) {
 		$scope.bullets = [];
 		$scope.score = 0;
 		$scope.currentBulletScore = 0;
@@ -11,12 +11,14 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 		$scope.maxScore = 0;
 		$scope.inBlack = 0;
 		$scope.bulletCount = 0;
-		$scope.imageURL = '';
-		$scope.croppedImageURL = '';
+
 		$scope.weapons = ['CZ 75 SP-01 Shadow', 'Beretta 92S', 'Browning Buck Mark URX', 'Beretta 76'];
 		$scope.calibers = ['9x19mm', '.22 LR'];
 		$scope.ammos = ['Sellier & Belliot', 'CCI Standard Velocity'];
 		$scope.distances = ['10m', '25m'];
+
+		$scope.imageURL = '';
+		$scope.croppedImageURL = '';
 		$scope.imageParams = {
 			opacity: 100,
 			rotation: 0,
@@ -24,54 +26,13 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 			x: 0,
 			y: 0
 		};
-		$scope.currentHelperState = 1;
+		
 		$scope.cropEnabled = true;
-		$scope.visualisationMode = false;
-
-		$scope.triggerClick = function(element) {
-			angular.element(element).trigger('click');
-		};
-
-		$scope.helpers = [{
-			name: 'uploadImage',
-			state: 1,
-			done: true,
-			buttonText: 'Parcourir',
-			action: function() {
-				angular.element('#upload-image input').trigger('click');
-			},
-			text: 'Commencez par ajouter une photo de votre cible.'
-		}, {
-			name: 'moveImage',
-			state: 2,
-			done: true,
-			buttonText: 'Valider',
-			action: function() {
-				$scope.setImpactsMode();
-			},
-			text: 'Ajustez le noir de la cible de l\'image sur le rouge de la cible virtuelle jusqu\'à ce qu\'elles soient alignées.'
-		}, {
-			name: 'createImpacts',
-			state: 3,
-			done: false,
-			buttonText: 'Valider',
-			action: function() {
-				$scope.setVisualisationMode();
-			},
-			text: 'Cliquez le plus précisément possible sur les impacts de votre photo pour les enregistrer.'
-		}, {
-			name: 'creation',
-			state: 4,
-			done: true,
-			buttonText: 'Enregistrer la cible',
-			action: function() {
-				$scope.create();
-			},
-			text: 'Vérifiez vos impacts et votre score. Choisissez la date de votre cible et enregistrez-là (par défaut la date d\'aujourd\'hui).'
-		}];
-
 		$scope.cropContainer = $('.imageContainer > img');
 		$scope.cropData = null;
+		$scope.verificationMode = false;
+		$scope.currentHelperState = 1;
+		$scope.impactsModeDone = false;
 
 		$scope.initCropper = function() {
 			$scope.cropContainer.cropper({
@@ -113,23 +74,19 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 		$scope.setImageMode = function() {
 			$scope.enableCrop();
 			$scope.currentHelperState = 2;
-			$scope.visualisationMode = false;
+			$scope.verificationMode = false;
 		};
 
 		$scope.setImpactsMode = function() {
 			$scope.disableCrop();
 			$scope.currentHelperState = 3;
-			$scope.visualisationMode = false;
+			$scope.verificationMode = false;
 		};
 
-		$scope.setVisualisationMode = function() {
+		$scope.setVerificationMode = function() {
 			$scope.disableCrop();
 			$scope.currentHelperState = 4;
-			$scope.visualisationMode = true;
-		};
-
-		$scope.setCurrentHelperState = function(state) {
-			$scope.currentHelperState = state;
+			$scope.verificationMode = true;
 		};
 
 		// get clicked bullet position
@@ -169,7 +126,7 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 			});
 			$scope.updateData(currentScore, isInBlack);
 
-			$scope.helpers[2].done = true;
+			$scope.impactsModeDone = true;
 		};
 
 		$scope.updateData = function(currentScore, isInBlack) {
@@ -181,71 +138,6 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 			$scope.bulletScores.push($scope.currentBulletScore);
 			$scope.meanScore = +($scope.score / $scope.bulletCount).toFixed(2);
 			$scope.maxScore = $scope.bulletCount * 10;
-		};
-
-		// Create file uploader instance
-		$scope.uploader = new FileUploader({
-			url: 'api/targets/picture'
-		});
-
-		// Set file uploader image filter
-		$scope.uploader.filters.push({
-			name: 'imageFilter',
-			fn: function (item, options) {
-				var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
-				return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
-			}
-		});
-
-		// Called after the user selected a new picture file
-		$scope.uploader.onAfterAddingFile = function (fileItem) {
-			if ($window.FileReader) {
-				var fileReader = new FileReader();
-				fileReader.readAsDataURL(fileItem._file);
-
-				fileReader.onload = function (fileReaderEvent) {
-					$timeout(function () {
-						$scope.imageURL = fileReaderEvent.target.result;
-					}, 0);
-				};
-			}
-		};
-
-		// Called after the user has successfully uploaded a new picture
-		$scope.uploader.onSuccessItem = function (fileItem, response, status, headers) {
-			// Show success message
-			$scope.success = true;
-
-			$scope.imageURL = response.imageUrl;
-			$scope.initCropper();
-			$scope.currentHelperState = 2;
-
-			// Clear upload buttons
-			$scope.uploader.clearQueue();
-		};
-
-		// Called after the user has failed to uploaded a new picture
-		$scope.uploader.onErrorItem = function (fileItem, response, status, headers) {
-			// Clear upload buttons
-			$scope.uploader.clearQueue();
-
-			// Show error message
-			$scope.error = response.message;
-		};
-
-		// Change user profile picture
-		$scope.uploadTargetPicture = function () {
-			// Clear messages
-			$scope.success = $scope.error = null;
-
-			// Start upload
-			$scope.uploader.uploadAll();
-		};
-
-		// Cancel the upload process
-		$scope.cancelUpload = function () {
-			$scope.uploader.clearQueue();
-			$scope.imageURL = '';
 		};
 
 		// Create new Target
