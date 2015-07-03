@@ -11,12 +11,13 @@
     ☐ Crop fine controls
     ☐ Weapon/caliber/ammo/distance fields in create target (select + add to database)
     ☐ Responsive target container
-    ☐ Visualisation mode
+    ✔ Visualisation mode @done (15-07-04 00:54)
     ✔ Create a helper @done (15-07-03 17:35)
     ✘ Top right alert when switching modes @cancelled (15-07-03 17:35)
     ✔ Add bottom toolbar tools @done (15-07-03 04:54)
     ✔ Add instructions in toolbar @done (15-07-03 17:35)
     ✔ Put upload logic in another controller @done (15-07-03 19:50)
+    ☐ Option to upload image with URL
 
 Stats:
     ☐ Show by caliber
@@ -33,4 +34,4 @@ Global:
     ☐ Add material ripples
     ☐ Adjust responsive design
     ✔ Add bottom toolbar (inspired by Google Play Music) @done (15-07-03 02:23)
-    ☐ Add icons to menu items
+    ✔ Add icons to menu items @done (15-07-04 00:54)

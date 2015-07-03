@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = {
-	// db: 'mongodb://Flavien:Bananescerises07@ds047762.mongolab.com:47762/tir-sportif-app',
-	db: 'mongodb://localhost/targets-manager',
+	db: 'mongodb://Flavien:Bananescerises07@ds047762.mongolab.com:47762/tir-sportif-app',
+	// db: 'mongodb://localhost/targets-manager',
 	app: {
 		title: 'Gestionnaire de cibles'
 	},
