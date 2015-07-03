@@ -4,12 +4,12 @@ angular.module('targets').controller('UploadTargetImageController', ['$scope', '
 	function($scope, $stateParams, $location, Authentication, Targets, FileUploader, $timeout, $window) {
 
 		// Create file uploader instance
-		$scope.uploader = new FileUploader({
+		$scope.$parent.uploader = new FileUploader({
 			url: 'api/targets/picture'
 		});
 
 		// Set file uploader image filter
-		$scope.uploader.filters.push({
+		$scope.$parent.uploader.filters.push({
 			name: 'imageFilter',
 			fn: function (item, options) {
 				var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
@@ -18,7 +18,7 @@ angular.module('targets').controller('UploadTargetImageController', ['$scope', '
 		});
 
 		// Called after the user selected a new picture file
-		$scope.uploader.onAfterAddingFile = function (fileItem) {
+		$scope.$parent.uploader.onAfterAddingFile = function (fileItem) {
 			if ($window.FileReader) {
 				var fileReader = new FileReader();
 				fileReader.readAsDataURL(fileItem._file);
@@ -32,39 +32,37 @@ angular.module('targets').controller('UploadTargetImageController', ['$scope', '
 		};
 
 		// Called after the user has successfully uploaded a new picture
-		$scope.uploader.onSuccessItem = function (fileItem, response, status, headers) {
+		$scope.$parent.uploader.onSuccessItem = function (fileItem, response, status, headers) {
 			// Show success message
 			$scope.$parent.success = true;
 
 			$scope.$parent.imageURL = response.imageUrl;
-			$scope.$parent.initCropper();
-			$scope.$parent.currentHelperState = 2;
 
 			// Clear upload buttons
-			$scope.uploader.clearQueue();
+			$scope.$parent.uploader.clearQueue();
 		};
 
 		// Called after the user has failed to uploaded a new picture
-		$scope.uploader.onErrorItem = function (fileItem, response, status, headers) {
+		$scope.$parent.uploader.onErrorItem = function (fileItem, response, status, headers) {
 			// Clear upload buttons
-			$scope.uploader.clearQueue();
+			$scope.$parent.uploader.clearQueue();
 
 			// Show error message
-			$scope.error = response.message;
+			$scope.$parent.error = response.message;
 		};
 
 		// Change user profile picture
-		$scope.uploadTargetPicture = function () {
+		$scope.$parent.uploadTargetPicture = function () {
 			// Clear messages
-			$scope.success = $scope.error = null;
+			$scope.$parent.success = $scope.$parent.error = null;
 
 			// Start upload
-			$scope.uploader.uploadAll();
+			$scope.$parent.uploader.uploadAll();
 		};
 
 		// Cancel the upload process
-		$scope.cancelUpload = function () {
-			$scope.uploader.clearQueue();
+		$scope.$parent.cancelUpload = function () {
+			$scope.$parent.uploader.clearQueue();
 			$scope.$parent.imageURL = '';
 		};
 	}

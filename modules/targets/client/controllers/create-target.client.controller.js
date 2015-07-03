@@ -19,6 +19,7 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 
 		$scope.imageURL = '';
 		$scope.croppedImageURL = '';
+		$scope.uploader = null;
 		$scope.imageParams = {
 			opacity: 100,
 			rotation: 0,
@@ -30,9 +31,106 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 		$scope.cropEnabled = true;
 		$scope.cropContainer = $('.imageContainer > img');
 		$scope.cropData = null;
+		$scope.currentHelperState = 0;
+
+		$scope.imageMode = false;
+		$scope.impactsMode = false;
 		$scope.verificationMode = false;
-		$scope.currentHelperState = 1;
-		$scope.impactsModeDone = false;
+
+		$scope.helpers = [{
+			done: true,
+			name: 'uploadImage',
+			buttonText: 'Parcourir',
+			text: 'Commencez par ajouter une photo de votre cible.',
+			action: function() {
+				$scope.initCropper();
+				$scope.setFlags();
+				$scope.imageMode = true;
+				$scope.currentHelperState = 1;
+			}
+		}, {
+			done: true,
+			name: 'setImpactsMode',
+			buttonText: 'Valider',
+			text: 'Ajustez le noir de la cible de l\'image sur le rouge de la cible virtuelle jusqu\'à ce qu\'elles soient alignées.',
+			previousAction: function() {
+				$scope.clickUploadButton();
+			},
+			action: function() {
+				$scope.setImpactsMode();
+			}
+		}, {
+			done: false,
+			name: 'setVerificationMode',
+			buttonText: 'Valider',
+			text: 'Cliquez précisément sur les impacts de votre photo pour les enregistrer.',
+			previousAction: function() {
+				$scope.setImageMode();
+			},
+			action: function() {
+				$scope.setVerificationMode();
+			}
+		}, {
+			done: true,
+			name: 'create',
+			buttonText: 'Enregistrer la cible',
+			text: 'Vérifiez vos impacts et votre score. Choisissez la date de votre cible et enregistrez-là (par défaut aujourd\'hui).',
+			previousAction: function() {
+				$scope.setImpactsMode();
+			},
+			action: function() {
+				$scope.create();
+			}
+		}];
+
+		$scope.helpers.forEach(function(value, index) {
+			value.state = index;
+		});
+
+		$scope.clickUploadButton = function() {
+			angular.element('#upload-image input').trigger('click');
+			$scope.setFlags();
+			$scope.currentHelperState = 0;
+		};
+
+		$scope.setImageMode = function() {
+			$scope.enableCrop();
+			$scope.setFlags();
+			$scope.imageMode = true;
+			$scope.currentHelperState = 1;
+		};
+
+		$scope.setImpactsMode = function() {
+			$scope.disableCrop();
+			$scope.setFlags();
+			$scope.impactsMode = true;
+			$scope.currentHelperState = 2;
+		};
+
+		$scope.setVerificationMode = function() {
+			$scope.disableCrop();
+			$scope.setFlags();
+			$scope.verificationMode = true;
+			$scope.currentHelperState = 3;
+		};
+		
+		$scope.setFlags = function() {
+			$scope.imageMode = false;
+			$scope.impactsMode = false;
+			$scope.verificationMode = false;
+		};
+
+		$scope.findIndexByKeyValue = function(arraytosearch, key, valuetosearch) {
+ 
+			for (var i = 0; i < arraytosearch.length; i++) {
+
+				if (arraytosearch[i][key] === valuetosearch) {
+					return i;
+				}
+			}
+
+			return null;
+		};
 
 		$scope.initCropper = function() {
 			$scope.cropContainer.cropper({
@@ -69,24 +167,6 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 		$scope.disableCrop = function() {
 			$scope.cropContainer.cropper('disable');
 			$scope.cropEnabled = false;
-		};
-
-		$scope.setImageMode = function() {
-			$scope.enableCrop();
-			$scope.currentHelperState = 2;
-			$scope.verificationMode = false;
-		};
-
-		$scope.setImpactsMode = function() {
-			$scope.disableCrop();
-			$scope.currentHelperState = 3;
-			$scope.verificationMode = false;
-		};
-
-		$scope.setVerificationMode = function() {
-			$scope.disableCrop();
-			$scope.currentHelperState = 4;
-			$scope.verificationMode = true;
 		};
 
 		// get clicked bullet position
@@ -126,7 +206,7 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 			});
 			$scope.updateData(currentScore, isInBlack);
 
-			$scope.impactsModeDone = true;
+			$scope.helpers[2].done = true;
 		};
 
 		$scope.updateData = function(currentScore, isInBlack) {

@@ -1,10 +1,10 @@
 <div class="row" ng-controller="TargetCreateController">
     <div data-ng-include="'/modules/targets/views/bottom-toolbar.client.view.html'" class="bottom-toolbar"></div>
-    <div class="col-md-10" data-ng-show="success">
+    <div class="col-md-10">
         <div class="card bordered">
             <div class="card-content">
                 <div class="targetContainer">
-                    <div class="target create" data-ng-class="{ 'disabled': cropEnabled, 'verification': verificationMode }" ng-mouseup="createBulletHole($event)">
+                    <div class="target" data-ng-class="{ 'image-mode': imageMode, 'impacts-mode': impactsMode, 'verification-mode': verificationMode }" ng-mouseup="createBulletHole($event)">
                         <div class="bullets"></div>
                         <div data-score="10" class="score-11 inner black"></div>
                         <div data-score="10" class="score-10 inner black"></div>
@@ -18,7 +18,7 @@
                         <div data-score="2" class="score-2 inner white"></div>
                         <div data-score="1" class="score-1 inner white"></div>
                     </div>
-                    <div class="imageContainer" ng-style="{opacity: imageParams.opacity / 100}">
+                    <div class="imageContainer" ng-style="{opacity: imageParams.opacity / 100}" ng-hide="verificationMode">
                         <img ng-src="{{imageURL}}">
                     </div>
                 </div>
@@ -32,7 +32,7 @@
             </div>
             <div class="card-content" ng-controller="UploadTargetImageController">
                 <div class="btn-block" data-ng-hide="uploader.queue.length">
-                    <span class="btn btn-info btn-file btn-block btn-flat" id="upload-image">
+                    <span class="btn btn-success btn-file btn-block btn-flat" id="upload-image">
                         Parcourir
                         <input type="file" nv-file-select uploader="uploader">
                     </span>
@@ -81,8 +81,8 @@
                 <div class="card-title">Mode</div>
             </div>
             <div class="card-content">
-                <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-primary': cropEnabled, 'btn-default': !cropEnabled }" ng-click="setImageMode();">Image</button>
-                <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-warning': !cropEnabled && !verificationMode, 'btn-default': cropEnabled || verificationMode }" ng-click="setImpactsMode();">Impacts</button>
+                <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-primary': imageMode, 'btn-default': !imageMode }" ng-click="setImageMode();">Image</button>
+                <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-warning': impactsMode , 'btn-default': !impactsMode }" ng-click="setImpactsMode();">Impacts</button>
                 <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-info': verificationMode, 'btn-default': !verificationMode }" ng-click="setVerificationMode();">Verification</button>
             </div>
         </div>

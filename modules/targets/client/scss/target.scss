@@ -19,6 +19,7 @@
 	background-size: 100% 100%;
 	position: relative;
 	margin: 0 auto;
+	pointer-events: none;
 
 	.bullet {
 		position: absolute;
@@ -64,16 +65,33 @@
 		}
 
 		&.white {
-			border: 1px solid white;
+			border: 1px solid black;
 		}
 
 		&.black {
-			border: 1px solid black;
+			border: 1px solid white;
 		}
 	}
 
-	&.create, &.edit {
+	&.image-mode {
+
+		.inner {
+
+			&.black {
+				border: 1px solid red;
+				background: rgba(255, 0, 0, .075) !important;
+			}
+
+			&.white {
+				border: 1px solid white;
+				background: transparent !important;
+			}
+		}
+	}
+
+	&.impacts-mode {
 		cursor: crosshair;
+		pointer-events: auto;
 		
 		.inner {
 			&.white {
@@ -88,14 +106,12 @@
 		}
 	}
 
-	&.disabled {
-		pointer-events: none;
+	&.verification-mode {
 
 		.inner {
 
 			&.black {
-				border: 1px solid red;
-				background: rgba(255, 0, 0, .075) !important;
+				background: #000 !important;
 			}
 		}
 	}

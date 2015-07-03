@@ -16,7 +16,8 @@
   border-radius: 100%;
   background-size: 100% 100%;
   position: relative;
-  margin: 0 auto; }
+  margin: 0 auto;
+  pointer-events: none; }
   .target .bullet {
     position: absolute;
     background-color: red;
@@ -110,19 +111,23 @@
       margin-left: 47.5%;
       z-index: 11; }
     .target .inner.white {
-      border: 1px solid white; }
-    .target .inner.black {
       border: 1px solid black; }
-  .target.create, .target.edit {
-    cursor: crosshair; }
-    .target.create .inner.white, .target.edit .inner.white {
+    .target .inner.black {
+      border: 1px solid white; }
+  .target.image-mode .inner.black {
+    border: 1px solid red;
+    background: rgba(255, 0, 0, 0.075) !important; }
+  .target.image-mode .inner.white {
+    border: 1px solid white;
+    background: transparent !important; }
+  .target.impacts-mode {
+    cursor: crosshair;
+    pointer-events: auto; }
+    .target.impacts-mode .inner.white {
       border: 1px solid black;
       background: transparent !important; }
-    .target.create .inner.black, .target.edit .inner.black {
+    .target.impacts-mode .inner.black {
       border: 1px solid #ffab40;
       background: rgba(255, 171, 64, 0.075) !important; }
-  .target.disabled {
-    pointer-events: none; }
-    .target.disabled .inner.black {
-      border: 1px solid red;
-      background: rgba(255, 0, 0, 0.075) !important; }
+  .target.verification-mode .inner.black {
+    background: #000 !important; }
