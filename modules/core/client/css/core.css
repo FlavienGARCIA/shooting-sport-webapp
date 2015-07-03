@@ -1,45 +1,26 @@
-.content {
-	margin-top: 50px;
-}
 .undecorated-link:hover {
-	text-decoration: none;
-}
+  text-decoration: none; }
+
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-	display: none !important;
-}
-.ng-invalid.ng-dirty{
-	border-color:#FA787E;
-}
-.ng-valid.ng-dirty{
-	border-color:#78FA89;
-}
+  display: none !important; }
+
+.ng-invalid.ng-dirty {
+  border-color: #FA787E; }
+
+.ng-valid.ng-dirty {
+  border-color: #78FA89; }
 
 .header-profile-image {
-	opacity: 0.8;
-	height: 28px;
-	width: 28px;
-	border-radius: 50%;
-	margin-right: 5px;
-}
+  opacity: 0.8;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  margin-right: 5px; }
 
-.open  .header-profile-image,
+.open .header-profile-image,
 a:hover .header-profile-image {
-	opacity: 1;
-}
+  opacity: 1; }
 
 .user-header-dropdown-toggle {
-	padding-top: 11px !important;
-	padding-bottom: 11px !important;
-}
-
-main .main-container .main-content {
-	padding-top: 0 !important;
-}
-
-table th.order {
-	cursor: pointer;
-}
-
-html, body {
-	height: auto !important;
-}
+  padding-top: 19px !important;
+  padding-bottom: 19px !important; }

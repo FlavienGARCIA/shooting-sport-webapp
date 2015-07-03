@@ -24,6 +24,24 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 			x: 0,
 			y: 0
 		};
+		$scope.currentHelperState = 1;
+		$scope.helpers = [{
+			state: 1,
+			text: 'Commencez par ajouter une photo de votre cible.'
+		}, {
+			state: 2,
+			text: 'Ajustez le noir de la cible de l\'image sur le rouge de la cible virtuelle jusqu\'à ce qu\'elles soient alignées.'
+		}, {
+			state: 3,
+			text: 'Cliquez le plus précisément possible sur les impacts de votre photo pour les enregistrer.'
+		}, {
+			state: 4,
+			text: 'Vérifiez vos impacts et votre score. Choisissez la date de votre cible et enregistrez-là (par défaut la date d\'aujourd\'hui).'
+		}];
+
+		$scope.setCurrentHelperState = function(state) {
+			$scope.currentHelperState = state;
+		};
 
 		$scope.cropContainer = $('.imageContainer > img');
 		$scope.cropData = null;
@@ -56,15 +74,34 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 		});
 
 		$scope.cropEnabled = true;
-
-		$scope.disableCrop = function() {
-			$scope.cropContainer.cropper('disable');
-			$scope.cropEnabled = false;
-		};
+		$scope.visualisationMode = false;
 
 		$scope.enableCrop = function() {
 			$scope.cropContainer.cropper('enable');
 			$scope.cropEnabled = true;
+		}
+
+		$scope.disableCrop = function() {
+			$scope.cropContainer.cropper('disable');
+			$scope.cropEnabled = false;
+		}
+
+		$scope.setImageMode = function() {
+			$scope.enableCrop();
+			$scope.currentHelperState = 2;
+			$scope.visualisationMode = false;
+		};
+
+		$scope.setImpactsMode = function() {
+			$scope.disableCrop();
+			$scope.currentHelperState = 3;
+			$scope.visualisationMode = false;
+		};
+
+		$scope.setVisualisationMode = function() {
+			$scope.disableCrop();
+			$scope.currentHelperState = 4;
+			$scope.visualisationMode = true;
 		};
 
 		// get clicked bullet position
@@ -151,6 +188,7 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 
 			$scope.imageURL = response.imageUrl;
 			$scope.initCropper();
+			$scope.currentHelperState = 2;
 
 			// Clear upload buttons
 			$scope.uploader.clearQueue();

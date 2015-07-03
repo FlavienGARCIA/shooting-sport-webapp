@@ -4,10 +4,10 @@ module.exports = {
 	client: {
 		lib: {
 			css: [
-				// Materialism
 				'public/themes/materialism/css/materialism.css',
 				'public/themes/materialism/css/helpers.css',
 				'public/themes/materialism/css/ripples.css',
+				'public/themes/material-design-icons/css/material-design-icons.css',
 				'public/lib/material-design-iconic-font/dist/css/material-design-iconic-font.css',
 				'public/lib/c3/c3.css',
 				'public/lib/angular-ui-select/dist/select.css',

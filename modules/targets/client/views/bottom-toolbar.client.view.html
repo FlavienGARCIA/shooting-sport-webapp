@@ -1,0 +1,9 @@
+<!-- <i class="material-icons">help</i> -->
+<ul class="nav nav-pills helper">
+	<li>Aide</li>
+	<li ng-repeat="helper in helpers" ng-class="{'active light-blue lighten-2': helper.state == currentHelperState}">
+		<span class="state"><span ng-bind="helper.state" ng-click="setCurrentHelperState(helper.state)"></span>. </span>
+		<span ng-bind="helper.text" ng-show="helper.state == currentHelperState"></span>
+		<button type="button" ng-show="helper.state == currentHelperState" class="btn btn-success btn-sm btn-flat" ng-click="setCurrentHelperState(helper.state + 1)">étape suivante</button>
+	</li>
+</ul>

@@ -37,9 +37,10 @@
 
 	<!-- Fav Icon -->
 	<link href="/modules/core/img/brand/favicon.ico" rel="shortcut icon" type="image/x-icon">
-
+	
 	<!--Application CSS Files-->
 	{% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
+	<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
 
 	<!-- HTML5 Shim -->
 	<!--[if lt IE 9]>
@@ -47,11 +48,11 @@
 	<![endif]-->
 </head>
 
-<body class="theme-template-dark">
+<body>
 	<main>
-		<aside class="sidebar fixed" data-ng-include="'/modules/core/views/sidebar.client.view.html'"></aside>
+		<!-- <aside class="sidebar fixed" data-ng-include="'/modules/core/views/sidebar.client.view.html'"></aside> -->
 		<div class="main-container">
-			<!-- <nav class="navbar navbar-default navbar-fixed-top ng-scope" data-ng-include="'/modules/core/views/header.client.view.html'"></nav> -->
+			<nav class="navbar navbar-fixed-top ng-scope purple" data-ng-include="'/modules/core/views/header.client.view.html'"></nav>
 			<div class="main-content ng-scope">
 				{% block content %}{% endblock %}
 			</div>

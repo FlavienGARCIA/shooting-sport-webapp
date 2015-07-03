@@ -1,78 +1,54 @@
-<section data-ng-controller="TargetsController" ng-init="find()">
-	<div class="row" data-ng-show="!targets.$resolved || targets.length">
-		<div class="col-md-2" data-ng-show="authentication.user">
-            <div class="card bordered small">
-                <div class="card-header">
-                    <div class="card-title">Outils</div>
-                </div>
-                <div class="card-content">
-                	<a href="/targets/create" class="btn btn-flat btn-primary btn-block" title="Nouvelle cible">Nouvelle cible</a>
-                </div>
-            </div>
-        </div>
-		<div class="col-md-12">
-			<div class="card">
-				<div class="row">
-					<div class="col-md-6">
-						<h3 class="table-title p-20"><span ng-bind="targets.length"></span> cibles 
-							<a title="Uniquement afficher mes cibles" data-ng-show="authentication.user" class="btn btn-link btn-icon" ng-click="onlyShowUserTargets = !onlyShowUserTargets"><i class="zmdi zmdi-refresh red-text"></i></a>
-						</h3>
-					</div>
-					<div ng-hide="onlyShowUserTargets" class="col-md-6">
-						<div class="table-search">
-							<input type="text" class="form-control" placeholder="Filtrer auteur" ng-model="tableParams.filter()['search']" />
-						</div>
-					</div>
-				</div>
-				<div class="table-responsive white">
-					<table template-pagination="custom/pager" ng-table="tableParams" class="table table-bordered table-striped table-full table-full-small ng-cloak">
-						<colgroup>						
-							<col class="auto-cell-size" />						
-						</colgroup>
-						<tr ng-repeat="target in $data">
-							<td data-title="'eval'" class="f20"><i class="zmdi icon-color" data-ng-class="{  'zmdi-collection-item-{{ target.flooredMeanScore }}': target.meanScore < 9.5, 'zmdi-collection-item-9-plus': target.meanScore >= 9.5, 'red': target.meanScore >= 0 && target.meanScore < 6, 'orange': target.meanScore >= 6 && target.meanScore < 7,	'yellow accent-4': target.meanScore >= 7 && target.meanScore < 8, 'lime accent-4': target.meanScore >= 8 && target.meanScore < 9, 'light-green accent-4': target.meanScore >= 9 && target.meanScore < 9.5, 'light-blue': target.meanScore >= 9.5 }"></i></td>
-							<td data-title="'date'" data-ng-bind="target.dt | date:'dd/MM/yyyy'" sortable="'dt'"></td>
-							<td data-title="'moyenne'" data-ng-bind="target.meanScore" sortable="'meanScore'"></td>
-							<td data-title="'impacts'" data-ng-bind="target.bulletCount" sortable="'bulletCount'"></td>
-							<td data-title="'dans noir'" sortable="'inBlackPerc'">
-								<span data-ng-bind="target.inBlack"></span> <span class="text-muted">(<span data-ng-bind="target.inBlackPerc"></span> %)</span>
-							</td>
-							<td data-title="'score'" data-ng-bind="target.score"></td>
-							<td data-title="'arme'" data-ng-bind="target.weapon"></td>
-							<td data-title="'calibre'" data-ng-bind="target.caliber"></td>
-							<td data-title="'munitions'" data-ng-bind="target.ammo"></td>
-							<td data-title="'distance'" data-ng-bind="target.distance"></td>
-							<td data-title="'auteur'" data-ng-bind="target.user.displayName" sortable="'user.displayName'" filter="{ 'user.displayName': 'text' }"></td>
-							<td data-title="'actions'">
-								<a class="btn btn-success btn-sm btn-flat">Voir</a>
-								<a ng-show="target.user.displayName === authentication.user.displayName" data-ui-sref="targets.edit({targetId: target._id})" class="btn btn-info btn-sm btn-flat">Modifier</a>
-								<a ng-show="target.user.displayName === authentication.user.displayName" class="btn btn-primary btn-sm btn-flat" data-ng-click="remove(target);">Supprimer</a>
-							</td>
-						</tr>
-					</table>
-					<script type="text/ng-template" id="custom/pager">
-				        <ul class="ng-pager ng-cloak">
-				            <li ng-repeat="page in pages"
-				                ng-class="{'disabled': !page.active, 'previous': page.type == 'prev', 'next': page.type == 'next'}"
-				                ng-show="page.type == 'prev' || page.type == 'next'" ng-switch="page.type">
-				                <a ng-switch-when="prev" ng-click="params.page(page.number)" class="btn btn-success btn-sm pull-left btn-flat">&laquo; Précédent</a>
-      							<a ng-switch-when="next" ng-click="params.page(page.number)" class="btn btn-success btn-sm pull-right btn-flat">Suivant &raquo;</a>
-				            </li>
-				            <li>
-				                <div class="btn-group">
-				                    <button type="button" ng-class="{'active':params.count() == 10}" ng-click="params.count(10)" class="btn btn-success btn-sm">10</button>
-				                    <button type="button" ng-class="{'active':params.count() == 25}" ng-click="params.count(25)" class="btn btn-success btn-sm">25</button>
-				                    <button type="button" ng-class="{'active':params.count() == 50}" ng-click="params.count(50)" class="btn btn-success btn-sm">50</button>
-				                    <button type="button" ng-class="{'active':params.count() == 100}" ng-click="params.count(100)" class="btn btn-success btn-sm">100</button>
-				                </div>
-				            </li>
-				        </ul>
-				    </script>
-				</div>
+<div class="row" data-ng-show="targets.length && authentication.user">
+	<div class="col-md-12">
+		<div class="card">
+			<h3 class="table-title p-20">Mes cibles (<span ng-bind="targets.length"></span>)</h3>
+			<div class="table-responsive white">
+				<table template-pagination="custom/pager" ng-table="tableParams" class="table table-bordered table-striped table-full table-full-small table-hover ng-cloak">
+					<colgroup>						
+						<col class="auto-cell-size" />						
+					</colgroup>
+					<tr ng-repeat="target in $data" ng-click="targets.view({targetId: target._id})">
+						<td data-title="'eval'" class="f20"><i class="zmdi icon-color" data-ng-class="{  'zmdi-collection-item-{{ target.flooredMeanScore }}': target.meanScore < 9.5, 'zmdi-collection-item-9-plus': target.meanScore >= 9.5, 'red': target.meanScore >= 0 && target.meanScore < 6, 'orange': target.meanScore >= 6 && target.meanScore < 7,	'yellow accent-4': target.meanScore >= 7 && target.meanScore < 8, 'lime accent-4': target.meanScore >= 8 && target.meanScore < 9, 'light-green accent-4': target.meanScore >= 9 && target.meanScore < 9.5, 'light-blue': target.meanScore >= 9.5 }"></i></td>
+						<td data-title="'date'" data-ng-bind="target.dt | date:'dd/MM/yyyy'" sortable="'dt'"></td>
+						<td data-title="'moyenne'" data-ng-bind="target.meanScore" sortable="'meanScore'"></td>
+						<td data-title="'impacts'" data-ng-bind="target.bulletCount" sortable="'bulletCount'"></td>
+						<td data-title="'dans noir'" sortable="'inBlackPerc'">
+							<span data-ng-bind="target.inBlack"></span> <span class="text-muted">(<span data-ng-bind="target.inBlackPerc"></span> %)</span>
+						</td>
+						<td data-title="'score'" data-ng-bind="target.score"></td>
+						<td data-title="'arme'" data-ng-bind="target.weapon"></td>
+						<td data-title="'calibre'" data-ng-bind="target.caliber"></td>
+						<td data-title="'munitions'" data-ng-bind="target.ammo"></td>
+						<td data-title="'distance'" data-ng-bind="target.distance"></td>
+						<td data-title="'actions'">
+							<a class="btn btn-success btn-sm btn-flat">Voir</a>
+							<a ng-show="target.user.displayName === authentication.user.displayName" data-ui-sref="targets.edit({targetId: target._id})" class="btn btn-info btn-sm btn-flat">Modifier</a>
+							<a ng-show="target.user.displayName === authentication.user.displayName" class="btn btn-primary btn-sm btn-flat" data-ng-click="remove(target);">Supprimer</a>
+						</td>
+					</tr>
+				</table>
+				<script type="text/ng-template" id="custom/pager">
+			        <ul class="ng-pager ng-cloak">
+			            <li ng-repeat="page in pages"
+			                ng-class="{'disabled': !page.active, 'previous': page.type == 'prev', 'next': page.type == 'next'}"
+			                ng-show="page.type == 'prev' || page.type == 'next'" ng-switch="page.type">
+			                <a ng-switch-when="prev" ng-click="params.page(page.number)" class="btn btn-success btn-sm pull-left btn-flat">&laquo; Précédent</a>
+  							<a ng-switch-when="next" ng-click="params.page(page.number)" class="btn btn-success btn-sm pull-right btn-flat">Suivant &raquo;</a>
+			            </li>
+			            <li>
+			                <div class="btn-group">
+			                    <button type="button" ng-class="{'active':params.count() == 10}" ng-click="params.count(10)" class="btn btn-success btn-sm">10</button>
+			                    <button type="button" ng-class="{'active':params.count() == 25}" ng-click="params.count(25)" class="btn btn-success btn-sm">25</button>
+			                    <button type="button" ng-class="{'active':params.count() == 50}" ng-click="params.count(50)" class="btn btn-success btn-sm">50</button>
+			                    <button type="button" ng-class="{'active':params.count() == 100}" ng-click="params.count(100)" class="btn btn-success btn-sm">100</button>
+			                </div>
+			            </li>
+			        </ul>
+			    </script>
 			</div>
 		</div>
 	</div>
-	<div class="alert alert-warning text-center" data-ng-hide="!targets.$resolved || targets.length">
-		No Targets yet, why don't you <a href="/#!/targets/create">create one</a>?
-	</div>
-</section>
+</div>
+<div class="alert alert-warning text-center" data-ng-hide="!targets.$resolved || targets.length">
+	No Targets yet, why don't you <a href="/#!/targets/create">create one</a>?
+</div>

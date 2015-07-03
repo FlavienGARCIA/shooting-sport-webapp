@@ -1,45 +1,40 @@
-<section data-ng-controller="TargetsStatsController">
-	<div class="page-header">
-		<h1>Statistiques</h1>
+<div class="row" data-ng-show="!targets.$resolved || targets.length">
+	<div class="col-sm-6">
+		<div class="card small area-chart">
+			<div class="card-header">
+				<div class="card-title">Score moyen</div>
+			</div>
+			<div class="card-content">
+				<c3chart show-labels="true" bindto-id="chart" chart-data="meanScorePoints" chart-columns="meanScoreColumns" chart-x="datax">
+					<chart-axis>
+						<chart-axis-x axis-id="x" axis-type="timeseries">
+							<chart-axis-x-tick tick-format="%d/%m/%Y"/>
+						</chart-axis-x>
+					</chart-axis>
+				</c3chart>
+			</div>
+		</div>
 	</div>
-	<div class="row" data-ng-show="!targets.$resolved || targets.length">
-		<div class="col-sm-12">
-			<div class="card small area-chart">
-				<div class="card-header">
-					<div class="card-title">Score moyen</div>
-				</div>
-				<div class="card-content">
-					<c3chart show-labels="true" bindto-id="chart" chart-data="meanScorePoints" chart-columns="meanScoreColumns" chart-x="datax">
-						<chart-axis>
-							<chart-axis-x axis-id="x" axis-type="timeseries">
-								<chart-axis-x-tick tick-format="%d/%m/%Y"/>
-							</chart-axis-x>
-						</chart-axis>
-					</c3chart>
-				</div>
+	<div class="col-sm-6">
+		<div class="card small area-chart">
+			<div class="card-header">
+				<div class="card-title">Pourcentage dans noir</div>
+			</div>
+			<div class="card-content">
+				<c3chart show-labels="true" bindto-id="chart1" chart-data="inBlackPoints" chart-columns="inBlackColumns" chart-x="datax">
+					<chart-axis>
+						<chart-axis-x axis-id="x" axis-type="timeseries">
+							<chart-axis-x-tick tick-format="%d/%m/%Y"/>
+						</chart-axis-x>
+					</chart-axis>
+				</c3chart>
 			</div>
 		</div>
-		<div class="col-sm-12">
-			<div class="card small area-chart">
-				<div class="card-header">
-					<div class="card-title">Pourcentage dans noir</div>
-				</div>
-				<div class="card-content">
-					<c3chart show-labels="true" bindto-id="chart1" chart-data="inBlackPoints" chart-columns="inBlackColumns" chart-x="datax">
-						<chart-axis>
-							<chart-axis-x axis-id="x" axis-type="timeseries">
-								<chart-axis-x-tick tick-format="%d/%m/%Y"/>
-							</chart-axis-x>
-						</chart-axis>
-					</c3chart>
-				</div>
-			</div>
-		</div>
+	</div>
 
-	</div>
-	<div class="alert alert-warning text-center" data-ng-hide="!targets.$resolved || targets.length">
-		No Targets yet, why don't you
-		<a href="/#!/targets/create">create one</a>
-		?
-	</div>
-</section>
+</div>
+<div class="alert alert-warning text-center" data-ng-hide="!targets.$resolved || targets.length">
+	No Targets yet, why don't you
+	<a href="/#!/targets/create">create one</a>
+	?
+</div>

@@ -1,148 +1,144 @@
-<section data-ng-controller="TargetCreateController">
-    <div class="page-header">
-        <h1>Nouvelle cible</h1>
-    </div>
-    <div class="row">
-        <div class="col-md-9" data-ng-show="success">
-            <div class="card bordered">
-                <div class="card-content">
-                    <div class="targetContainer">
-                        <div class="target create" data-ng-class="{ 'disabled': cropEnabled }" ng-mouseup="createBulletHole($event)">
-                            <div class="bullets"></div>
-                            <div data-score="10" class="score-11 inner black"></div>
-                            <div data-score="10" class="score-10 inner black"></div>
-                            <div data-score="9" class="score-9 inner black"></div>
-                            <div data-score="8" class="score-8 inner black"></div>
-                            <div data-score="7" class="score-7 inner black"></div>
-                            <div data-score="6" class="score-6 inner white"></div>
-                            <div data-score="5" class="score-5 inner white"></div>
-                            <div data-score="4" class="score-4 inner white"></div>
-                            <div data-score="3" class="score-3 inner white"></div>
-                            <div data-score="2" class="score-2 inner white"></div>
-                            <div data-score="1" class="score-1 inner white"></div>
-                        </div>
-                        <div class="imageContainer" ng-style="{opacity: imageParams.opacity / 100}">
-                            <img ng-src="{{imageURL}}">
-                        </div>
+<div data-ng-include="'/modules/targets/views/bottom-toolbar.client.view.html'" class="bottom-toolbar"></div>
+<div class="row">
+    <div class="col-md-10" data-ng-show="success">
+        <div class="card bordered">
+            <div class="card-content">
+                <div class="targetContainer">
+                    <div class="target create" data-ng-class="{ 'disabled': cropEnabled, 'visualisation': visualisationMode }" ng-mouseup="createBulletHole($event)">
+                        <div class="bullets"></div>
+                        <div data-score="10" class="score-11 inner black"></div>
+                        <div data-score="10" class="score-10 inner black"></div>
+                        <div data-score="9" class="score-9 inner black"></div>
+                        <div data-score="8" class="score-8 inner black"></div>
+                        <div data-score="7" class="score-7 inner black"></div>
+                        <div data-score="6" class="score-6 inner white"></div>
+                        <div data-score="5" class="score-5 inner white"></div>
+                        <div data-score="4" class="score-4 inner white"></div>
+                        <div data-score="3" class="score-3 inner white"></div>
+                        <div data-score="2" class="score-2 inner white"></div>
+                        <div data-score="1" class="score-1 inner white"></div>
+                    </div>
+                    <div class="imageContainer" ng-style="{opacity: imageParams.opacity / 100}">
+                        <img ng-src="{{imageURL}}">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card bordered small">
-                <div class="card-header">
-                    <div class="card-title">Image</div>
+    </div>
+    <div class="col-md-2">
+        <div class="card bordered small">
+            <div class="card-header">
+                <div class="card-title">1. Ajouter une photo</div>
+            </div>
+            <div class="card-content">
+                <div class="btn-block" data-ng-hide="uploader.queue.length">
+                    <span class="btn btn-info btn-file btn-block btn-flat">
+                        Parcourir
+                        <input type="file" nv-file-select uploader="uploader"></span>
                 </div>
-                <div class="card-content">
-                    <div class="btn-block" data-ng-hide="uploader.queue.length">
-                        <span class="btn btn-info btn-file btn-block btn-flat">
-                            Ajouter une image
-                            <input type="file" nv-file-select uploader="uploader"></span>
-                    </div>
-                    <div class="text-center" data-ng-show="uploader.queue.length">
-                        <button class="btn btn-success btn-flat" data-ng-click="uploadTargetPicture();">Enregistrer</button>
-                        <button class="btn btn-default btn-flat" data-ng-click="cancelUpload();">Annuler</button>
-                    </div>
+                <div class="text-center" data-ng-show="uploader.queue.length">
+                    <button class="btn btn-success btn-flat" data-ng-click="uploadTargetPicture();">Enregistrer</button>
+                    <button class="btn btn-default btn-flat" data-ng-click="cancelUpload();">Annuler</button>
+                </div>
 
-                    <!-- <div data-ng-show="success" class="text-center text-success"> <strong>Image enregistrée</strong>
-                    </div>
-                    <div data-ng-show="error" class="text-center text-danger"> <strong data-ng-bind="error"></strong>
-                    </div> -->
+                <!-- <div data-ng-show="success" class="text-center text-success"> <strong>Image enregistrée</strong>
                 </div>
-                <div class="card-action clearfix" data-ng-show="success">
-                    <div class="form-group">
-                        <label class="control-label">Opacité</label>
-                        <span class="pull-right text-muted"><span ng-bind="imageParams.opacity"></span> %</span>
-                        <div slider ng-model="imageParams.opacity" start=0 end=100></div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Rotation</label>
-                        <span class="pull-right text-muted"><span ng-bind="imageParams.rotation"></span>°</span>
-                        <div class="rotate" slider ng-model="imageParams.rotation" start=-90 end=90 callback='slide'></div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Zoom</label>
-                        <span class="pull-right text-muted"><span ng-bind="imageParams.scale"></span> %</span>
-                        <div slider ng-model="imageParams.scale" start=50 end=200></div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">X</label>
-                        <span class="pull-right text-muted"><span ng-bind="imageParams.x"></span>px</span>
-                        <div slider ng-model="imageParams.x" start=-500 end=500></div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Y</label>
-                        <span class="pull-right text-muted"><span ng-bind="imageParams.y"></span>px</span>
-                        <div slider ng-model="imageParams.y" start=-500 end=500></div>
-                    </div>
-                </div>
-                
+                <div data-ng-show="error" class="text-center text-danger"> <strong data-ng-bind="error"></strong>
+                </div> -->
             </div>
-            <div class="card bordered small" data-ng-show="success">
-                <div class="card-header">
-                    <div class="card-title">Mode</div>
+            <div class="card-action clearfix" data-ng-show="success">
+                <div class="form-group">
+                    <label class="control-label">Opacité</label>
+                    <span class="pull-right text-muted"><span ng-bind="imageParams.opacity"></span> %</span>
+                    <div slider ng-model="imageParams.opacity" start=0 end=100></div>
                 </div>
-                <div class="card-content">
-                    <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-primary': cropEnabled, 'btn-default': !cropEnabled }" ng-click="enableCrop();">Image</button>
-                    <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-warning': !cropEnabled, 'btn-default': cropEnabled }" ng-click="disableCrop();">Impacts</button>
-                    <button class="btn btn-block btn-flat btn-default">Visualisation</button>
+                <div class="form-group">
+                    <label class="control-label">Rotation</label>
+                    <span class="pull-right text-muted"><span ng-bind="imageParams.rotation"></span>°</span>
+                    <div class="rotate" slider ng-model="imageParams.rotation" start=-90 end=90 callback='slide'></div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Zoom</label>
+                    <span class="pull-right text-muted"><span ng-bind="imageParams.scale"></span> %</span>
+                    <div slider ng-model="imageParams.scale" start=50 end=200></div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">X</label>
+                    <span class="pull-right text-muted"><span ng-bind="imageParams.x"></span>px</span>
+                    <div slider ng-model="imageParams.x" start=-500 end=500></div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Y</label>
+                    <span class="pull-right text-muted"><span ng-bind="imageParams.y"></span>px</span>
+                    <div slider ng-model="imageParams.y" start=-500 end=500></div>
                 </div>
             </div>
-            <div class="card bordered small" data-ng-show="success">
-                <div class="card-header">
-                    <div class="card-title">Date</div>
-                </div>
-                <div class="card-content text-center">
-                    <datepicker starting-day="1" ng-model="dt" show-weeks="true" custom-class="getDayClass(date, mode)" class="datepicker datepicker-mode-0"></datepicker>
-                </div>
-                <div class="card-action clearfix">
-                    <form data-ng-submit="create()" class="pull-right btn-block form-horizontal" novalidate>
-                        <fieldset>
+            
+        </div>
+        <div class="card bordered small" data-ng-show="success">
+            <div class="card-header">
+                <div class="card-title">Mode</div>
+            </div>
+            <div class="card-content">
+                <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-primary': cropEnabled, 'btn-default': !cropEnabled }" ng-click="setImageMode();">Image</button>
+                <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-warning': !cropEnabled && !visualisationMode, 'btn-default': cropEnabled || visualisationMode }" ng-click="setImpactsMode();">Impacts</button>
+                <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-info': visualisationMode, 'btn-default': !visualisationMode }" ng-click="setVisualisationMode();">Visualisation</button>
+            </div>
+        </div>
+        <div class="card bordered small" data-ng-show="success">
+            <div class="card-header">
+                <div class="card-title">Date</div>
+            </div>
+            <div class="card-content text-center">
+                <datepicker starting-day="1" ng-model="dt" show-weeks="true" custom-class="getDayClass(date, mode)" class="datepicker datepicker-mode-0"></datepicker>
+            </div>
+            <div class="card-action clearfix">
+                <form data-ng-submit="create()" class="pull-right btn-block form-horizontal" novalidate>
+                    <fieldset>
 <!--                             <div class="form-group">
-                                <label class="col-lg-2 control-label">Select</label>
-                                <div class="col-lg-10">
-                                    <ui-select ng-model="weapon.selected" theme="select2" title="Choisissez une arme" search-enabled="false">
-                                        <ui-select-match placeholder="Select or search a person in the list...">{{$select.selected.name}}</ui-select-match>
-                                        <ui-select-choices repeat="weapon in weapons | filter: $select.search">
-                                            <div ng-bind-html="weapon.name | highlight: $select.search"></div>
-                                            <small ng-bind-html="weapon.caliber | highlight: $select.search"></small>
-                                        </ui-select-choices>
-                                    </ui-select>
-                                </div>
+                            <label class="col-lg-2 control-label">Select</label>
+                            <div class="col-lg-10">
+                                <ui-select ng-model="weapon.selected" theme="select2" title="Choisissez une arme" search-enabled="false">
+                                    <ui-select-match placeholder="Select or search a person in the list...">{{$select.selected.name}}</ui-select-match>
+                                    <ui-select-choices repeat="weapon in weapons | filter: $select.search">
+                                        <div ng-bind-html="weapon.name | highlight: $select.search"></div>
+                                        <small ng-bind-html="weapon.caliber | highlight: $select.search"></small>
+                                    </ui-select-choices>
+                                </ui-select>
                             </div>
-                            <div class="form-group">
-                                <label for="weapon" class="col-lg-2 control-label">Arme</label>
-                                <div class="col-lg-10">
-                                    <select name="weapon" id="weapon" ng-model="weapon">
-                                        <option ng-repeat="weapon in weapons" value="{{weapon.name}}">{{weapon.name}}</option>
-                                    </select>
-                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="weapon" class="col-lg-2 control-label">Arme</label>
+                            <div class="col-lg-10">
+                                <select name="weapon" id="weapon" ng-model="weapon">
+                                    <option ng-repeat="weapon in weapons" value="{{weapon.name}}">{{weapon.name}}</option>
+                                </select>
                             </div>
-                            <div class="form-group">
-                                <label for="ammo" class="col-lg-2 control-label">Munitions</label>
-                                <div class="col-lg-10">
-                                    <select name="ammo" id="ammo" ng-model="ammo">
-                                        <option ng-repeat="ammo in ammos" value="{{ammo}}">{{ammo}}</option>
-                                    </select>
-                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="ammo" class="col-lg-2 control-label">Munitions</label>
+                            <div class="col-lg-10">
+                                <select name="ammo" id="ammo" ng-model="ammo">
+                                    <option ng-repeat="ammo in ammos" value="{{ammo}}">{{ammo}}</option>
+                                </select>
                             </div>
-                            <div class="form-group">
-                                <label for="distance" class="col-lg-2 control-label">Distance</label>
-                                <div class="col-lg-10">
-                                    <select name="distance" id="distance" ng-model="distance">
-                                        <option ng-repeat="distance in distances" value="{{distance}}">{{distance}}</option>
-                                    </select>
-                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="distance" class="col-lg-2 control-label">Distance</label>
+                            <div class="col-lg-10">
+                                <select name="distance" id="distance" ng-model="distance">
+                                    <option ng-repeat="distance in distances" value="{{distance}}">{{distance}}</option>
+                                </select>
                             </div>
- -->
-                            <button type="submit" class="btn btn-success btn-flat btn-block">Créer cible</button>
-                            <div data-ng-show="error" class="text-danger">
-                                <strong data-ng-bind="error"></strong>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
+                        </div>
+-->
+                        <button type="submit" class="btn btn-success btn-flat btn-block">Créer cible</button>
+                        <div data-ng-show="error" class="text-danger">
+                            <strong data-ng-bind="error"></strong>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
         </div>
     </div>
-</section>
+</div>

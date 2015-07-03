@@ -1,0 +1,74 @@
+html, body {
+	height: auto !important;
+}
+
+main {
+	padding-left: 0;
+}
+
+a:hover, a:focus {
+	color: inherit;
+}
+
+.navbar-fixed-top {
+	margin-left: 0 !important;
+}
+
+.navbar {
+	box-shadow: 0 0 7px rgba(0, 0, 0, .5);
+}
+
+.navbar-nav > li > a {
+	color: rgba(255, 255, 255, .75);
+	padding-top: 15px;
+	padding-bottom: 15px;
+
+	&:hover {
+		color: #fff;
+		background-color: rgba(255, 255, 255, .1);
+	}
+}
+
+.navbar-brand {
+	color: #fff;
+
+	&:hover {
+		background-color: rgba(255, 255, 255, .1);
+		color: #fff;
+	}
+}
+
+.navbar-nav > .active > a, .navbar-nav > .active > a:focus {
+	color: #fff;
+	background-color: rgba(0, 0, 0, .05);
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+	background-color: rgba(255, 255, 255, .1);
+}
+
+
+.topbar-icon {
+
+	a:before {
+		vertical-align: -36%;
+		margin-right: 10px;
+		font-size: 36px;
+	}
+	
+	&.home a:before {
+		content: 'dashboard';
+	}
+
+	&.create a:before  {
+		content: 'add_to_photos';
+	}
+
+	&.list a:before  {
+		content: 'collections';
+	}
+
+	&.stats a:before  {
+		content: 'insert_chart';
+	}
+}

@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = {
-	db: 'mongodb://Flavien:Bananescerises07@ds047762.mongolab.com:47762/tir-sportif-app',
-	// db: 'mongodb://localhost/tir-sportif-app',
+	// db: 'mongodb://Flavien:Bananescerises07@ds047762.mongolab.com:47762/tir-sportif-app',
+	db: 'mongodb://localhost/targets-manager',
 	app: {
-		title: 'shooting-sport-targets - Development Environment'
+		title: 'Gestionnaire de cibles'
 	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',
