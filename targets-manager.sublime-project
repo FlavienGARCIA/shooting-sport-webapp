@@ -3,6 +3,9 @@
 	[
 		{
 			"path": "."
+		},
+		{
+			"path": "C:\\Users\\Flavien\\Documents\\GitHub\\Building-a-Web-App-From-Scratch-With-AngularJS-master"
 		}
 	]
 }

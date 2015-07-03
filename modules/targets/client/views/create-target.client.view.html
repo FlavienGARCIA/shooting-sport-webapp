@@ -1,5 +1,5 @@
-<div data-ng-include="'/modules/targets/views/bottom-toolbar.client.view.html'" class="bottom-toolbar"></div>
-<div class="row">
+<div class="row" ng-controller="TargetCreateController">
+    <div data-ng-include="'/modules/targets/views/bottom-toolbar.client.view.html'" class="bottom-toolbar"></div>
     <div class="col-md-10" data-ng-show="success">
         <div class="card bordered">
             <div class="card-content">
@@ -30,11 +30,12 @@
             <div class="card-header">
                 <div class="card-title">1. Ajouter une photo</div>
             </div>
-            <div class="card-content">
+            <div class="card-content" ng-controller="UploadTargetImageController">
                 <div class="btn-block" data-ng-hide="uploader.queue.length">
-                    <span class="btn btn-info btn-file btn-block btn-flat">
+                    <span class="btn btn-info btn-file btn-block btn-flat" id="upload-image">
                         Parcourir
-                        <input type="file" nv-file-select uploader="uploader"></span>
+                        <input type="file" nv-file-select uploader="uploader">
+                    </span>
                 </div>
                 <div class="text-center" data-ng-show="uploader.queue.length">
                     <button class="btn btn-success btn-flat" data-ng-click="uploadTargetPicture();">Enregistrer</button>

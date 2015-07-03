@@ -1,5 +1,5 @@
 <ul class="nav helper">
-<li><i class="material-icons md-48 help">help</i></li>
+	<li class="help">Etapes de la création</li>
 	<li ng-repeat="helper in helpers" ng-class="{'active': helper.state === currentHelperState}">
 
 		<button type="button" ng-show="helper.state === currentHelperState && currentHelperState > 1" class="helper-before btn btn-warning btn-flat" ng-click="setCurrentHelperState(helper.state + -1)"><i class="material-icons">navigate_before</i></button> 
@@ -11,6 +11,6 @@
 
 		<span class="helper-text" ng-bind="helper.text" ng-show="helper.state === currentHelperState"></span>
 
-		<button type="button" ng-show="helper.state === currentHelperState && helper.state < helpers.length" class="helper-next btn btn-success btn-flat" ng-click="setCurrentHelperState(helper.state + 1)">étape suivante <i class="material-icons">navigate_next</i></button>
+		<button type="button" ng-disabled="!helper.done" ng-show="helper.state === currentHelperState" class="helper-next btn btn-success btn-flat" ng-click="helper.action()"><span ng-bind="helper.buttonText"></span></button>
 	</li>
 </ul>

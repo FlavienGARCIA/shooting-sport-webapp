@@ -1,0 +1,12 @@
+<!-- <li ng-class="{'active': state === currentHelperState}"> --> -->
+	<button type="button" ng-show="state === currentHelperState && currentHelperState > 1" class="helper-before btn btn-warning btn-flat" ng-click="setCurrentHelperState(state + -1)"><i class="material-icons">navigate_before</i></button> 
+
+	<span class="helper-state btn btn-lg btn-round white" 
+			ng-class="{'white' : state > currentHelperState || state === currentHelperState, 'green lighten-2 white-text' : state < currentHelperState}">
+		<span ng-bind="state" ng-click="setCurrentHelperState(state)"></span>
+	</span>
+
+	<span class="helper-text" ng-bind="helper.text" ng-show="state === currentHelperState"></span>
+
+	<button type="button" ng-disabled="!helper.done" ng-show="state === currentHelperState && state < helpers.length" class="helper-next btn btn-success btn-flat" ng-click="setCurrentHelperState(state + 1)"><span ng-bind="helper.buttonText"></span></button>
+<!-- </li> -->

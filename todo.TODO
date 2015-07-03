@@ -12,10 +12,11 @@
     ☐ Weapon/caliber/ammo/distance fields in create target (select + add to database)
     ☐ Responsive target container
     ☐ Visualisation mode
-    ☐ Create a helper
-    ☐ Top right alert when switching modes
+    ✔ Create a helper @done (15-07-03 17:35)
+    ✘ Top right alert when switching modes @cancelled (15-07-03 17:35)
     ✔ Add bottom toolbar tools @done (15-07-03 04:54)
-    ☐ Add instructions in toolbar
+    ✔ Add instructions in toolbar @done (15-07-03 17:35)
+    ✔ Put upload logic in another controller @done (15-07-03 19:50)
 
 Stats:
     ☐ Show by caliber

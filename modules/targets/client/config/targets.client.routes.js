@@ -17,7 +17,7 @@ angular.module('targets').config(['$stateProvider',
 		}).
 		state('targets.create', {
 			url: '/create',
-			controller: 'TargetCreateController',
+			// controller: 'TargetCreateController',
 			templateUrl: 'modules/targets/views/create-target.client.view.html'
 		}).
 		state('targets.edit', {

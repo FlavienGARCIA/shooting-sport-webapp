@@ -27,17 +27,46 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 		$scope.currentHelperState = 1;
 		$scope.cropEnabled = true;
 		$scope.visualisationMode = false;
+
+		$scope.triggerClick = function(element) {
+			angular.element(element).trigger('click');
+		};
+
 		$scope.helpers = [{
+			name: 'uploadImage',
 			state: 1,
+			done: true,
+			buttonText: 'Parcourir',
+			action: function() {
+				angular.element('#upload-image input').trigger('click');
+			},
 			text: 'Commencez par ajouter une photo de votre cible.'
 		}, {
+			name: 'moveImage',
 			state: 2,
+			done: true,
+			buttonText: 'Valider',
+			action: function() {
+				$scope.setImpactsMode();
+			},
 			text: 'Ajustez le noir de la cible de l\'image sur le rouge de la cible virtuelle jusqu\'à ce qu\'elles soient alignées.'
 		}, {
+			name: 'createImpacts',
 			state: 3,
+			done: false,
+			buttonText: 'Valider',
+			action: function() {
+				$scope.setVisualisationMode();
+			},
 			text: 'Cliquez le plus précisément possible sur les impacts de votre photo pour les enregistrer.'
 		}, {
+			name: 'creation',
 			state: 4,
+			done: true,
+			buttonText: 'Enregistrer la cible',
+			action: function() {
+				$scope.create();
+			},
 			text: 'Vérifiez vos impacts et votre score. Choisissez la date de votre cible et enregistrez-là (par défaut la date d\'aujourd\'hui).'
 		}];
 
@@ -139,6 +168,8 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 				score: currentScore
 			});
 			$scope.updateData(currentScore, isInBlack);
+
+			$scope.helpers[2].done = true;
 		};
 
 		$scope.updateData = function(currentScore, isInBlack) {
