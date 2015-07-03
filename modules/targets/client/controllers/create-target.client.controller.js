@@ -25,6 +25,8 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 			y: 0
 		};
 		$scope.currentHelperState = 1;
+		$scope.cropEnabled = true;
+		$scope.visualisationMode = false;
 		$scope.helpers = [{
 			state: 1,
 			text: 'Commencez par ajouter une photo de votre cible.'
@@ -38,10 +40,6 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 			state: 4,
 			text: 'Vérifiez vos impacts et votre score. Choisissez la date de votre cible et enregistrez-là (par défaut la date d\'aujourd\'hui).'
 		}];
-
-		$scope.setCurrentHelperState = function(state) {
-			$scope.currentHelperState = state;
-		};
 
 		$scope.cropContainer = $('.imageContainer > img');
 		$scope.cropData = null;
@@ -73,18 +71,15 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 			}
 		});
 
-		$scope.cropEnabled = true;
-		$scope.visualisationMode = false;
-
 		$scope.enableCrop = function() {
 			$scope.cropContainer.cropper('enable');
 			$scope.cropEnabled = true;
-		}
+		};
 
 		$scope.disableCrop = function() {
 			$scope.cropContainer.cropper('disable');
 			$scope.cropEnabled = false;
-		}
+		};
 
 		$scope.setImageMode = function() {
 			$scope.enableCrop();
@@ -102,6 +97,10 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 			$scope.disableCrop();
 			$scope.currentHelperState = 4;
 			$scope.visualisationMode = true;
+		};
+
+		$scope.setCurrentHelperState = function(state) {
+			$scope.currentHelperState = state;
 		};
 
 		// get clicked bullet position

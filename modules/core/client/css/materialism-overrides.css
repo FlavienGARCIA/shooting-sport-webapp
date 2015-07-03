@@ -29,7 +29,7 @@ a:hover, a:focus {
 
 .navbar-nav > .active > a, .navbar-nav > .active > a:focus {
   color: #fff;
-  background-color: rgba(0, 0, 0, 0.05); }
+  background-color: rgba(0, 0, 0, 0.07); }
 
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
   background-color: rgba(255, 255, 255, 0.1); }

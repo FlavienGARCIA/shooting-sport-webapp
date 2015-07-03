@@ -1,3 +1,4 @@
+/*@import "public/themes/materialism/css/sass/materialism";*/
 .undecorated-link:hover {
   text-decoration: none; }
 
@@ -24,3 +25,6 @@ a:hover .header-profile-image {
 .user-header-dropdown-toggle {
   padding-top: 19px !important;
   padding-bottom: 19px !important; }
+
+.btn .material-icons {
+  vertical-align: bottom; }

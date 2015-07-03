@@ -5,11 +5,11 @@
 
 
 // Font
-@import "app/bower_components/roboto-fontface/css/roboto-fontface";
-@import "app/bower_components/font-awesome/scss/font-awesome";
+/*@import "app/bower_components/roboto-fontface/css/roboto-fontface";*/
+/*@import "app/bower_components/font-awesome/scss/font-awesome";*/
 
 // Bootstrap
-@import "app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "public/lib/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "bootstrap-overrides";
 
 // materialism theme
@@ -55,8 +55,8 @@
 @import "plugins/weather-icons";
 
 // Animations
-@import "animate-scss";
-@import "animations/all";
+/*@import "animate-scss";*/
+/*@import "animations/all";*/
 
 // Themes & colors
 @import "materialism/colors";

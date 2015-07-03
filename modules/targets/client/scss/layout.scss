@@ -1,0 +1,101 @@
+@import "public/themes/materialism/css/sass/variables-colors";
+
+.icon-color.zmdi {
+	line-height: 35px !important;
+}
+
+img[src*="svg"] {
+	width: auto !important;
+}
+
+.ng-pager {
+	list-style: none;
+	margin: 0;
+	text-align: center;
+	padding: 20px;
+
+	.disabled > a, .disabled > a:hover, .disabled > a:focus, .disabled > span {
+		visibility: hidden;
+	}
+}
+
+.bottom-toolbar {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	background-color: #fff;
+	box-shadow: 0 -1px 5px rgba(0, 0, 0, .1);
+	/*height: 80px;*/
+	z-index: 2000;
+	padding: 10px;
+	/*line-height: 80px;*/
+}
+
+.helper {
+
+	.help {
+		vertical-align: bottom;
+		margin-right: 15px;
+	}
+	
+	li {
+		margin: 0 5px;
+		border-radius: 3px;	
+		transition: all .2s;
+		float: left;
+
+		.state {
+			cursor: pointer;
+		}
+
+		.helper-text {
+			padding: 6px 20px 6px 22px;
+			background-color: color('grey', 'lighten-3');
+			vertical-align: middle;
+			margin: 0 -7px;
+			display: inline-block;
+			border-radius: 3px;
+		}
+
+		.helper-state {
+			margin-left: -20px;
+			box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+			/*color: #b3b3b3;*/
+		}
+
+		&.active {
+			margin-right: 30px;
+
+			.helper-state {
+				cursor: default;
+				margin-right: -5px;
+				margin-left: -12px;
+				box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+				color: #666;
+			}
+
+			.helper-before {
+				/*margin-right: 10px;*/
+				border-radius: 3px 0 0 3px;
+				padding-left: 10px;
+			}
+
+			.helper-next {
+				/*margin-left: 10px;*/
+				border-radius: 0 3px 3px 0;
+			}
+
+			.helper-text {
+				/*color: color('amber', 'darken-3');*/
+			}
+		}
+
+		&.done {
+			.helper-state {
+				
+			}
+		}
+	}
+}
