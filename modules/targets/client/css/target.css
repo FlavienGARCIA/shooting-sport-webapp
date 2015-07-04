@@ -17,7 +17,10 @@
   background-size: 100% 100%;
   position: relative;
   margin: 0 auto;
-  pointer-events: none; }
+  pointer-events: none;
+  -webkit-transition: all 0.2s;
+  /* Safari */
+  transition: all 0.2s; }
   .target .bullet {
     position: absolute;
     background-color: red;
@@ -118,16 +121,19 @@
     border: 1px solid red;
     background: rgba(255, 0, 0, 0.075) !important; }
   .target.image-mode .inner.white {
-    border: 1px solid white;
+    border: none;
     background: transparent !important; }
   .target.impacts-mode {
     cursor: crosshair;
     pointer-events: auto; }
     .target.impacts-mode .inner.white {
-      border: 1px solid black;
+      /*border: 1px solid black;*/
+      border-color: transparent;
       background: transparent !important; }
     .target.impacts-mode .inner.black {
-      border: 1px solid #ffab40;
-      background: rgba(255, 171, 64, 0.075) !important; }
+      /*border: 1px solid #ffab40;*/
+      border-color: transparent;
+      /*background: rgba(255, 171, 64, .075) !important;*/
+      background: transparent !important; }
   .target.verification-mode .inner.black {
     background: #000 !important; }

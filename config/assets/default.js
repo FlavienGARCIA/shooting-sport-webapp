@@ -33,6 +33,7 @@ module.exports = {
 				'public/lib/angular-nouislider/src/nouislider.js',
 				'public/lib/cropper/dist/cropper.js',
 				'public/lib/ng-table/dist/ng-table.js'
+
 			],
 			tests: ['public/lib/angular-mocks/angular-mocks.js']
 		},

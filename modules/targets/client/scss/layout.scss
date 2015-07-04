@@ -105,3 +105,92 @@ img[src*="svg"] {
 		}
 	}
 }
+
+.helper-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .2);
+	z-index: 900;
+	-webkit-transition: all .25s;
+	-o-transition: all .25s;
+	transition: all .25s;
+}
+
+.helper-overlay-show {
+	z-index: 1000;
+	position: relative;
+	-webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  	box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  	-webkit-transition: all .25s;
+	-o-transition: all .25s;
+	transition: all .25s;
+}
+
+.material-icons + span {
+	margin-left: 7px;
+}
+
+.translation i {
+	font-size: 109px;
+	color: color('pink');
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+	cursor: default;
+}
+
+.translation-control {
+	float: left;
+	position: relative;
+	margin-left: 15px;
+
+	& > div {
+		position: absolute;
+		/*background-color: rgba(0, 0, 255, .25);*/
+		-webkit-transition: all .2s;
+		-o-transition: all .2s;
+		transition: all .2s;
+		cursor: pointer;
+
+		&:hover {
+			background-color: rgba(0, 0, 0, .1);
+		}
+	}
+
+	.up, .down {
+		width: 27px;
+		height: 39px;
+	}
+
+	.left, .right {
+		width: 39px;
+		height: 27px;
+	}
+
+	.up {
+		left: 41px;
+		top: 9px;
+		border-radius: 0 0 15px 15px;
+	}
+
+	.down {
+		left: 41px;
+		top: 61px;
+		border-radius: 15px 15px 0 0;
+	}
+
+	.left {
+		left: 9px;
+		top: 41px;
+		border-radius: 0 15px 15px 0;
+	}
+
+	.right {
+		right: 9px;
+		top: 41px;
+		border-radius: 15px 0 0 15px
+	}
+}

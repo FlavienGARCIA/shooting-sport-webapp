@@ -7,7 +7,7 @@
 					<colgroup>						
 						<col class="auto-cell-size" />						
 					</colgroup>
-					<tr ng-repeat="target in $data" ng-click="targets.view({targetId: target._id})">
+					<tr ng-repeat="target in $data" ng-click="targets.view({targetId: target._id})" ng-animate=" 'animate' ">
 						<td data-title="'eval'" class="f20"><i class="zmdi icon-color" data-ng-class="{  'zmdi-collection-item-{{ target.flooredMeanScore }}': target.meanScore < 9.5, 'zmdi-collection-item-9-plus': target.meanScore >= 9.5, 'red': target.meanScore >= 0 && target.meanScore < 6, 'orange': target.meanScore >= 6 && target.meanScore < 7,	'yellow accent-4': target.meanScore >= 7 && target.meanScore < 8, 'lime accent-4': target.meanScore >= 8 && target.meanScore < 9, 'light-green accent-4': target.meanScore >= 9 && target.meanScore < 9.5, 'light-blue': target.meanScore >= 9.5 }"></i></td>
 						<td data-title="'date'" data-ng-bind="target.dt | date:'dd/MM/yyyy'" sortable="'dt'"></td>
 						<td data-title="'moyenne'" data-ng-bind="target.meanScore" sortable="'meanScore'"></td>

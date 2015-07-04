@@ -37,6 +37,10 @@ angular.module('targets').controller('UploadTargetImageController', ['$scope', '
 			$scope.$parent.success = true;
 
 			$scope.$parent.imageURL = response.imageUrl;
+			$scope.$parent.initCropper();
+			$scope.$parent.setFlags();
+			$scope.$parent.imageMode = true;
+			$scope.$parent.currentHelperState = 1;
 
 			// Clear upload buttons
 			$scope.$parent.uploader.clearQueue();

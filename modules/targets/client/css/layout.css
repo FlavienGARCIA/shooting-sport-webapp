@@ -70,3 +70,71 @@ img[src*="svg"] {
       border-radius: 0 3px 3px 0; }
     .helper li.active .helper-text {
       /*color: color('amber', 'darken-3');*/ }
+
+.helper-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 900;
+  -webkit-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  transition: all 0.25s; }
+
+.helper-overlay-show {
+  z-index: 1000;
+  position: relative;
+  -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  -webkit-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  transition: all 0.25s; }
+
+.material-icons + span {
+  margin-left: 7px; }
+
+.translation i {
+  font-size: 109px;
+  color: #e91e63;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  cursor: default; }
+
+.translation-control {
+  float: left;
+  position: relative;
+  margin-left: 15px; }
+  .translation-control > div {
+    position: absolute;
+    /*background-color: rgba(0, 0, 255, .25);*/
+    -webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+    cursor: pointer; }
+    .translation-control > div:hover {
+      background-color: rgba(0, 0, 0, 0.1); }
+  .translation-control .up, .translation-control .down {
+    width: 27px;
+    height: 39px; }
+  .translation-control .left, .translation-control .right {
+    width: 39px;
+    height: 27px; }
+  .translation-control .up {
+    left: 41px;
+    top: 9px;
+    border-radius: 0 0 15px 15px; }
+  .translation-control .down {
+    left: 41px;
+    top: 61px;
+    border-radius: 15px 15px 0 0; }
+  .translation-control .left {
+    left: 9px;
+    top: 41px;
+    border-radius: 0 15px 15px 0; }
+  .translation-control .right {
+    right: 9px;
+    top: 41px;
+    border-radius: 15px 0 0 15px; }

@@ -1,7 +1,8 @@
 <div class="row" ng-controller="TargetCreateController">
     <div data-ng-include="'/modules/targets/views/bottom-toolbar.client.view.html'" class="bottom-toolbar"></div>
-    <div class="col-md-10">
-        <div class="card bordered">
+    <div class="helper-overlay"></div>
+    <div class="col-md-9" data-ng-show="success">
+        <div class="card bordered" ng-class="{'helper-overlay-show': currentHelperState === 1 || currentHelperState === 2 || currentHelperState === 3}">
             <div class="card-content">
                 <div class="targetContainer">
                     <div class="target" data-ng-class="{ 'image-mode': imageMode, 'impacts-mode': impactsMode, 'verification-mode': verificationMode }" ng-mouseup="createBulletHole($event)">
@@ -25,10 +26,10 @@
             </div>
         </div>
     </div>
-    <div class="col-md-2">
-        <div class="card bordered small">
+    <div class="col-md-3">
+        <div class="card bordered small" ng-class="{'helper-overlay-show': currentHelperState === 0 || currentHelperState === 1}">
             <div class="card-header">
-                <div class="card-title">1. Ajouter une photo</div>
+                <div class="card-title">1. Image</div>
             </div>
             <div class="card-content" ng-controller="UploadTargetImageController">
                 <div class="btn-block" data-ng-hide="uploader.queue.length">
@@ -42,39 +43,53 @@
                     <button class="btn btn-default btn-flat" data-ng-click="cancelUpload();">Annuler</button>
                 </div>
 
-                <!-- <div data-ng-show="success" class="text-center text-success"> <strong>Image enregistrée</strong>
+                <div data-ng-show="success" class="text-center text-success"> <strong>Image enregistrée</strong>
                 </div>
                 <div data-ng-show="error" class="text-center text-danger"> <strong data-ng-bind="error"></strong>
-                </div> -->
+                </div>
             </div>
             <div class="card-action clearfix" data-ng-show="success">
                 <div class="form-group">
                     <label class="control-label">Opacité</label>
-                    <span class="pull-right text-muted"><span ng-bind="imageParams.opacity"></span> %</span>
-                    <div slider ng-model="imageParams.opacity" start=0 end=100></div>
+                    <span class="pull-right text-muted"><span ng-bind="cropParams.opacity"></span> %</span>
+                    <div slider ng-model="cropParams.opacity" start=0 end=100></div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label">Rotation</label>
-                    <span class="pull-right text-muted"><span ng-bind="imageParams.rotation"></span>°</span>
-                    <div class="rotate" slider ng-model="imageParams.rotation" start=-90 end=90 callback='slide'></div>
+                <div class="form-group clearfix form-horizontal">
+                    <label class="control-label col-md-5">Rotation <span class="text-muted">(<span ng-bind="cropParams.rotation"></span>°)</span></label>
+                    <div class="btn-group col-md-7">
+                        <button type="button" class="btn btn-default btn-primary btn-small" ng-click="rotateCrop(false);"><i class="material-icons">rotate_left</i></button>
+                        <button type="button" class="btn btn-default btn-primary btn-small" ng-click="rotateCrop(true);"><i class="material-icons">rotate_right</i></button>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label">Zoom</label>
-                    <span class="pull-right text-muted"><span ng-bind="imageParams.scale"></span> %</span>
-                    <div slider ng-model="imageParams.scale" start=50 end=200></div>
+                <div class="form-group clearfix form-horizontal">
+                    <label class="control-label col-md-5">Zoom</label>
+                    <div class="btn-group col-md-7">
+                        <button type="button" class="btn btn-default btn-primary btn-small" ng-click="zoomCrop();"><i class="material-icons">zoom_out</i></button>
+                        <button type="button" class="btn btn-default btn-primary btn-small" ng-click="zoomCrop(true);"><i class="material-icons">zoom_in</i></button>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label">X</label>
-                    <span class="pull-right text-muted"><span ng-bind="imageParams.x"></span>px</span>
-                    <div slider ng-model="imageParams.x" start=-500 end=500></div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Y</label>
-                    <span class="pull-right text-muted"><span ng-bind="imageParams.y"></span>px</span>
-                    <div slider ng-model="imageParams.y" start=-500 end=500></div>
+                <div class="form-group clearfix form-horizontal translation">
+                    <label class="control-label col-md-5">Translation</label>
+                    <div class="translation-control">
+                        <div class="up" ng-click="moveCrop(false, false);"></div>
+                        <div class="right" ng-click="moveCrop(true, true);"></div>
+                        <div class="down" ng-click="moveCrop(false, true);"></div>
+                        <div class="left" ng-click="moveCrop(true, false);"></div>
+                        <i class="material-icons">gamepad</i>
+                    </div>
                 </div>
             </div>
-            
+            <!-- <div class="card-action">
+                <button type="button" class="btn-flat btn btn-warning btn-block" ng-click="resetCrop();"><i class="material-icons">refresh</i><span>Réinitialiser image</span></button>
+            </div> -->
+        </div>
+        <div class="card bordered small" data-ng-show="success" ng-class="{'helper-overlay-show': currentHelperState === 2}">
+            <div class="card-header">
+                <div class="card-title">3. Ajout des impacts</div>
+            </div>
+            <div class="card-content">
+
+            </div>
         </div>
         <div class="card bordered small" data-ng-show="success">
             <div class="card-header">
@@ -83,12 +98,12 @@
             <div class="card-content">
                 <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-primary': imageMode, 'btn-default': !imageMode }" ng-click="setImageMode();">Image</button>
                 <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-warning': impactsMode , 'btn-default': !impactsMode }" ng-click="setImpactsMode();">Impacts</button>
-                <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-info': verificationMode, 'btn-default': !verificationMode }" ng-click="setVerificationMode();">Verification</button>
+                <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-info': verificationMode, 'btn-default': !verificationMode }" ng-click="setVerificationMode();" ng-disabled="!helpers[2].done">Verification</button>
             </div>
         </div>
-        <div class="card bordered small" data-ng-show="success">
+        <div class="card bordered small" data-ng-show="success" ng-class="{'helper-overlay-show': currentHelperState === 3}">
             <div class="card-header">
-                <div class="card-title">Date</div>
+                <div class="card-title">4. Vérification</div>
             </div>
             <div class="card-content text-center">
                 <datepicker starting-day="1" ng-model="dt" show-weeks="true" custom-class="getDayClass(date, mode)" class="datepicker datepicker-mode-0"></datepicker>
@@ -133,7 +148,7 @@
                             </div>
                         </div>
 -->
-                        <button type="submit" class="btn btn-success btn-flat btn-block">Créer cible</button>
+                        <button type="submit" class="btn btn-success btn-flat btn-block">Enregistrer la cible</button>
                         <div data-ng-show="error" class="text-danger">
                             <strong data-ng-bind="error"></strong>
                         </div>

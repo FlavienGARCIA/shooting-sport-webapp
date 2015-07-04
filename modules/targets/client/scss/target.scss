@@ -20,6 +20,8 @@
 	position: relative;
 	margin: 0 auto;
 	pointer-events: none;
+	-webkit-transition: all .2s; /* Safari */
+	transition: all .2s;
 
 	.bullet {
 		position: absolute;
@@ -83,7 +85,7 @@
 			}
 
 			&.white {
-				border: 1px solid white;
+				border: none;
 				background: transparent !important;
 			}
 		}
@@ -95,13 +97,16 @@
 		
 		.inner {
 			&.white {
-				border: 1px solid black;
+				/*border: 1px solid black;*/
+				border-color: transparent;
 				background: transparent !important;
 			}
 
 			&.black {
-				border: 1px solid #ffab40;
-				background: rgba(255, 171, 64, .075) !important;
+				/*border: 1px solid #ffab40;*/
+				border-color: transparent;
+				/*background: rgba(255, 171, 64, .075) !important;*/
+				background: transparent !important;
 			}
 		}
 	}

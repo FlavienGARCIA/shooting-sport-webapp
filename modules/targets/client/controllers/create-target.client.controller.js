@@ -20,13 +20,6 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 		$scope.imageURL = '';
 		$scope.croppedImageURL = '';
 		$scope.uploader = null;
-		$scope.imageParams = {
-			opacity: 100,
-			rotation: 0,
-			scale: 100,
-			x: 0,
-			y: 0
-		};
 		
 		$scope.cropEnabled = true;
 		$scope.cropContainer = $('.imageContainer > img');
@@ -41,6 +34,7 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 			done: true,
 			name: 'uploadImage',
 			buttonText: 'Parcourir',
+			icon: '',
 			text: 'Commencez par ajouter une photo de votre cible.',
 			action: function() {
 				$scope.initCropper();
@@ -51,7 +45,8 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 		}, {
 			done: true,
 			name: 'setImpactsMode',
-			buttonText: 'Valider',
+			buttonText: 'Suivant',
+			icon: '',
 			text: 'Ajustez le noir de la cible de l\'image sur le rouge de la cible virtuelle jusqu\'à ce qu\'elles soient alignées.',
 			previousAction: function() {
 				$scope.clickUploadButton();
@@ -62,7 +57,8 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 		}, {
 			done: false,
 			name: 'setVerificationMode',
-			buttonText: 'Valider',
+			buttonText: 'Suivant',
+			icon: '',
 			text: 'Cliquez précisément sur les impacts de votre photo pour les enregistrer.',
 			previousAction: function() {
 				$scope.setImageMode();
@@ -74,6 +70,7 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 			done: true,
 			name: 'create',
 			buttonText: 'Enregistrer la cible',
+			icon: '',
 			text: 'Vérifiez vos impacts et votre score. Choisissez la date de votre cible et enregistrez-là (par défaut aujourd\'hui).',
 			previousAction: function() {
 				$scope.setImpactsMode();
@@ -120,16 +117,12 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 			$scope.verificationMode = false;
 		};
 
-		$scope.findIndexByKeyValue = function(arraytosearch, key, valuetosearch) {
- 
-			for (var i = 0; i < arraytosearch.length; i++) {
-
-				if (arraytosearch[i][key] === valuetosearch) {
-					return i;
-				}
-			}
-
-			return null;
+		$scope.cropParams = {
+			opacity: 100,
+			rotation: 0,
+			zoom: 100,
+			x: 0,
+			y: 0
 		};
 
 		$scope.initCropper = function() {
@@ -150,14 +143,51 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 			});
 		};
 
-		$('.rotate').on({
-			slide: function() {
-				$('.cropper-canvas > img').css({
-					// transform: 'translateY(300px) rotateZ(120deg)'
-					transform: 'rotate(' + $scope.imageParams.rotation + 'deg)'
-				});
+		$scope.rotateCrop = function(clockwise) {
+			if(clockwise) {
+				$scope.cropContainer.cropper('rotate', 5);
+				$scope.cropParams.rotation += 5;
+			} else {
+				$scope.cropContainer.cropper('rotate', -5);
+				$scope.cropParams.rotation -= 5;
 			}
-		});
+		};
+
+		$scope.zoomCrop = function(zoomIn) {
+			if(zoomIn) {
+				$scope.cropContainer.cropper('zoom', 0.005);
+			} else {
+				$scope.cropContainer.cropper('zoom', -0.005);
+			}
+		};
+
+		$scope.moveCrop = function(x, direction) {
+			if(x) {
+				if(direction) {
+					$scope.cropContainer.cropper('move', 1, 0);
+				} else {
+					$scope.cropContainer.cropper('move', -1, 0);
+				}
+			} else {
+				if(direction) {
+					$scope.cropContainer.cropper('move', 0, 1);
+				} else {
+					$scope.cropContainer.cropper('move', 0, -1);
+				}
+			}
+		};
+
+		$scope.resetCrop = function() {
+			$scope.cropContainer.cropper('reset');
+
+			$scope.cropParams = {
+				opacity: 100,
+				rotation: 0,
+				zoom: 100,
+				x: 0,
+				y: 0
+			};
+		};
 
 		$scope.enableCrop = function() {
 			$scope.cropContainer.cropper('enable');
