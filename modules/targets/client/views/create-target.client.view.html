@@ -2,10 +2,10 @@
     <div data-ng-include="'/modules/targets/views/bottom-toolbar.client.view.html'" class="bottom-toolbar"></div>
     <div class="helper-overlay"></div>
     <div class="col-md-9" data-ng-show="success">
-        <div class="card bordered" ng-class="{'helper-overlay-show': currentHelperState === 1 || currentHelperState === 2 || currentHelperState === 3}">
+        <div class="card bordered" ng-class="{'helper-overlay-show': checkCurrentStateByName('image') || checkCurrentStateByName('impacts') || checkCurrentStateByName('verification')}">
             <div class="card-content">
                 <div class="targetContainer">
-                    <div class="target" data-ng-class="{ 'image-mode': imageMode, 'impacts-mode': impactsMode, 'verification-mode': verificationMode }" ng-mouseup="createBulletHole($event)">
+                    <div class="target" data-ng-class="{ 'image-mode': checkCurrentStateByName('image'), 'impacts-mode': checkCurrentStateByName('impacts'), 'verification-mode': checkCurrentStateByName('verification') }" ng-mouseup="createBulletHole($event)">
                         <div class="bullets"></div>
                         <div data-score="10" class="score-11 inner black"></div>
                         <div data-score="10" class="score-10 inner black"></div>
@@ -19,7 +19,7 @@
                         <div data-score="2" class="score-2 inner white"></div>
                         <div data-score="1" class="score-1 inner white"></div>
                     </div>
-                    <div class="imageContainer" ng-style="{opacity: imageParams.opacity / 100}" ng-hide="verificationMode">
+                    <div class="imageContainer" ng-style="{opacity: imageParams.opacity / 100}" ng-hide="checkCurrentStateByName('verification')">
                         <img ng-src="{{imageURL}}">
                     </div>
                 </div>
@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class="col-md-3">
-        <div class="card bordered small" ng-class="{'helper-overlay-show': currentHelperState === 0 || currentHelperState === 1}">
+        <div class="card bordered small" ng-class="{'helper-overlay-show': checkCurrentStateByName('upload') || checkCurrentStateByName('image')}">
             <div class="card-header">
                 <div class="card-title">1. Image</div>
             </div>
@@ -49,11 +49,6 @@
                 </div>
             </div>
             <div class="card-action clearfix" data-ng-show="success">
-                <div class="form-group">
-                    <label class="control-label">Opacité</label>
-                    <span class="pull-right text-muted"><span ng-bind="cropParams.opacity"></span> %</span>
-                    <div slider ng-model="cropParams.opacity" start=0 end=100></div>
-                </div>
                 <div class="form-group clearfix form-horizontal">
                     <label class="control-label col-md-5">Rotation <span class="text-muted">(<span ng-bind="cropParams.rotation"></span>°)</span></label>
                     <div class="btn-group col-md-7">
@@ -83,7 +78,7 @@
                 <button type="button" class="btn-flat btn btn-warning btn-block" ng-click="resetCrop();"><i class="material-icons">refresh</i><span>Réinitialiser image</span></button>
             </div> -->
         </div>
-        <div class="card bordered small" data-ng-show="success" ng-class="{'helper-overlay-show': currentHelperState === 2}">
+        <div class="card bordered small" data-ng-show="success" ng-class="{'helper-overlay-show': checkCurrentStateByName('impacts')}">
             <div class="card-header">
                 <div class="card-title">3. Ajout des impacts</div>
             </div>
@@ -96,12 +91,12 @@
                 <div class="card-title">Mode</div>
             </div>
             <div class="card-content">
-                <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-primary': imageMode, 'btn-default': !imageMode }" ng-click="setImageMode();">Image</button>
-                <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-warning': impactsMode , 'btn-default': !impactsMode }" ng-click="setImpactsMode();">Impacts</button>
-                <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-info': verificationMode, 'btn-default': !verificationMode }" ng-click="setVerificationMode();" ng-disabled="!helpers[2].done">Verification</button>
+                <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-primary': checkCurrentStateByName('image'), 'btn-default': !checkCurrentStateByName('image') }" ng-click="setImageMode();">Image</button>
+                <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-warning': checkCurrentStateByName('impacts') , 'btn-default': !checkCurrentStateByName('impacts') }" ng-click="setImpactsMode();">Impacts</button>
+                <button class="btn btn-block btn-flat" data-ng-class="{ 'btn-info': checkCurrentStateByName('verification'), 'btn-default': !checkCurrentStateByName('verification') }" ng-click="setVerificationMode();" ng-disabled="!helpers[2].done">Verification</button>
             </div>
         </div>
-        <div class="card bordered small" data-ng-show="success" ng-class="{'helper-overlay-show': currentHelperState === 3}">
+        <div class="card bordered small" data-ng-show="success" ng-class="{'helper-overlay-show': checkCurrentStateByName('verification')}">
             <div class="card-header">
                 <div class="card-title">4. Vérification</div>
             </div>

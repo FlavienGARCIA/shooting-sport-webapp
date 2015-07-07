@@ -3,14 +3,15 @@
     ✔ Actions buttons visibility per user @done (15-06-26 22:32)
     ✘ Only my targets button @cancelled (15-07-01 20:43)
     ☐ Add loader to table
-    ☐ View target button
+    ☐ View modal
     ☐ Delete data from $data after target deletion
     ☐ Default to only my targets
+    ☐ Delete target confirmation
 
  Create:
-    ☐ Crop fine controls
+    ✔ Crop fine controls @done (15-07-04 05:23)
     ☐ Weapon/caliber/ammo/distance fields in create target (select + add to database)
-    ☐ Responsive target container
+    ☐ Responsive target container (use image ?)
     ✔ Visualisation mode @done (15-07-04 00:54)
     ✔ Create a helper @done (15-07-03 17:35)
     ✘ Top right alert when switching modes @cancelled (15-07-03 17:35)
@@ -19,6 +20,12 @@
     ✔ Put upload logic in another controller @done (15-07-03 19:50)
     ☐ Option to upload image with URL
     ☐ Mouse wheel zoom on impacts mode
+    ☐ Message on list when created (with highlight in table)
+    ☐ Better positioned tools (modes + image controls)
+    ☐ Bullet editor (select, move, delete, undo, redo)
+    ☐ Impacts info helper state
+    ✔ "Dynamic" helper states (call by name instead of number) @done (15-07-07 15:50)
+    ✔ Destroy crop when uploading another image @done (15-07-07 16:03)
 
 Stats:
     ☐ Show by caliber

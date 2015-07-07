@@ -30,33 +30,56 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 		$scope.impactsMode = false;
 		$scope.verificationMode = false;
 
+		$scope.setCurrentStateByName = function(name) {
+ 
+			for (var i = 0; i < $scope.helpers.length; i++) {
+
+				if ($scope.helpers[i]['name'] === name) {
+					$scope.currentHelperState = i;
+				}
+			}
+
+			return null;
+		};
+
+		$scope.checkCurrentStateByName = function(name) {
+			for (var i = 0; i < $scope.helpers.length; i++) {
+
+				if ($scope.helpers[i]['name'] === name) {
+					if(i === $scope.currentHelperState) return true;
+				}
+			}
+
+			return null;
+		};
+
 		$scope.helpers = [{
 			done: true,
-			name: 'uploadImage',
+			name: 'upload',
 			buttonText: 'Parcourir',
 			icon: '',
 			text: 'Commencez par ajouter une photo de votre cible.',
 			action: function() {
 				$scope.initCropper();
-				$scope.setFlags();
-				$scope.imageMode = true;
-				$scope.currentHelperState = 1;
+				$scope.setCurrentStateByName('image');
 			}
 		}, {
 			done: true,
-			name: 'setImpactsMode',
+			name: 'image',
 			buttonText: 'Suivant',
 			icon: '',
 			text: 'Ajustez le noir de la cible de l\'image sur le rouge de la cible virtuelle jusqu\'à ce qu\'elles soient alignées.',
 			previousAction: function() {
 				$scope.clickUploadButton();
+				$scope.success = false;
+				$scope.cropContainer.cropper('destroy');
 			},
 			action: function() {
 				$scope.setImpactsMode();
 			}
 		}, {
 			done: false,
-			name: 'setVerificationMode',
+			name: 'impacts',
 			buttonText: 'Suivant',
 			icon: '',
 			text: 'Cliquez précisément sur les impacts de votre photo pour les enregistrer.',
@@ -68,7 +91,7 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 			}
 		}, {
 			done: true,
-			name: 'create',
+			name: 'verification',
 			buttonText: 'Enregistrer la cible',
 			icon: '',
 			text: 'Vérifiez vos impacts et votre score. Choisissez la date de votre cible et enregistrez-là (par défaut aujourd\'hui).',
@@ -86,35 +109,22 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 
 		$scope.clickUploadButton = function() {
 			angular.element('#upload-image input').trigger('click');
-			$scope.setFlags();
-			$scope.currentHelperState = 0;
+			$scope.setCurrentStateByName('upload');
 		};
 
 		$scope.setImageMode = function() {
 			$scope.enableCrop();
-			$scope.setFlags();
-			$scope.imageMode = true;
-			$scope.currentHelperState = 1;
+			$scope.setCurrentStateByName('image');
 		};
 
 		$scope.setImpactsMode = function() {
 			$scope.disableCrop();
-			$scope.setFlags();
-			$scope.impactsMode = true;
-			$scope.currentHelperState = 2;
+			$scope.setCurrentStateByName('impacts');
 		};
 
 		$scope.setVerificationMode = function() {
 			$scope.disableCrop();
-			$scope.setFlags();
-			$scope.verificationMode = true;
-			$scope.currentHelperState = 3;
-		};
-		
-		$scope.setFlags = function() {
-			$scope.imageMode = false;
-			$scope.impactsMode = false;
-			$scope.verificationMode = false;
+			$scope.setCurrentStateByName('verification');
 		};
 
 		$scope.cropParams = {
