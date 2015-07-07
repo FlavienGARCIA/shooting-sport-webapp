@@ -18,17 +18,8 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 		$scope.distances = ['10m', '25m'];
 
 		$scope.imageURL = '';
-		$scope.croppedImageURL = '';
-		$scope.uploader = null;
-		
-		$scope.cropEnabled = true;
 		$scope.cropContainer = $('.imageContainer > img');
-		$scope.cropData = null;
 		$scope.currentHelperState = 0;
-
-		$scope.imageMode = false;
-		$scope.impactsMode = false;
-		$scope.verificationMode = false;
 
 		$scope.setCurrentStateByName = function(name) {
  
@@ -57,7 +48,7 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 			done: true,
 			name: 'upload',
 			buttonText: 'Parcourir',
-			icon: '',
+			icon: 'file_upload',
 			text: 'Commencez par ajouter une photo de votre cible.',
 			action: function() {
 				$scope.initCropper();
@@ -67,12 +58,11 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 			done: true,
 			name: 'image',
 			buttonText: 'Suivant',
-			icon: '',
+			icon: 'navigate_next',
 			text: 'Ajustez le noir de la cible de l\'image sur le rouge de la cible virtuelle jusqu\'à ce qu\'elles soient alignées.',
 			previousAction: function() {
 				$scope.clickUploadButton();
-				$scope.success = false;
-				$scope.cropContainer.cropper('destroy');
+				$scope.destroyCrop();
 			},
 			action: function() {
 				$scope.setImpactsMode();
@@ -81,7 +71,7 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 			done: false,
 			name: 'impacts',
 			buttonText: 'Suivant',
-			icon: '',
+			icon: 'navigate_next',
 			text: 'Cliquez précisément sur les impacts de votre photo pour les enregistrer.',
 			previousAction: function() {
 				$scope.setImageMode();
@@ -93,7 +83,7 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 			done: true,
 			name: 'verification',
 			buttonText: 'Enregistrer la cible',
-			icon: '',
+			icon: 'save',
 			text: 'Vérifiez vos impacts et votre score. Choisissez la date de votre cible et enregistrez-là (par défaut aujourd\'hui).',
 			previousAction: function() {
 				$scope.setImpactsMode();
@@ -201,12 +191,15 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 
 		$scope.enableCrop = function() {
 			$scope.cropContainer.cropper('enable');
-			$scope.cropEnabled = true;
 		};
 
 		$scope.disableCrop = function() {
 			$scope.cropContainer.cropper('disable');
-			$scope.cropEnabled = false;
+		};
+
+		$scope.destroyCrop = function() {
+			$scope.resetData();
+			$scope.cropContainer.cropper('destroy');
 		};
 
 		// get clicked bullet position
@@ -258,6 +251,27 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 			$scope.bulletScores.push($scope.currentBulletScore);
 			$scope.meanScore = +($scope.score / $scope.bulletCount).toFixed(2);
 			$scope.maxScore = $scope.bulletCount * 10;
+		};
+
+		$scope.resetData = function() {
+			$scope.bullets = [];
+			$scope.score = 0;
+			$scope.currentBulletScore = 0;
+			$scope.bulletScores = [];
+			$scope.meanScore = 0;
+			$scope.maxScore = 0;
+			$scope.inBlack = 0;
+			$scope.bulletCount = 0;
+			$scope.cropParams = {
+				opacity: 100,
+				rotation: 0,
+				zoom: 100,
+				x: 0,
+				y: 0
+			};
+			$('.bullets').html('');
+			$scope.helpers[2].done = false;
+			$scope.success = false;
 		};
 
 		// Create new Target

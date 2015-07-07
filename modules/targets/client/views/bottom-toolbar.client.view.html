@@ -20,13 +20,19 @@
 				ng-show="helper.state === currentHelperState && helper.name !== 'upload' && helper.done"
 				class="helper-next btn btn-success btn-flat"
 				ng-click="helper.action();">
-			<span ng-bind="helper.buttonText"></span>
+			<span ng-bind="helper.buttonText"></span> <span class="material-icons">{{helper.icon}}</span>
 		</button>
 
 		<span ng-show="helper.state === currentHelperState && helper.name === 'upload'">
-	        <button type="button" class="btn btn-success btn-file btn-flat helper-next" data-ng-hide="uploader.queue.length" ng-click="clickUploadButton();">Parcourir</button>
-	        <button ng-if="helper.name === 'upload'" data-ng-show="uploader.queue.length" class="btn btn-success btn-flat helper-next" ng-click="uploadTargetPicture();">Enregistrer</button>
-	        <button ng-if="helper.name === 'upload'" data-ng-show="uploader.queue.length" class="btn btn-default btn-flat" data-ng-click="cancelUpload();">Annuler</button>
+	        <button type="button" class="btn btn-success btn-file btn-flat helper-next" data-ng-hide="uploader.queue.length" ng-click="clickUploadButton();">
+	        	<span class="material-icons">folder</span><span>Parcourir</span>
+	        </button>
+	        <button ng-if="helper.name === 'upload'" data-ng-show="uploader.queue.length" class="btn btn-success btn-flat helper-next" ng-click="uploadTargetPicture();">
+	        	<span class="material-icons">save</span><span>Enregistrer l'image</span>
+	        </button>
+	        <button ng-if="helper.name === 'upload'" data-ng-show="uploader.queue.length" class="btn btn-default btn-flat" data-ng-click="cancelUpload();">
+	        	<span class="material-icons">cancel</span><span>Annuler</span>
+	        </button>
         </span>
 	</li>
 </ul>

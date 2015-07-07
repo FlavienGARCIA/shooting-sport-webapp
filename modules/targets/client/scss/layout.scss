@@ -67,7 +67,7 @@ img[src*="svg"] {
 
 		.helper-state {
 			margin-left: -20px;
-			box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+			box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 			/*color: #b3b3b3;*/
 		}
 
@@ -78,7 +78,6 @@ img[src*="svg"] {
 				cursor: default;
 				margin-right: -5px;
 				margin-left: -12px;
-				box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 				color: #666;
 			}
 
@@ -132,7 +131,11 @@ img[src*="svg"] {
 }
 
 .material-icons + span {
-	margin-left: 7px;
+	margin-left: 10px;
+}
+
+span + .material-icons {
+	margin-left: 10px;
 }
 
 .translation i {
