@@ -28,6 +28,7 @@ module.exports = {
 				'public/lib/c3/c3.js',
 				'public/lib/c3-angular/c3js-directive.js',
 				'public/lib/angular-ui-select/dist/select.js',
+				'public/lib/angular-sanitize/angular-sanitize.js',
 				'public/lib/nouislider/jquery.nouislider.js',
 				'public/lib/nouislider/Link.js',
 				'public/lib/angular-nouislider/src/nouislider.js',

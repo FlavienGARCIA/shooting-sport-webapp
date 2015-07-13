@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = {
-	// db: process.env.MONGOLAB_URI,
-	db: 'mongodb://localhost/targets-manager',
+	db: process.env.MONGOLAB_URI,
+	// db: 'mongodb://localhost/targets-manager',
 	app: {
 		title: 'Gestionnaire de cibles'
 	},

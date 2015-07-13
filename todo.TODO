@@ -27,6 +27,7 @@
     ✔ "Dynamic" helper states (call by name instead of number) @done (15-07-07 15:50)
     ✔ Destroy crop when uploading another image @done (15-07-07 16:03)
     ✔ Reset data at crop destruction @done (15-07-07 16:34)
+    ☐ Separate create target template into multiple templates
 
 Stats:
     ☐ Show by caliber

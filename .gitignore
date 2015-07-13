@@ -8,3 +8,5 @@ public/lib
 .idea/
 uploads
 modules/users/client/img/profie/uploads
+.sublime-project
+.sublime-workspace

@@ -1,12 +1,12 @@
 <div class="row" ng-controller="TargetCreateController">
     <div data-ng-include="'/modules/targets/views/bottom-toolbar.client.view.html'" class="bottom-toolbar"></div>
-    <div class="helper-overlay"></div>
+    <!-- <div class="helper-overlay"></div> -->
     <div class="col-md-9" data-ng-show="success">
         <div class="card bordered" ng-class="{'helper-overlay-show': checkCurrentStateByName('image') || checkCurrentStateByName('impacts') || checkCurrentStateByName('verification')}">
             <div class="card-content">
                 <div class="targetContainer">
                     <div class="target" data-ng-class="{ 'image-mode': checkCurrentStateByName('image'), 'impacts-mode': checkCurrentStateByName('impacts'), 'verification-mode': checkCurrentStateByName('verification') }" ng-mouseup="createBulletHole($event)">
-                        <div class="bullets"></div>
+                        <div class="bullets" ng-class="caliber.class"></div>
                         <div data-score="10" class="score-11 inner black"></div>
                         <div data-score="10" class="score-10 inner black"></div>
                         <div data-score="9" class="score-9 inner black"></div>
@@ -48,7 +48,7 @@
                 <div data-ng-show="error" class="text-center text-danger"> <strong data-ng-bind="error"></strong>
                 </div>
             </div>
-            <div class="card-action clearfix" data-ng-show="success">
+            <div class="card-action clearfix">
                 <div class="form-group clearfix form-horizontal">
                     <label class="control-label col-md-5">Rotation <span class="text-muted">(<span ng-bind="cropParams.rotation"></span>°)</span></label>
                     <div class="btn-group col-md-7">
@@ -78,12 +78,50 @@
                 <button type="button" class="btn-flat btn btn-warning btn-block" ng-click="resetCrop();"><i class="material-icons">refresh</i><span>Réinitialiser image</span></button>
             </div> -->
         </div>
-        <div class="card bordered small" data-ng-show="success" ng-class="{'helper-overlay-show': checkCurrentStateByName('impacts')}">
+        <div class="card bordered small" ng-class="{'helper-overlay-show': checkCurrentStateByName('impacts')}">
             <div class="card-header">
                 <div class="card-title">3. Ajout des impacts</div>
             </div>
             <div class="card-content">
-
+                <div class="form-group clearfix form-horizontal">
+                    <label class="control-label col-md-6">Choix du calibre</label>
+                    <div class="btn-group col-md-6">
+                        <ui-select ng-model="caliber.selected" title="Calibre">
+                            <ui-select-match placeholder="Calibre">{{$select.selected.name}}</ui-select-match>
+                            <ui-select-choices repeat="caliber in calibers">
+                                <span ng-bind-html="caliber.name"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+            </div>
+            <div class="card-action">
+                <div class="form-group clearfix form-horizontal">
+                    <label class="control-label col-md-6">Nombre d'impacts</label>
+                    <div class="btn-group col-md-6">
+                        <button type="button" class="btn btn-default btn-primary btn-small" ng-bind="bulletCount"></button>
+                    </div>
+                </div>
+                <div class="form-group clearfix form-horizontal">
+                    <label class="control-label col-md-6">Impacts dans noir</label>
+                    <div class="btn-group col-md-6">
+                        <button type="button" class="btn btn-default btn-primary btn-small">
+                            <span data-ng-bind="inBlack"></span> <span class="pink-text lighten-4">(<span data-ng-bind="inBlackPerc"></span> %)</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group clearfix form-horizontal">
+                    <label class="control-label col-md-6">Score</label>
+                    <div class="btn-group col-md-6">
+                        <button type="button" class="btn btn-default btn-primary btn-small" ng-bind="scoreText"></button>
+                    </div>
+                </div>
+                <div class="form-group clearfix form-horizontal">
+                    <label class="control-label col-md-6">Moyenne</label>
+                    <div class="btn-group col-md-6">
+                        <button type="button" class="btn btn-default btn-primary btn-small" ng-bind="meanScore"></button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="card bordered small" data-ng-show="success">
@@ -106,43 +144,6 @@
             <div class="card-action clearfix">
                 <form data-ng-submit="create()" class="pull-right btn-block form-horizontal" novalidate>
                     <fieldset>
-<!--                             <div class="form-group">
-                            <label class="col-lg-2 control-label">Select</label>
-                            <div class="col-lg-10">
-                                <ui-select ng-model="weapon.selected" theme="select2" title="Choisissez une arme" search-enabled="false">
-                                    <ui-select-match placeholder="Select or search a person in the list...">{{$select.selected.name}}</ui-select-match>
-                                    <ui-select-choices repeat="weapon in weapons | filter: $select.search">
-                                        <div ng-bind-html="weapon.name | highlight: $select.search"></div>
-                                        <small ng-bind-html="weapon.caliber | highlight: $select.search"></small>
-                                    </ui-select-choices>
-                                </ui-select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="weapon" class="col-lg-2 control-label">Arme</label>
-                            <div class="col-lg-10">
-                                <select name="weapon" id="weapon" ng-model="weapon">
-                                    <option ng-repeat="weapon in weapons" value="{{weapon.name}}">{{weapon.name}}</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="ammo" class="col-lg-2 control-label">Munitions</label>
-                            <div class="col-lg-10">
-                                <select name="ammo" id="ammo" ng-model="ammo">
-                                    <option ng-repeat="ammo in ammos" value="{{ammo}}">{{ammo}}</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="distance" class="col-lg-2 control-label">Distance</label>
-                            <div class="col-lg-10">
-                                <select name="distance" id="distance" ng-model="distance">
-                                    <option ng-repeat="distance in distances" value="{{distance}}">{{distance}}</option>
-                                </select>
-                            </div>
-                        </div>
--->
                         <button type="submit" class="btn btn-success btn-flat btn-block">Enregistrer la cible</button>
                         <div data-ng-show="error" class="text-danger">
                             <strong data-ng-bind="error"></strong>

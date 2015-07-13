@@ -21,10 +21,11 @@
     "angular-nouislider": "~0.3.1",
     "cropper": "~0.10.0",
     "ng-table": "~0.5.4",
-    "bootstrap-sass": "~3.3.5"
+    "bootstrap-sass": "~3.3.5",
+    "angular-sanitize": "~1.4.2"
   },
   "resolutions": {
-    "angular": ">=1",
+    "angular": ">= 1.0.2",
     "angular-animate": "~1.4.1",
     "d3": "<=3.5.0"
   }

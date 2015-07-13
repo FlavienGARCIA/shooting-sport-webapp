@@ -10,10 +10,15 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 		$scope.meanScore = 0;
 		$scope.maxScore = 0;
 		$scope.inBlack = 0;
+		$scope.inBlackPerc = 0;
 		$scope.bulletCount = 0;
+		$scope.scoreText = $scope.score + '/' + $scope.maxScore;
 
 		$scope.weapons = ['CZ 75 SP-01 Shadow', 'Beretta 92S', 'Browning Buck Mark URX', 'Beretta 76'];
-		$scope.calibers = ['9x19mm', '.22 LR'];
+		$scope.calibers = [
+			{name:'9x19mm', class: 'nine-mm'},
+			{name: '.22 LR', class: 'twenty-two-lr'}
+		];
 		$scope.ammos = ['Sellier & Belliot', 'CCI Standard Velocity'];
 		$scope.distances = ['10m', '25m'];
 
@@ -21,11 +26,34 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 		$scope.cropContainer = $('.imageContainer > img');
 		$scope.currentHelperState = 0;
 
+		$scope.resetData = function() {
+			$scope.bullets = [];
+			$scope.score = 0;
+			$scope.scoreText = '';
+			$scope.currentBulletScore = 0;
+			$scope.bulletScores = [];
+			$scope.meanScore = 0;
+			$scope.maxScore = 0;
+			$scope.bulletCount = 0;
+			$scope.inBlack = 0;
+			$scope.inBlackPerc = 0;
+			$scope.cropParams = {
+				opacity: 100,
+				rotation: 0,
+				zoom: 100,
+				x: 0,
+				y: 0
+			};
+			$('.bullets').html('');
+			$scope.helpers[2].done = false;
+			$scope.success = false;
+		};
+
 		$scope.setCurrentStateByName = function(name) {
  
 			for (var i = 0; i < $scope.helpers.length; i++) {
 
-				if ($scope.helpers[i]['name'] === name) {
+				if ($scope.helpers[i].name === name) {
 					$scope.currentHelperState = i;
 				}
 			}
@@ -36,7 +64,7 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 		$scope.checkCurrentStateByName = function(name) {
 			for (var i = 0; i < $scope.helpers.length; i++) {
 
-				if ($scope.helpers[i]['name'] === name) {
+				if ($scope.helpers[i].name === name) {
 					if(i === $scope.currentHelperState) return true;
 				}
 			}
@@ -251,27 +279,8 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 			$scope.bulletScores.push($scope.currentBulletScore);
 			$scope.meanScore = +($scope.score / $scope.bulletCount).toFixed(2);
 			$scope.maxScore = $scope.bulletCount * 10;
-		};
-
-		$scope.resetData = function() {
-			$scope.bullets = [];
-			$scope.score = 0;
-			$scope.currentBulletScore = 0;
-			$scope.bulletScores = [];
-			$scope.meanScore = 0;
-			$scope.maxScore = 0;
-			$scope.inBlack = 0;
-			$scope.bulletCount = 0;
-			$scope.cropParams = {
-				opacity: 100,
-				rotation: 0,
-				zoom: 100,
-				x: 0,
-				y: 0
-			};
-			$('.bullets').html('');
-			$scope.helpers[2].done = false;
-			$scope.success = false;
+			$scope.scoreText = $scope.score + '/' + $scope.maxScore;
+			$scope.inBlackPerc = +($scope.inBlack * 100 / $scope.bulletCount).toFixed(1);
 		};
 
 		// Create new Target
@@ -279,13 +288,13 @@ angular.module('targets').controller('TargetCreateController', ['$scope', '$stat
 
 			// Create new Target object
 			var target = new Targets({
-				score: $scope.score + '/' + $scope.maxScore,
+				score: $scope.scoreText,
 				meanScore: $scope.meanScore,
 				flooredMeanScore: Math.floor($scope.meanScore),
 				bulletCount: $scope.bulletCount,
 				bullets: $scope.bullets,
 				inBlack: $scope.inBlack,
-				inBlackPerc: +($scope.inBlack * 100 / $scope.bulletCount).toFixed(1),
+				inBlackPerc: $scope.inBlackPerc,
 				dt: $scope.dt,
 				distance: this.distance,
 				weapon: this.weapon,
